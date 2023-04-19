@@ -6,6 +6,9 @@ import Home from './Components/Home';
 import UserLogin from './User/UserLogin';
 import UserSign from './User/UserSign';
 import './Components/Style/AppRouter.css'
+import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
+import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
+import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
 
 function AppRouter() {
   return (
@@ -16,6 +19,9 @@ function AppRouter() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/features' element={<UserLogin/>}/>
                 <Route path='/pricing' element={<UserSign/>}/>
+                <Route path='/admin-page' element={<AdminPage/>}/>
+                <Route path='/add-car-details' element={<AddCarDetails/>}/>
+                <Route path='/edit-car-details' element={<EditCarDetails/>}/>
               </Routes>
       </Router>
           
