@@ -8,7 +8,8 @@ import AddCarDetails from './Components/AdminpageAllDetail/AddCarDetails'
 import UserLogin from './User/UserLogin';
 import UserSign from './User/UserSign';
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
-
+import MyBooking from './Booking/MyBooking';
+import OrderPage from './Booking/OrderPage';
 
 function AppRouter() {
   return (
@@ -32,4 +33,4 @@ function AppRouter() {
   )
 }
 
-export default AppRouter
+export default AppRouter;

@@ -1,7 +1,6 @@
 import React from 'react';
 import NavLogout from './NavLogout'
 import Cards from '../Components/Cards';
-import CardHolder from './../Components/CardHolder';
 import Header from '../Components/Header';
 import FilterHeader from '../Components/FilterHeader';
 function OrderPage(){
@@ -10,7 +9,7 @@ function OrderPage(){
       <NavLogout/>
        <Header/>
        <FilterHeader/>
-       <CardHolder/>
+       <Cards/>
         
   </div>
 
