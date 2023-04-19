@@ -22,6 +22,8 @@ function AppRouter() {
                 <Route path='/admin-page' element={<AdminPage/>}/>
                 <Route path='/add-car-details' element={<AddCarDetails/>}/>
                 <Route path='/edit-car-details' element={<EditCarDetails/>}/>
+                <Route path='/order' element={<OrderPage/>}/>
+                <Route path='/Mybooking' element={<MyBooking/>}/>
               </Routes>
       </BrowserRouter>
           

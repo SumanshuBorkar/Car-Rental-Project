@@ -1,0 +1,20 @@
+.select{
+ height:30px;
+ width:120px;
+ border-radius: 5px;
+ background-color:#ffffff;
+color: #4279cd;
+border: 1px solid #4279cd;
+
+}
+.select:focus{
+ background-color:#4279cd;
+ color:white;
+ border-color: white;
+}
+#button{
+    display: flex;
+   gap:10px;
+  padding:10px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,24 @@
+#header{
+    width:100%;
+    height: 50px;
+    background-color:rgb(225, 220, 220);
+}
+#form{
+    display:flex;
+   /* /* justify-content: center;
+   align-items: center; */
+    gap: 10px;
+}
+.Origin{
+    margin-top:10px;
+    align-items: center;
+    border:none;
+
+}
+#modify{
+    background-color: rgb(96, 96, 241);
+    border-radius: 15px;
+}
+.arrow{
+    padding-top: 5px;
+}

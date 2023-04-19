@@ -1,0 +1,25 @@
+import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import './../Components/Style/navLog.css';
+// import MyBooking from './MyBooking';
+const NavLogout = () => {
+  return (
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+         
+          <Nav className="me-auto" >
+            <div id="nav">
+            <Nav.Link href="MyBooking">MyBooking</Nav.Link>
+            <Nav.Link href="features" >LogOut</Nav.Link>
+            </div>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
+  )
+}
+
+export default NavLogout;
