@@ -10,6 +10,7 @@ import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
 
+
 function AppRouter() {
   return (
     <div className='whole'>
@@ -22,6 +23,8 @@ function AppRouter() {
                 <Route path='/admin-page' element={<AdminPage/>}/>
                 <Route path='/add-car-details' element={<AddCarDetails/>}/>
                 <Route path='/edit-car-details' element={<EditCarDetails/>}/>
+                <Route path='/order' element={<OrderPage/>}/>
+                <Route path='/Mybooking' element={<MyBooking/>}/>
               </Routes>
       </Router>
           
@@ -29,4 +32,4 @@ function AppRouter() {
   )
 }
 
-export default AppRouter
+export default AppRouter;
