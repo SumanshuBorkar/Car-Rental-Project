@@ -9,6 +9,8 @@ import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
+import MyBooking from "./Booking/MyBooking"
+import OrderPage from "./Booking/OrderPage"
 
 
 function AppRouter() {

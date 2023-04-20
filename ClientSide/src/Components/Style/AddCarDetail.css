@@ -84,8 +84,8 @@ input{
     /* box-shadow: 3px 3px 10px black; */
 }
 .img-sort-box{
-    height: 70px;
-    width: 85px;
+    height: 100px;
+    width: 90px;
     background-color: rgb(180, 171, 171);
 }
 .car-detail-description{
@@ -157,4 +157,11 @@ input:focus, textarea:focus{
 label{
     font-size: large;
     
+}
+textarea{
+    font-size: large;
+    font-weight: bold;
+}
+#preview-img-of-the-file{
+    height: 100%;
 }

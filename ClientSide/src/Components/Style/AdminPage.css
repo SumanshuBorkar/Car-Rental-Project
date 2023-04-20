@@ -11,6 +11,7 @@
     box-shadow: 3px 3px 10px black;
     border-radius: 25px;
     margin-top: 20px;
+
 }
 hr{
     margin-top: 5px;
@@ -25,20 +26,22 @@ hr{
 #car-img{
     height: 100%;
 }
-#name-container{
+#name-container-of-the-file-data{
     display: flex;
     justify-content: space-between;
    
 }
-#date-container{
+#date-container-of-the-file-data-date{
     margin-top: -20px;
     display: flex;
     justify-content: space-around;
     padding-top: 7px;
+
 }
-#available-date{
+#available-date-of-sata-of-the-page{
     color: rgb(174, 164, 164);
     font-size: small;
+    /* margin-left: px; */
 }
 #milage{
     color: rgb(77, 219, 77);
@@ -72,8 +75,11 @@ hr{
 #btn-add-car-link{
     margin-left: 70%;   
 }
-#date-avalable-from-till{
+#date-avalable-from-till-data-of-the-admin-page{
     font-size: large;
     font-weight: bold;
     color: black;
+}
+#main-container-of-the-addmin-page{
+    padding-bottom: 20px;
 }
