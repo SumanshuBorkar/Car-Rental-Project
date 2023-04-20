@@ -61,8 +61,7 @@ input{
     color: blue;
 }
 #image-add-in-add-user-form{
-    display: flex;  
-    justify-content: space-between;
+  padding-bottom: 20px;
 }
 #right-side-form{
     width: 40%;
