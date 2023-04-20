@@ -5,12 +5,12 @@ export default function FormStructure(){
         <div id="left-side-form">
             <div className="input-gap-bottom">
             <label>Car Name</label><br/>
-            <input type="text" placeholder="Name" name="car-name"></input>
+            <input type="text" placeholder="Name" name="name"></input>
             </div>
             <div className="data-form-flex input-gap-bottom" >
                 <div>
                     <label>Type</label><br/>
-                        <select className="select-things" name="select-type">
+                        <select className="select-things" name="type">
                            <option>select</option>
                             <option>UV</option>
                             <option>UVX</option>
@@ -19,7 +19,7 @@ export default function FormStructure(){
                         
                    <div>
                     <label>Model</label><br/>
-                        <select className="select-things" name="select-model">
+                        <select className="select-things" name="model">
                            <option>select</option>
                             <option>UV</option>
                             <option>UVX</option>
@@ -31,7 +31,7 @@ export default function FormStructure(){
             <div className="data-form-flex input-gap-bottom">
                 <div>
                     <label>Milage</label><br/>
-                        <select className="select-things" name="select-milage">
+                        <select className="select-things" name="milage">
                            <option>select</option>
                             <option>UV</option>
                             <option>UVX</option>
@@ -40,7 +40,7 @@ export default function FormStructure(){
                         
                    <div>
                     <label>Per KM</label><br/>
-                     <input type="number" placeholder="000000" id="per-km" name="per-km"/>                       
+                     <input type="number" placeholder="000000" id="per-km" name="perKm"/>                       
                    </div>
                 </div>
             
@@ -58,21 +58,20 @@ export default function FormStructure(){
 
                 <div className="input-gap-bottom">
                     <label>Discription</label><br/>
-                    <textarea id="text-area-description" placeholder="Description"></textarea>
+                    <textarea id="text-area-description" placeholder="Description" name="description"></textarea>
                 </div>
            
             </div>
                
              <div id="right-side-form">
                 <div id="image-add-in-add-user-form">
-                    <h4>Images</h4>
-                    <button id="add-image-in-car-details">Add</button>
-                </div>
+                  <input type="file" name="image" ></input>
+            </div>
 
             <div id="imgs-add-car-container">
                    
                  <div className="img-sort-box">
-                    <img src=""></img>
+                    <img src="" ></img>
                  </div>
                  <div className="img-sort-box">
                     <img src=""></img>
@@ -81,11 +80,11 @@ export default function FormStructure(){
 
             <div>
                 <label>Car Details</label><br/>
-                <textarea className="car-detail-description"></textarea>
+                <textarea className="car-detail-description" name="carDetails"></textarea>
             </div>
             <div>
                 <label>Details</label><br/>
-                <textarea className="car-detail-description"></textarea>
+                <textarea className="car-detail-description" name="Details"></textarea>
             </div>
 
 

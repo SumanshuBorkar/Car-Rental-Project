@@ -74,5 +74,6 @@ hr{
 }
 #date-avalable-from-till{
     font-size: large;
-font-weight: bold;
+    font-weight: bold;
+    color: black;
 }
