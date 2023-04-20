@@ -15,6 +15,7 @@ import OrderPage from './Booking/OrderPage';
 function AppRouter() {
   return (
     <div className='whole'>
+      <div></div>
       <Navigation/>
       <Router>
               <Routes>
