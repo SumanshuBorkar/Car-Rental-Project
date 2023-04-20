@@ -20,10 +20,10 @@ const carSchema = mongoose.Schema({
     image:{
         type:String,
     },
-    availabalFrom:{
+    avalableFrom:{
        type:String
     },
-    availabalTill:{
+    availableTill:{
         type:String
     },
     perKm:{

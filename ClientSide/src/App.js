@@ -1,9 +1,13 @@
 import './App.css';
 import AppRouter from './AppRouter';
+import CarContext from './Context/CarContext';
 function App() {
   return (
    <>
-    <AppRouter/>
+   <CarContext>
+      <AppRouter/>
+   </CarContext>
+
    </>
   );
 }
