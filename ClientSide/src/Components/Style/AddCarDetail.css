@@ -1,22 +1,23 @@
 #main-container-of-form{
     display: flex;
     flex-wrap: wrap;
+
 }
 .data-form-flex{
     display: flex;
-    gap:110px;
+    gap:50px;
     width: 100%;
     
 }
 #left-side-form{
-    width: 50%;
+    width: 40%;
     margin-left: 8%;
     border-right: 2px solid gray;
 
 }
 input{
     height: 30px;
-    width: 95%;
+    width: 90%;
     margin-top: 10PX;
     font-size: medium;
     font-weight: bold;
@@ -33,7 +34,7 @@ input{
     margin-bottom: 10px;
 }
 #text-area-description{
-    width: 95%;
+    width: 90%;
     height: 130px;
     border-radius: 10px;
     margin-top: 10px ; 
@@ -46,10 +47,8 @@ input{
 }
 #name-of-car-detail{
     margin-left: 12%;
-    text-shadow: 2px 2px 5px black;
-    text-decoration: underline;
-  padding-bottom: 15px;
-  margin-top: 10px;
+    margin-top: 70px;
+    padding-bottom: 20px;
 }
 #btn-cancle-add-detail{
     height: 45px;
@@ -60,9 +59,6 @@ input{
     background-color: aliceblue;
     border-color: blue;
     color: blue;
-   
-
-
 }
 #image-add-in-add-user-form{
     display: flex;  
@@ -114,7 +110,7 @@ input{
     background-color:blue;
     border-color:aliceblue;
     color:aliceblue;
-    margin-right:8% ;
+    margin-right:20% ;
    
 }
 #buttons-for-add-cancle{
@@ -123,7 +119,14 @@ input{
 #form-add-car-details{
     margin-left: 60px;
     width: 90%;
-
+    box-shadow: 3px 3px 10px black;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-radius: 35px;
+    background-color: rgb(5, 5, 60);
+    background-image: linear-gradient(rgb(3, 3, 37),rgb(58, 58, 146));
+    color: aliceblue;
+    
 }
 .btn-Add-add-detail-ans-save{
     height: 45px;
@@ -144,8 +147,15 @@ input{
 }
 #name-of-car-detail-edit{
     margin-left: 8%;
-    text-shadow: 2px 2px 5px black;
-    text-decoration: underline;
-  padding-bottom: 15px;
-  margin-top: 10px;
+    margin-top: 70px;
+    padding-bottom: 20px;
+   
+}
+input:focus, textarea:focus{
+    border-color: blue;
+    box-shadow: 3px 3px 10px blue;
+}
+label{
+    font-size: large;
+    
 }

@@ -5,9 +5,9 @@ import "../Style/AddCarDetail.css"
 export default function EditCarDetails(){
     return<>
    <div >
-
+   <h2 id="name-of-car-detail-edit"><i>Edit Car Details</i></h2>
      <form id="form-add-car-details">
-     <h2 id="name-of-car-detail-edit">Edit Car Details</h2>
+   
         <FormStructure/>
          <div className="input-gap-bottom " id="btn-cancle-add-detail-container">
              <button id="btn-cancle-add-detail">Cancle</button>
