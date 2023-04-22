@@ -8,7 +8,7 @@
 #car-container{
     height:220px ;
     width: 250px;
-    box-shadow: 3px 3px 10px black;
+    box-shadow: 3px 3px 10px white;
     border-radius: 25px;
     margin-top: 20px;
 
@@ -29,6 +29,7 @@ hr{
 #name-container-of-the-file-data{
     display: flex;
     justify-content: space-between;
+    color: aliceblue;
    
 }
 #date-container-of-the-file-data-date{
@@ -64,9 +65,11 @@ hr{
 #welcome{
     margin-left: 120px;
     margin-top: 70px;
+    color: aliceblue;
 }
 #info{
     margin-left: 120px;
+    color: aliceblue;
 }
 #add-car{
     display: flex;
@@ -78,8 +81,11 @@ hr{
 #date-avalable-from-till-data-of-the-admin-page{
     font-size: large;
     font-weight: bold;
-    color: black;
+    color:aliceblue;
 }
 #main-container-of-the-addmin-page{
     padding-bottom: 20px;
+}
+#admin-page-main-home{
+    padding-bottom: 120px;
 }

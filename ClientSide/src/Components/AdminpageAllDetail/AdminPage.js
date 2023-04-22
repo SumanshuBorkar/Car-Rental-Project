@@ -13,7 +13,7 @@ export default function AdminPage() {
     const {car , setCar ,setEdit} = useContext(CarContextDetails)
 
     console.log(car)
-    return <>
+    return <div id="admin-page-main-home">
 
         <h1 id="welcome">Hello Admin...</h1>
         <div id="main-container-of-the-addmin-page">
@@ -26,7 +26,7 @@ export default function AdminPage() {
                 car.map((d, i) => {
                     return <div key={i} id="car-container">
                         <div id="img-container">
-                          <Link to="/edit-car-details"><img src={`http://localhost:5000/cars/${d.image}`} id="car-img" alt="img-car" onChange={()=>setEdit({d})}  /></Link>  
+                          <Link to="/edit-car-details"><img src={`http://localhost:5000/cars/${d.image}`} id="car-img" alt="img-car" onClick={()=>setEdit(d)}  /></Link>  
                         </div>
                         <div id="person">6 person</div>
                         <div id="name-container-of-the-file-data">
@@ -43,5 +43,5 @@ export default function AdminPage() {
             }
         </div>
         </div>
-    </>
+    </div>
 }

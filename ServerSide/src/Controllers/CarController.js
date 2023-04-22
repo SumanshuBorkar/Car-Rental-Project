@@ -8,7 +8,7 @@ const { model } = require( "mongoose" );
 
 
 // ********get Image **********************//
-
+let client = new MongoClient(process.env.DB_URL);
 const getImages = async(req,res)=>{
     try {
         await client.connect();
@@ -58,8 +58,14 @@ const PostCars =  async(req, res)=>{
 const putCarData = async(req,res)=>{
     try {
         let _id=req.params.id
-       let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
-       res.send(updateData)
+        if(req.file){
+            let updateData = await carDetails.findByIdAndUpdate(_id,{image:req.file.filename,...req.body},{new:true});
+            res.send(updateData)
+        }else{
+            let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
+            res.send(updateData)
+        }
+    
     } catch (error) {
         res.status(400).json({message:err.message})  
     }
