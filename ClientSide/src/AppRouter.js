@@ -9,24 +9,32 @@ import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
+<<<<<<< Updated upstream
 import MyBooking from "./Booking/MyBooking"
 import OrderPage from "./Booking/OrderPage"
 
+=======
+import Payment from './Components/Payent/Payment';
+>>>>>>> Stashed changes
 
 function AppRouter() {
   return (
-    <div className='whole'>
+    <div className='whole' style={{marginTop:'-15px', padding:'0px', background:'black'}}>
       <Navigation/>
       <Router>
               <Routes>
-                <Route path='/' element={<Home/>}/>
+                <Route path='/home' element={<Home/>}/>
                 <Route path='/features' element={<UserLogin/>}/>
                 <Route path='/pricing' element={<UserSign/>}/>
                 <Route path='/admin-page' element={<AdminPage/>}/>
                 <Route path='/add-car-details' element={<AddCarDetails/>}/>
                 <Route path='/edit-car-details' element={<EditCarDetails/>}/>
+<<<<<<< Updated upstream
                 <Route path='/order' element={<OrderPage/>}/>
                 <Route path='/Mybooking' element={<MyBooking/>}/>
+=======
+                <Route path='/' element={<Payment/>}/>
+>>>>>>> Stashed changes
               </Routes>
       </Router>
           

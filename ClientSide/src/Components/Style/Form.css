@@ -8,3 +8,12 @@
     box-shadow: #fff 8px 8px 0 0, #000 9px 9px 0 1px;
     transform: translate(5px, 5px);
 }
+
+.glass{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}

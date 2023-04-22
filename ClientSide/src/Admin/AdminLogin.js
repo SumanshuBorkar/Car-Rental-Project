@@ -1,32 +1,103 @@
-import React from 'react'
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react'
 import "./../Components/Style/Form.css"
+// import {useNavigate} from "react-router-dom"
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+import  {registerAdminLogin} from './../API/API';
+
 function AdminLogin() {
+
+    const [inputdata, setInputData] = useState({
+        email: "",
+        password: ""
+      });
+      
+      const handleEmailChange = (e) => {
+        setInputData({...inputdata, email: e.target.value});
+      }
+      
+      const handlePasswordChange = (e) => {
+        setInputData({...inputdata, password: e.target.value});
+      }
+
+    // const navigate = useNavigate();
+
+    const onSubmitData = async(e)=>{
+        e.preventDefault();
+        // console.log(inputdata);
+        const {email, password} = inputdata;
+
+        if(email=== ""){
+            toast.error("Email is required");
+        }
+        else if (!email.includes("@")) {
+            toast.error("Enter Valid Email !")
+        }
+        else if (password === "") {
+            toast.error("Password is required")
+        }
+        else if (password.length < 4) {
+            toast.error("password is too short")
+        }
+        else if (password.length > 20) {
+            toast.error("password is too Long")
+        }
+        else{
+
+            const data = new FormData();
+            data.append("email",email)
+            data.append("password",password)
+
+            const config = {
+                "Content-Type":"multipart/form-data"
+            }
+            
+            const response = await registerAdminLogin(data, config);
+
+            if(response.status === 200) {
+                setInputData({
+                  ...inputdata,
+                  email: "",
+                  password: ""
+                });
+                // navigate("/");
+              }else{
+                toast.error("Error!")
+              }
+
+            console.log(email,password);
+            toast.success("You are Logged in!");
+        }
+    }
+
   return (
     <>
-    
-    <Form className="container d-flex justify-content-center flex-column" id='form' >
+        <div className="container" id='form' >
         <h2 className='fom'>Admin Login</h2>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
+        <form action="post">
+             <label htmlFor="email">Email</label>
+             <input type="email" name="email" onChange={handleEmailChange} placeholder='Email'  />
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
+
+             <label htmlFor="password">Password</label>
+             <input type="password" onChange={handlePasswordChange} placeholder='password'/>
+             <button type='submit' onClick={onSubmitData}>Submit</button>
+            </form>
+            <ToastContainer
+               position="top-center"
+               autoClose={1500}
+               hideProgressBar={false}
+               newestOnTop={false}
+               closeOnClick
+               rtl={false}
+               pauseOnFocusLoss
+               theme="dark"
+            />
+        </div>
     </>
   )
 }
 
+
 export default AdminLogin
+
