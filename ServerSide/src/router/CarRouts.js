@@ -6,7 +6,7 @@ const multer = require("multer");
 const {GridFsStorage} = require("multer-gridfs-storage");
 const {GridFSBucket, MongoClient} = require("mongodb");
 const { model } = require( "mongoose" );
-let client = new MongoClient(process.env.DB_URL);
+
 
 // ****---------------We Use Multer for add Images----------------******//
 
@@ -38,7 +38,7 @@ Router
 
 Router
 .route('/:id')
-.put(putCarData)
+.put(middleware,putCarData)
 .delete(deleteCarData)
 
 module.exports = Router;
