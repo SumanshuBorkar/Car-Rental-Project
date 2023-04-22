@@ -1,13 +1,14 @@
 .Home-page{
+    margin: 0px;
+    padding: 0px;
     width: 100vw;
     height: 100vh;
-    background-image: url(https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: url(https://images.unsplash.com/photo-1506560411-58ae1f86da62?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     background-clip:padding-box;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden;
 }
 
@@ -32,7 +33,7 @@
   background-image: none;
   border: 1px solid #000;
   border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-shadow:  #000 4px 4px 0 0, #fff 4px 4px 0 1px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
@@ -79,7 +80,7 @@
 }
 
 
-p{
+.text{
     font-size: 30px;
     font-weight: 700;
     color: azure;
