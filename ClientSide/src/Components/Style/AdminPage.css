@@ -3,13 +3,13 @@
     width: 100%;
     text-align: center;
     background-color: rgb(176, 172, 172);
-    border-radius: 25px  25px 0px 0px;
+    border-radius: 15px  15px 0px  0px;
 }
 #car-container{
     height:220px ;
     width: 250px;
-    box-shadow: 3px 3px 10px white;
-    border-radius: 25px;
+    box-shadow: 3px 3px 10px black;
+    border-radius: 15px;
     margin-top: 20px;
 
 }
@@ -20,7 +20,7 @@ hr{
 #main-container{
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     margin-left: 100px;
 }
 #car-img{
@@ -29,8 +29,7 @@ hr{
 #name-container-of-the-file-data{
     display: flex;
     justify-content: space-between;
-    color: aliceblue;
-   
+
 }
 #date-container-of-the-file-data-date{
     margin-top: -20px;
@@ -58,18 +57,21 @@ hr{
     font-size: large;
     font-weight: bold;
     background-color: green;
-    color: aliceblue;
+ color: white;
     border-color:green;
   
 }
 #welcome{
     margin-left: 120px;
     margin-top: 70px;
-    color: aliceblue;
+    color: rgb(68, 76, 237);
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px black;
+  
 }
 #info{
     margin-left: 120px;
-    color: aliceblue;
+
 }
 #add-car{
     display: flex;
@@ -81,11 +83,12 @@ hr{
 #date-avalable-from-till-data-of-the-admin-page{
     font-size: large;
     font-weight: bold;
-    color:aliceblue;
+   
 }
 #main-container-of-the-addmin-page{
     padding-bottom: 20px;
 }
 #admin-page-main-home{
-    padding-bottom: 120px;
+    padding-bottom: 400px;
+    
 }

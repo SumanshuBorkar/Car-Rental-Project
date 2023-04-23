@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
 
+
 }
 .data-form-flex{
     display: flex;
@@ -47,9 +48,9 @@ input{
 }
 #name-of-car-detail{
     margin-left: 12%;
-    margin-top: 70px;
+    margin-top: 30px;
     padding-bottom: 20px;
-    color: aliceblue;
+
 }
 #btn-cancle-add-detail{
     height: 45px;
@@ -119,7 +120,7 @@ input{
 #form-add-car-details{
     margin-left: 60px;
     width: 90%;
-    box-shadow: 3px 3px 10px rgb(250, 249, 249);
+    box-shadow: 3px 3px 10px rgb(20, 20, 20);
     padding-top: 40px;
     padding-bottom: 30px;
     border-radius: 35px;
@@ -147,9 +148,9 @@ input{
 }
 #name-of-car-detail-edit{
     margin-left: 8%;
-    margin-top: 70px;
+    margin-top: 30px;
     padding-bottom: 20px;
-    color: aliceblue;
+    
    
 }
 input:focus, textarea:focus{
@@ -166,4 +167,7 @@ textarea{
 }
 #preview-img-of-the-file{
     height: 100%;
+}
+#form-main-container-and-main-block{
+    margin-bottom: 200px;
 }

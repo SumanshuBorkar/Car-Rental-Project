@@ -24,7 +24,8 @@ const [data, setData] = useState({
     description:"",
     carDetails:"",
     Details:""
-})
+});
+const [adminName , setAdminName] = useState("")
    
     useEffect( ()=>{
     GetCars()
@@ -33,7 +34,7 @@ const [data, setData] = useState({
 );
 
     return<>
-     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit}}>
+     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,adminName,setAdminName}}>
         {children}
      </CarContextDetails.Provider>
     </>

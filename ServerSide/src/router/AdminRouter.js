@@ -9,7 +9,7 @@ Router
 
 Router
    .route('/login')
-   .post(cors(), AdminLoginCtrl)
+   .post(cors(),AdminLoginCtrl)
 
 // Router
 //   .route('/')

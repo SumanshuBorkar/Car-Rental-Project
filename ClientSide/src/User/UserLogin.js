@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './../Components/Style/Form.css'
 // import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import {registerUserLogin} from '../API/API';
+// import {registerUserLogin} from '../API/API';
+import {CarContextDetails} from "../Context/CarContext"
 
 function UserLogin () {
-
+const {adminName} = useContext(CarContextDetails)
     const [inputdata, setInputData] = useState({
         email: "",
         password: ""
@@ -52,18 +53,18 @@ function UserLogin () {
                 "Content-Type":"multipart/form-data"
             }
 
-            const response = await registerUserLogin(data, config);
+            // const response = await registerUserLogin(data, config);
 
-            if(response.status === 200) {
-                setInputData({
-                  ...inputdata,
-                  email: "",
-                  password: ""
-                });
+            // if(response.status === 200) {
+            //     setInputData({
+            //       ...inputdata,
+            //       email: "",
+            //       password: ""
+            //     });
                 // navigate("/");
-              }else{
-                toast.error("Error!")
-              }
+              // }else{
+              //   toast.error("Error!")
+              // }
 
             console.log(email,password);
             toast.success("You are Logged in!");

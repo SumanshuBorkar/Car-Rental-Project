@@ -4,6 +4,8 @@ const multer = require("multer");
 const {GridFsStorage} = require("multer-gridfs-storage");
 const {GridFSBucket, MongoClient} = require("mongodb");
 const { model } = require( "mongoose" );
+const jwt = require("jsonwebtoken")
+const SECRATE_KEY = process.env.SECRATE_KEY
 
 
 
@@ -34,8 +36,11 @@ const getImages = async(req,res)=>{
 
 const getCars = async(req,res)=>{
     try {
-       const readData = await carDetails.find();
-       res.send(readData)
+        if(req.headers.authorization){
+            const readData = await carDetails.find();
+            res.send(readData)
+        }
+     
     } catch (error) {
        res.status(400).json({message:error.message})
     }
@@ -45,9 +50,15 @@ const getCars = async(req,res)=>{
 
 const PostCars =  async(req, res)=>{
     try{
-     let data = new carDetails({image:req.file.filename,...req.body});
-     let createData = await data.save();
-     res.status(201).send(createData)
+        if(req.headers.authorization){
+            let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)//id  //
+            console.log(userVar);
+            let data = new carDetails({image:req.file.filename,userId:userVar._id,...req.body});
+            let createData = await data.save();
+            res.status(201).send(createData)
+        }else{
+            res.status(404).send({message:"Unothorized User"})
+        }
     }catch(err){
         res.status(400).json({message:err.message})
     }
@@ -57,27 +68,60 @@ const PostCars =  async(req, res)=>{
 
 const putCarData = async(req,res)=>{
     try {
-        let _id=req.params.id
-        if(req.file){
-            let updateData = await carDetails.findByIdAndUpdate(_id,{image:req.file.filename,...req.body},{new:true});
-            res.send(updateData)
-        }else{
-            let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
-            res.send(updateData)
+        if(req.headers.authorization){
+            let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
+           let _id =req.params.id;
+         let car= await carDetails.findOne({_id:_id});
+         console.log(car)
+         if(car){   
+           if(userVar._id===car.userId){//tokan id === user id
+                    if(req.file){
+                        let updateData = await carDetails.findByIdAndUpdate(_id,{image:req.file.filename,...req.body},{new:true});
+                        res.send(updateData)
+                    }else{
+                        let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
+                        res.send(updateData)
+                    }
+              }else{
+               res.status(401).send({message:"you can`t update the post"})
+              }
+         }else{
+           res.status(401).send({message:"Invalid Data"}) 
+         }}
+        else{
+           res.status(401).send({message:"unauthorized"}) 
         }
-    
+
     } catch (error) {
-        res.status(400).json({message:err.message})  
+        res.status(400).json({message:error.message})  
     }
 }
 
 const deleteCarData =  async(req,res)=>{
-    try {
-        let _id=req.params.id
-       let deletedData = await carDetails.findByIdAndDelete(_id);
-       res.send(deletedData)
-    } catch (error) {
-        res.status(400).json({message:err.message})  
+    try{
+    if(req.headers.authorization){
+        let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
+       let _id =req.params.id;
+     let car= await carDetails.findOne({_id:_id});
+     if(car){
+       if(userVar._id===car.userId){//tokan id === user id
+        
+                    let deletedata = await carDetails.findByIdAndDelete(_id);
+                    res.send(deletedata)
+                
+          }else{
+           res.status(401).send({message:"you can`t update the post"})
+          }
+     }else{
+       res.status(401).send({message:"Invalid Data"}) 
+     }}
+    else{
+       res.status(401).send({message:"unauthorized"}) 
+    }
+}
+    
+    catch (error) {
+        res.status(400).json({message:error.message})  
     }
 }
 

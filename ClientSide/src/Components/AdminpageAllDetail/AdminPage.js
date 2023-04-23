@@ -2,26 +2,34 @@ import React, { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { GetCars } from "../../Utils/ApiUtils";
 import { CarContextDetails } from "../../Context/CarContext";
-
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 import "../Style/AdminPage.css"
+import AdminpageNav from "./AdminpageNav";
 
 export default function AdminPage() {
     let [data, setData] = useState([])
-    // useEffect(() => {
-    //   GetCars().then(data => setData(data));
-    // }, [])
-    const {car , setCar ,setEdit} = useContext(CarContextDetails)
+    
+    const {car , setCar ,setEdit} = useContext(CarContextDetails);
+    const adminName = JSON.parse(localStorage.getItem("name-admin"))
+    console.log(adminName);
 
     console.log(car)
-    return <div id="admin-page-main-home">
-
-        <h1 id="welcome">Hello Admin...</h1>
+    return <>
+    <AdminpageNav/>
+    <div id="admin-page-main-home">
+           
+        <h1 id="welcome">Hello {adminName}</h1>
         <div id="main-container-of-the-addmin-page">
         <div id="add-car">
             <h3 id="info">Cars</h3>
           <Link to="/add-car-details" id="btn-add-car-link"><button id="btn-add-car">Add Car</button></Link> 
         </div>
-        <div id="main-container">
+      { car.length===0? <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open>
+         <CircularProgress color="inherit" />
+      </Backdrop>: <div id="main-container">
             {
                 car.map((d, i) => {
                     return <div key={i} id="car-container">
@@ -41,7 +49,8 @@ export default function AdminPage() {
                  </div>
                 })
             }
-        </div>
+        </div>}
         </div>
     </div>
+    </>
 }
