@@ -6,16 +6,19 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import "../Style/AdminPage.css"
 import AdminpageNav from "./AdminpageNav";
+import Home from "../Home"
 
 export default function AdminPage() {
     let [data, setData] = useState([])
     
     const {car , setCar ,setEdit} = useContext(CarContextDetails);
     const adminName = JSON.parse(localStorage.getItem("name-admin"))
+    const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     console.log(adminName);
 
     console.log(car)
     return <>
+    {TokenAdmin?<>
     <AdminpageNav/>
     <div id="admin-page-main-home">
            
@@ -51,6 +54,6 @@ export default function AdminPage() {
             }
         </div>}
         </div>
-    </div>
+    </div></>:<Home/>}
     </>
 }
