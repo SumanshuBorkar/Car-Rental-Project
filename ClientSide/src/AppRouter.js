@@ -9,18 +9,14 @@ import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
-
 import MyBooking from "./Booking/MyBooking"
 import OrderPage from "./Booking/OrderPage"
-
-
 import Payment from './Components/Payent/Payment';
 
 
 function AppRouter() {
   return (
-    <div className='whole' style={{marginTop:'-15px', padding:'0px', background:'black'}}>
-      <Navigation/>
+    <div className='whole' style={{ background:'White'}}>
       <Router>
               <Routes>
                 <Route path='/home' element={<Home/>}/>

@@ -64,11 +64,8 @@ function UserSign () {
     else
     {
 
-      const data = new FormData();
-      data.append("Name",Name)
-      data.append("email",email)
-      data.append("Contact",Contact)
-      data.append("password",password)
+      const data = new FormData(e.target);
+     
 
 
       console.log(data);
@@ -99,8 +96,8 @@ function UserSign () {
 
       fetch( `http://localhost:5000/user/signup`, {
         method: 'POST',
-        // headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: data,
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body:JSON.stringify( data),
       } ).then( res => res.json() ).then( data => console.log( data ) )
 
       toast.success( "You are Logged in!" );

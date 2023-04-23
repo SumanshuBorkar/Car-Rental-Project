@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./../Components/Style/Form.css"
-// import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import  {registerAdminLogin} from './../API/API';
+import { json, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { CarContextDetails } from '../Context/CarContext';
+
 
 function AdminLogin() {
 
+  const Navigater = useNavigate();
+const {setAdminName} = useContext(CarContextDetails);
     const [inputdata, setInputData] = useState({
         email: "",
         password: ""
@@ -44,29 +48,25 @@ function AdminLogin() {
         }
         else{
 
-            const data = new FormData();
-            data.append("email",email)
-            data.append("password",password)
 
-            const config = {
-                "Content-Type":"multipart/form-data"
+
+          fetch("http://localhost:5000/admin/login" ,{
+            method:"POST",
+            headers:{
+              "content-type":"application/json"
+            },
+            body:JSON.stringify(inputdata)
+          }).then(res=>res.json()).then(res=>{
+            if(res.status==="Successfully login"){
+              localStorage.setItem("token-admin" , JSON.stringify(res.token));
+              localStorage.setItem("name-admin" , JSON.stringify(res.name))
+              Navigater("/admin-page")
+            }else{
+              Navigater("/home")
             }
-            
-            const response = await registerAdminLogin(data, config);
-
-            if(response.status === 200) {
-                setInputData({
-                  ...inputdata,
-                  email: "",
-                  password: ""
-                });
-                // navigate("/");
-              }else{
-                toast.error("Error!")
-              }
-
-            console.log(email,password);
-            toast.success("You are Logged in!");
+          })
+         
+          //  window.location.reload();   
         }
     }
 

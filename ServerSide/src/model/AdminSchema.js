@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');  // for hashing password
 
-const AdminSchema = new mongoose.Schema({
-    firstName: {
+const AdminSchema =new mongoose.Schema({
+    Name: {
         type: String,
         required: true
     },
@@ -14,6 +14,9 @@ const AdminSchema = new mongoose.Schema({
         type: String,
         required: [true, 'you have to register password']
     },
+    contact:{
+        type:Number
+    },
     isAccountVerified: {
         type: Boolean,
         default: false
@@ -21,14 +24,6 @@ const AdminSchema = new mongoose.Schema({
     accountVerificationToken : String,
     accountVerificationExpires : Date,
     accountVerificationTokenExpires : Date,
-    viewedBy: {
-        type: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User',
-            }
-        ]
-    },
     passwordChangedAt: Date,
     passwordRestToken: String,
     passwordResetExpires: Date,
@@ -44,19 +39,8 @@ const AdminSchema = new mongoose.Schema({
 }
 );
 
-// Hash Password
 
-AdminSchema.pre("save", async function(next){
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-});
 
-// Match Password
-AdminSchema.methods.isPasswordMatched = async function(enteredPassword){
-    return await bcrypt.compare(enteredPassword, this.password);
-};
+const Admin = mongoose.model('Admin', AdminSchema);
 
-const Admin = mongoose.model('User', userSchema);
-
-module.exports = Admin;
+module.exports =  Admin;
