@@ -1,7 +1,10 @@
 import React from 'react';
+import Navigation from '../Components/Navigation';
+import NavLogout from './NavLogout'
 import { useNavigate } from 'react-router-dom';
 import { useState,useContext } from 'react';
 import { CarContextDetails } from '../Context/CarContext';
+import '../Components/Style/page3.css'
  function Page3(){
     const {setheaderData}=useContext(CarContextDetails);
     const navigate = useNavigate();
@@ -30,24 +33,30 @@ import { CarContextDetails } from '../Context/CarContext';
 setheaderData(inputdata);
 
 return(
-    <>
-<div className='container'>
-<form id="form" action="" onSubmit={save}>
+    
 
-  <input type="text" placeholder='Origin Name' className='Origin'
+<>
+  <Navigation/>
+  <NavLogout/>
+    <div id="parent" >
+<div id='container'>
+<form id="forms" action="" onSubmit={save}>
+
+  <input type="text" placeholder='Origin Name' className='Fields'
      name="origin"required onChange={handleInput}></input>
-   <input type="text" placeholder='Destination Name' className="Origin" required
+   <input type="text" placeholder='Destination Name' className="Fields" required
     name="destination"onChange={handleInput} ></input>
 
-  <input type="date" placeholder='Starting Date' className="Origin" required
+  <input type="date" placeholder='Starting Date' className="Fields" required
      name="startDate" onChange={handleInput}></input>
 
-  <input type="date" placeholder='End Date' className="Origin" required
+  <input type="date" placeholder='End Date' className="Fields" required
      name="endDate" onChange={handleInput}></input>
 
-  <button type="submit" className="Origin" id="modify">Save</button>
+  <button type="submit" className="Fields" id="modifybtn">Save</button>
 </form>
 
+</div>
 </div>
 </>
  )}
