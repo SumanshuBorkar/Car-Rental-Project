@@ -22,7 +22,7 @@ function UserSign () {
   }
 
   const navigate = useNavigate();
-
+const [err, setErr]= useState("")
   const onSubmitData = async ( e ) => {
     e.preventDefault();
     console.log( inputdata );
@@ -63,10 +63,23 @@ function UserSign () {
     else
     {
       addUser(inputdata).then(data=>{
-        console.log(data)
-      })
+        if(data.status==="Failed"){
+          setErr("User Allready Exists")
+        }else if(data.status==="Success"){
+          toast.success("Register Successfully");
+          setInputData({
+            Name: "",
+            email: "",
+            contact: "",
+            password: "",
+            Confirm_Password: ""
+          })
+          toast.success("Register SuceessFully");
+        }
+      });
+ 
+ }
 
-  }
 }
 
   return (
@@ -75,20 +88,21 @@ function UserSign () {
       
         <form onSubmit={onSubmitData}>
         <h2 className='fom-name-in-login-form'>User SignUp</h2>
+        <h6 style={{color:"red"}}>{err}</h6>
           <label htmlFor="Name">Name</label>
-          <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Name' />
+          <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Name'  value={inputdata.Name}/>
 
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Email' />
+          <input type="email" name="email" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Email' value={inputdata.email} />
 
           <label htmlFor="Contact">Contact</label>
-          <input type="tel" name="Contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' />
+          <input type="tel" name="Contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.Contact}/>
 
           <label htmlFor="password">Password</label>
-          <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='password' name='password' />
+          <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='password' name='password' value={inputdata.password} />
 
           <label htmlFor="Confirm_Password">Confirm_Password</label>
-          <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' />
+          <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' value={inputdata.Confirm_Password}/>
 
           <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn">Submit</button></div>
         </form>

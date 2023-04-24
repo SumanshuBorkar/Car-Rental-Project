@@ -4,8 +4,7 @@
     background-color: rgb(130, 165, 230);
     display: flex;
     justify-content: space-between;
-  
-    align-items: center;
+   align-items: center;
 }
 #img-logo{
     height: 80px;
@@ -21,6 +20,7 @@
  font-size: large;
  border-radius: 10px;
  font-weight: bold;
+ width: 140px;
 }
 #name-of-the-app-rental-car-app{
     margin-left: 15px;

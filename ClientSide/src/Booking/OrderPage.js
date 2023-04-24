@@ -47,9 +47,7 @@ if(e.target.id==="All"){
  return(<>
   {TokenUser?<div>
 
-      <Navigation/>
       <NavLogout/>
-     
        <Header/>
       
 
