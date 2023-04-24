@@ -20,7 +20,7 @@ function AppRouter() {
    <div className='whole' style={{ background:'White'}}>
        <Router>
               <Routes>
-                <Route path='/home' element={<Home/>}/>
+                <Route path='/' element={<Home/>}/>
                 <Route path='/features' element={<UserLogin/>}/>
                 <Route path='/pricing' element={<UserSign/>}/>
                 <Route path='/admin-page' element={<AdminPage/>}/>

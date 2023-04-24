@@ -30,7 +30,7 @@ export default function Cards() {
               <div className="img">
                 <Card.Img src={`http://localhost:5000/cars/${d.image}`}/>
               </div>
-              <div id="cardBody">
+              <div id="cardBodys">
                 <Card.Body>
                   <div id="seater">
                     <Card.Text id="person" >{d.name}</Card.Text>

@@ -9,12 +9,12 @@
        flex-wrap: wrap;
        margin-left: 70px;
        justify-content: space-between;
-       gap:20px;
+       gap:30px;
    }
-   #cardBody{
+   #cardBodys{
        display: flex;
        flex-wrap: wrap;
-      height: 150px;
+      height: 100px;
       width: 15rem;
      
    }
