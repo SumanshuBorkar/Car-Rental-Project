@@ -51,11 +51,11 @@ margin-bottom: 10px;
 background-color: rgb(237, 244, 249);
 font-size: large;
 font-weight: bold;
-color: rgb(5, 134, 247);
-border: 2px solid blue;
+color: rgb(114, 111, 194);
+border: 2px solid rgb(93, 93, 162);
 }
 #button-of-the-filete-the-data-in-bookin-page:focus{
   color: rgb(253, 254, 254);
 
-  background-color: rgb(5, 134, 247);
+  background-color: rgb(106, 96, 187);
 }

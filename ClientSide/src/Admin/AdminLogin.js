@@ -10,7 +10,7 @@ import { CarContextDetails } from '../Context/CarContext';
 function AdminLogin() {
 
   const Navigater = useNavigate();
-const {setAdminName} = useContext(CarContextDetails);
+
     const [inputdata, setInputData] = useState({
         email: "",
         password: ""
