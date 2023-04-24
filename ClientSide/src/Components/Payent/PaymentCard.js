@@ -1,12 +1,16 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import './../Style/Payment.css'
 import gogo from './../images/Logo.png'
 import MapComponent from './Map'
+import { CarContextDetails } from '../../Context/CarContext'
+import { useContext } from 'react'
 
 const API_BASE_URL = 'http://localhost:5000';
 
 function PaymentCard() {
-  
+
+  const {CarData , setCarData} = useContext(CarContextDetails)
+  console.log(CarData);
   const state = 'this is a joke'
 
   const Proceed = () => {

@@ -18,6 +18,10 @@ const OrderSchema = mongoose.Schema({
             type: number,
             required: true
         },
+        carImg: {
+            type: number,
+            required: true
+        },
 
     },
     tourData: {

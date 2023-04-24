@@ -7,11 +7,13 @@ import FilterHeader from '../Components/FilterHeader';
 import Navigation from '../Components/Navigation';
 import Home from '../Components/Home';
 import React,{useState, useEffect} from 'react';
-
+import { CarContextDetails } from '../Context/CarContext';
+import { useContext } from 'react';
 
 
 function OrderPage(){
   const TokenUser= JSON.parse(localStorage.getItem("token-user"))
+  const {CarData, setCarData} = useContext(CarContextDetails);
   let [data, setdata] = useState([])
   useEffect(() => {
     fetch("http://localhost:5000/cars/",{
@@ -100,9 +102,9 @@ if(e.target.id==="All"){
                   </div>
                 </Card.Body>
 
-                <div id="booking">
+                <div id="booking" >
                   <Card.Link  id="fare">Fare Details</Card.Link>
-                  <Card.Link href="/payment" id="book" onClick={()=>setbookData(d)} >Book Now</Card.Link>
+                  <Card.Link href="/payment" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Link>
                 </div>
 
               </div>
@@ -133,7 +135,7 @@ if(e.target.id==="All"){
 
                 <div id="booking">
                   <Card.Link  id="fare">Fare Details</Card.Link>
-                  <Card.Link href="/payment" id="book" onClick={()=>setbookData(d)} >Book Now</Card.Link>
+                  <Card.Link href="/payment" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Link>
                 </div>
 
               </div>
