@@ -39,10 +39,10 @@ export default function AdminPage() {
                         <div id="img-container">
                           <Link to="/edit-car-details"><img src={`http://localhost:5000/cars/${d.image}`} id="car-img" alt="img-car" onClick={()=>setEdit(d)}  /></Link>  
                         </div>
-                        <div id="person">6 person</div>
+                        <div id="person-of-admin-page-in-my-page">6 person</div>
                         <div id="name-container-of-the-file-data">
                             <h5>{d.name}</h5>
-                            <h5 id="milage">{d.milage}</h5>
+                            <h5 id="milage-of-my-admin-page-details">{d.milage}</h5>
                         </div>
                         <hr />
                         <div id="date-container-of-the-file-data-date">

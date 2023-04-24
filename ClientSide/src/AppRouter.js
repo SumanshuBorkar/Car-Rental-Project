@@ -17,14 +17,8 @@ import Payment from './Components/Payent/Payment';
 
 function AppRouter() {
   return (
-
-
-  
-      
-
-    <div className='whole' style={{ background:'White'}}>
-
-      <Router>
+   <div className='whole' style={{ background:'White'}}>
+       <Router>
               <Routes>
                 <Route path='/home' element={<Home/>}/>
                 <Route path='/features' element={<UserLogin/>}/>
@@ -33,7 +27,7 @@ function AppRouter() {
                 <Route path='/add-car-details' element={<AddCarDetails/>}/>
                 <Route path='/edit-car-details' element={<EditCarDetails/>}/>
                 <Route path='/Page3' element={<Page3/>}/>
-               <Route path='/OrderPage' element={<OrderPage/>}/>
+                <Route path='/OrderPage' element={<OrderPage/>}/>
                 <Route path='/ExistBookings' element={<ExistBookings/>}/>
                 <Route path='/payment' element={<Payment/>}/>
        </Routes>
