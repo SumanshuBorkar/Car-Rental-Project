@@ -69,7 +69,7 @@ export default function FormStructure({data, setData}){
                 </div>
 
                 <div className="input-gap-bottom">
-                    <label>Discription</label><br/>
+                    <label>Description</label><br/>
                     <textarea id="text-area-description" placeholder="Description" name="description" onChange={(e)=>setData({...data,description:e.target.value})} value={description}></textarea>
                 </div>
            
@@ -79,8 +79,8 @@ export default function FormStructure({data, setData}){
                 <div id="image-add-in-add-user-form">
                   <input type="file" name="image" onChange={ (e)=>{
                     setFile(URL.createObjectURL(e.target.files[0]));
-                    setData({...data,image:e.target.value})}}  
-                    value={image}></input>
+                    setData({...data,image:e.target.files[0]})}}  
+                   ></input>
             </div>
 
           { file? <div id="imgs-add-car-container">

@@ -1,33 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState , useContext} from 'react'
 import './../Components/Style/Form.css'
-// import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
-import { registerAdminSignup } from '../API/API';
+import {addAdmin} from ".././Utils/ApiUtilAdmin";
+import {CarContextDetails} from "../Context/CarContext"
+
 
 
 function AdminSign() {
   const [inputdata, setInputData] = useState( {
     Name: "",
     email: "",
-    Contact: "",
+    contact: "",
     password: "",
     Confirm_Password: ""
   } );
 
-  const handleInput = ( e ) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setInputData( { ...inputdata, [name]: value } );
-  }
+  const {setAdminName} = useContext(CarContextDetails)
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmitData = async ( e ) => {
     e.preventDefault();
-    console.log(inputdata);
-    const { Name, email, Contact, password, Confirm_Password } = inputdata;
-
+ 
+    const { Name, email, contact, password, Confirm_Password } = inputdata;
     if ( email === "" )
     {
       toast.error( "Email is required" );
@@ -40,7 +37,7 @@ function AdminSign() {
     {
       toast.error( "Enter Valid Email !" )
     }
-    else if ( Contact.length < 10 )
+    else if ( contact.length < 10 )
     {
       toast.error( "Enter Valid Phone number!" )
     }
@@ -62,37 +59,15 @@ function AdminSign() {
     }
     else
     {
+      addAdmin(inputdata).then(data=>{
+        console.log(data.user)
+        setAdminName(inputdata.Name)
+    })
 
-      const data = new FormData();
-      data.append( "email", email )
-      data.append( "Name", Name )
-      data.append( "Contact", Contact )
-      data.append( "password", password )
+   
+    navigate("/admin-page")
 
-      const config = {
-        "Content-Type": "multipart/form-data"
-      }
 
-      const response = await registerAdminSignup( data, config );
-
-      if ( response.status === 200 )
-      {
-        setInputData( {
-          ...inputdata,
-          Name: "",
-          email: "",
-          Contact: "",
-          password: "",
-          Confirm_Password: ""
-        } );
-        // navigate("/");
-      } else
-      {
-        toast.error( "Error!" )
-      }
-
-      console.log( email, password );
-      toast.success( "You are Logged in!" );
     }
 
   }
@@ -101,24 +76,24 @@ function AdminSign() {
     <>
       <div className="container" id='form'>
         <h2 className='fom'>Admin Signin</h2>
-        <form action="post">
+        <form onSubmit={onSubmitData}>
 
-        <label htmlFor="Name">Name</label>
-          <input type="text" name="Name" onChange={handleInput} placeholder='Name' />
+        <label >Name</label>
+          <input type="text" name="Name" onChange={e=>setInputData({...inputdata,Name:e.target.value})} value={inputdata.Name} placeholder='Name' />
 
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" onChange={handleInput} placeholder='Email' />
+          <label >Email</label>
+          <input type="email" name="email" onChange={e=>setInputData({...inputdata,email:e.target.value})} value={inputdata.email} placeholder='Email' />
 
-          <label htmlFor="Contact">Contact</label>
-          <input type="tel" name="Contact" onChange={handleInput} placeholder='Contact' />
+          <label >Contact</label>
+          <input type="tel" name="contact" onChange={e=>setInputData({...inputdata,contact:e.target.value})} value={inputdata.contact} placeholder='Contact' />
 
-          <label htmlFor="password">Password</label>
-          <input type="password" onChange={handleInput} placeholder='password' name='password' />
+          <label>Password</label>
+          <input type="password" onChange={e=>setInputData({...inputdata,password:e.target.value})} value={inputdata.password} placeholder='password' name='password' />
 
-          <label htmlFor="Confirm_Password">Confirm_Password</label>
-          <input type="password" onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' />
+          <label >Confirm_Password</label>
+          <input type="password" onChange={e=>setInputData({...inputdata,Confirm_Password:e.target.value})} value={inputdata.Confirm_Password} placeholder='Confirm Password' name='Confirm_Password' />
 
-          <button type='submit' onClick={onSubmitData}>Submit</button>
+          <button type='submit'>Submit</button>
         </form>
         <ToastContainer
           position="top-center"

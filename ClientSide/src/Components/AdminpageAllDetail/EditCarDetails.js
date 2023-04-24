@@ -4,6 +4,7 @@ import { CarContextDetails } from "../../Context/CarContext"
 import React, { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import {deleteCar} from "../../Utils/ApiUtils"
+import AdminpageNav from "./AdminpageNav";
 
 
 export default function EditCarDetails(){
@@ -15,6 +16,9 @@ export default function EditCarDetails(){
        const EditformData = new FormData(e.target)
       fetch(`http://localhost:5000/cars/${edit._id}` , {
         method:"PUT",
+        headers:{
+            "authorization":JSON.parse(localStorage.getItem("token-admin"))
+        },
         body:EditformData
       }).then(res=>res.json())
       .then(data=>setCar([...data]))
@@ -24,7 +28,8 @@ export default function EditCarDetails(){
    window.location.reload();
     }
     return<>
-   <div >
+    <AdminpageNav/>
+   <div id="form-main-container-and-main-block" >
    <h2 id="name-of-car-detail-edit"><i>Edit Car Details</i></h2>
      <form id="form-add-car-details" onSubmit={SubmitEditForm}>
         
@@ -89,7 +94,7 @@ export default function EditCarDetails(){
                 </div>
 
                 <div className="input-gap-bottom">
-                    <label>Discription</label><br/>
+                    <label>Description</label><br/>
                     <textarea id="text-area-description" placeholder="Description" name="description" onChange={(e)=>setEdit({...edit,description:e.target.value})} value={edit.description}></textarea>
                 </div>
            
@@ -128,7 +133,7 @@ export default function EditCarDetails(){
        </div>
          </div>
          <div className="input-gap-bottom " id="btn-cancle-add-detail-container">
-             <button id="btn-cancle-add-detail" onClick={()=>Navigater("/admin-page")} >Cancle</button>
+             <button id="btn-cancle-add-detail" onClick={()=>Navigater("/admin-page")} >Cancel</button>
              <button className="btn-Add-add-detail-ans-save" id="delete-btn-for-edit-page" onClick={()=>deleteCar(edit._id)}>Delete</button>
              <button className="btn-Add-add-detail-ans-save save-btn-details" >save</button>
         </div>

@@ -7,6 +7,7 @@ import UserSign from './User/UserSign';
 import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
+
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails'
 import ExistBookings from "./Booking/ExistBookings"
 import OrderPage from "./Booking/OrderPage"
@@ -17,8 +18,12 @@ import Payment from './Components/Payent/Payment';
 function AppRouter() {
   return (
 
-    <div className='whole'>
+
+  
       
+
+    <div className='whole' style={{ background:'White'}}>
+
       <Router>
               <Routes>
                 <Route path='/home' element={<Home/>}/>
