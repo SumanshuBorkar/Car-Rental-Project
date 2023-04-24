@@ -74,26 +74,26 @@ function AdminSign() {
 
   return (
     <>
-      <div className="container" id='form'>
-        <h2 className='fom'>Admin Signin</h2>
+      <div className="container-of-login-form-in-my-side"  id='form'>
+ 
         <form onSubmit={onSubmitData}>
-
+        <h2 className='fom-name-in-login-form'>Admin SignUp</h2>
         <label >Name</label>
-          <input type="text" name="Name" onChange={e=>setInputData({...inputdata,Name:e.target.value})} value={inputdata.Name} placeholder='Name' />
+          <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,Name:e.target.value})} value={inputdata.Name} placeholder='Name' />
 
           <label >Email</label>
-          <input type="email" name="email" onChange={e=>setInputData({...inputdata,email:e.target.value})} value={inputdata.email} placeholder='Email' />
+          <input type="email" name="email" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,email:e.target.value})} value={inputdata.email} placeholder='Email' />
 
           <label >Contact</label>
-          <input type="tel" name="contact" onChange={e=>setInputData({...inputdata,contact:e.target.value})} value={inputdata.contact} placeholder='Contact' />
+          <input type="tel" name="contact" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,contact:e.target.value})} value={inputdata.contact} placeholder='Contact' />
 
           <label>Password</label>
-          <input type="password" onChange={e=>setInputData({...inputdata,password:e.target.value})} value={inputdata.password} placeholder='password' name='password' />
+          <input type="password" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,password:e.target.value})} value={inputdata.password} placeholder='password' name='password' />
 
           <label >Confirm_Password</label>
-          <input type="password" onChange={e=>setInputData({...inputdata,Confirm_Password:e.target.value})} value={inputdata.Confirm_Password} placeholder='Confirm Password' name='Confirm_Password' />
+          <input type="password" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,Confirm_Password:e.target.value})} value={inputdata.Confirm_Password} placeholder='Confirm Password' name='Confirm_Password' />
 
-          <button type='submit'>Submit</button>
+          <div id="button-container-in-admin-login-page">  <button type='submit' id="button-container-in-admin-login-page-btn">Submit</button></div>
         </form>
         <ToastContainer
           position="top-center"

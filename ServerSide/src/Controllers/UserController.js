@@ -35,10 +35,10 @@ const loginUserCtrl = expressAsyncHandler(async (req, res) => {
               const token = await jwt.sign({_id:user._id}, SECRATE_KEY);
               res.status(200).send({status:"Successfully login" , token:token , name:user.Name})
             }else{
-                res.status(401).send("User Details Not Match")
+                res.status(401).send({status:"fail",massage:"User Details Not Match"})
             }
         }else{
-            res.status(401).send("User not found")
+            res.status(401).send({status:"fail",massage:"User Details Not Match"})
         }
     
     }catch(err){

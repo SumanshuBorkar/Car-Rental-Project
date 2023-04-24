@@ -1,0 +1,33 @@
+.container-of-login-form-in-my-side{
+    width: 60%;
+    height: auto;
+    padding: 30px;
+    background-color: aliceblue;
+    box-shadow: 3px 3px 10px black;
+    display: block;
+    margin-left: 170px;
+    margin-top: -120px;
+    border-radius: 20px;
+}
+
+.login-admin-the-css-for-form{
+    margin-bottom: 5px;
+    width: 100%;
+}
+#button-container-in-admin-login-page{
+    text-align: center;
+}
+#button-container-in-admin-login-page-btn{
+    background-color: green;
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 12px;
+}
+#button-container-in-admin-login-page-btn-admin-login{
+    background-color: green;
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 12px;
+}
