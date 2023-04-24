@@ -55,7 +55,7 @@ const {adminName} = useContext(CarContextDetails)
           }).then(res=>res.json()).then(res=>{
             if(res.status==="Successfully login"){
               localStorage.setItem("token-user" , JSON.stringify(res.token));
-              navigate("/orderpage")
+              navigate("/orderpage/page3")
             }else{
                 toast.error(JSON.stringify(res.token))
             }

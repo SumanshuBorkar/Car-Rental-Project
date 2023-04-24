@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { CarContextDetails } from '../Context/CarContext';
 
 function Header() {
-  const {headerData}=useContext(CarContextDetails);
+  const {headerData ,setheaderData}=useContext(CarContextDetails);
 console.log(headerData);
   return (
     <div id='header'>
@@ -26,7 +26,7 @@ console.log(headerData);
             >Ending :{headerData.endDate}</li>
 
           
-          <Link to="./Page3" id="modify">Modify</Link>
+          <Link to="./Page3" id="modify" onClick={()=>setheaderData(headerData)}>Modify</Link>
         </form>
     
       </div>

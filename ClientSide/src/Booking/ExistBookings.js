@@ -7,7 +7,11 @@ import Navigation from "../Components/Navigation";
 export default function ExistBookings() {
     let [data, setdata] = useState([])
   useEffect(() => {
-    fetch("http://localhost:5000/cars/")
+    fetch("http://localhost:5000/cars/",{
+        headers:{
+            "authorization":JSON.parse(localStorage.getItem("token-user"))
+        }
+    })
       .then(res => res.json())
       .then(res => setdata(res));
   }, [])
@@ -23,7 +27,7 @@ export default function ExistBookings() {
                         <p>My Booking </p>
                         <div className="bookings">
                             <div id="myimg" className="smallerDiv" >
-                                <img src={d.image} width="250px" />
+                                <img src={`http://localhost:5000/cars/${d.image}`} width="250px" />
                             </div>
 
                             <div id="toyota" className="smallerDiv">
@@ -40,7 +44,7 @@ export default function ExistBookings() {
                                 <div>Start Date :{d.availabletill}</div>
                             </div>
                             <div>
-                                <img src={d.images} alt="image"></img>
+                                <img src={``} alt="image"></img>
                             </div>
 
                             <div className="smallerDiv">
