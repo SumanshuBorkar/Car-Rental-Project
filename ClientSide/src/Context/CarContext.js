@@ -12,6 +12,7 @@ export default function CarContext({children}){
     const [edit, setEdit] = useState({});
 
     const[headerData,setheaderData]=useState({});
+    const [CarData, setCarData] = useState({});
     
 const [data, setData] = useState({
     name:"",
@@ -36,7 +37,7 @@ const [adminName , setAdminName] = useState("")
 
     return<>
 
-     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData}}>
+     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData, CarData, setCarData}}>
         {children}
      </CarContextDetails.Provider>
     </>
