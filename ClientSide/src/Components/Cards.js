@@ -8,7 +8,11 @@ export default function Cards() {
 
   let [data, setdata] = useState([])
   useEffect(() => {
-    fetch("http://localhost:5000/cars/")
+    fetch("http://localhost:5000/cars/",{
+      headers:{
+        "authorization":JSON.parse(localStorage.getItem("token-user"))
+    }
+    })
       .then(res => res.json())
       .then(res => setdata(res));
   }, [])
