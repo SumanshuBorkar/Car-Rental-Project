@@ -1,14 +1,4 @@
-{
-    "car":[
-    {"name":"Inova Cryta",
-      "type":"UV",
-      "model":"ES6",
-      "milage":"200 RS/KM",
-      "image":"https://stimg.cardekho.com/images/carexteriorimages/630x420/Toyota/Toyota-Innova-Crysta/047.jpg",
-      "availableform":"16 may ",
-      "availabletill":"20 Dec "
-},
-{"name":"Inova Cryta",
+export const data=[{"name":"Inova Cry",
 "type":"UV",
 "model":"ES6",
 "milage":"200 RS/KM",
@@ -119,6 +109,12 @@
 "image":"https://stimg.cardekho.com/images/carexteriorimages/630x420/Toyota/Toyota-Innova-Crysta/047.jpg",
 "availableform":"16 may ",
 "availabletill":"20 Dec "
-}
-    ]
-}
+},
+{"name":"Inova Cryta",
+"type":"UV",
+"model":"ES6",
+"milage":"200 RS/KM",
+"image":"https://stimg.cardekho.com/images/carexteriorimages/630x420/Toyota/Toyota-Innova-Crysta/047.jpg",
+"availableform":"16 may ",
+"availabletill":"20 Dec "
+}]

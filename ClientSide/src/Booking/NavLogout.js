@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './../Components/Style/navLog.css';
-// import MyBooking from './MyBooking';
+
 const NavLogout = () => {
   return (
     <>
@@ -12,7 +12,7 @@ const NavLogout = () => {
          
           <Nav className="me-auto" >
             <div id="nav">
-            <Nav.Link href="MyBooking">MyBooking</Nav.Link>
+            <Nav.Link href=" ExistBookings">MyBooking</Nav.Link>
             <Nav.Link href="features" >LogOut</Nav.Link>
             </div>
           </Nav>

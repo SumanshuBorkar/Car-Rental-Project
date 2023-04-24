@@ -1,0 +1,63 @@
+.box{
+ width: 100vw;
+ height: 100vh;
+ padding: 50px;
+ position: relative;
+ border: 1px solid; 
+ margin-top: 100px;  
+}
+
+.containers{
+ width: 100%;
+ height: 90%;
+ position: absolute;
+ display: flex;
+ border: 1px solid;
+ justify-content: space-between;
+}
+
+.cardetail{
+    border: 1px solid;
+    width: 68%;
+    /* height: 50%; */
+    display: grid;
+    grid-template-row: 1fr 1fr 1fr;
+}
+
+.upper{
+   border-bottom: 1px solid;
+   padding: 15px;
+}
+
+.comp{
+    display: flex;
+    justify-content: space-between;
+}
+
+#img{
+    width: 20vw;
+    height: 15vh;
+}
+
+.midddle{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    padding: 15px;
+}
+
+.bookingId{
+    border-bottom: 1px solid;
+}
+
+.cancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment{
+    border: 1px solid;
+    width: 30%;
+    padding: 30px;
+}

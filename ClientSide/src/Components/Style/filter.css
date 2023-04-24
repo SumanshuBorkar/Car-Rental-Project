@@ -18,3 +18,7 @@ border: 1px solid #4279cd;
   padding:10px;
   box-sizing: border-box;
 }
+#button{
+  padding-left: 75px;
+  box-sizing: boder-box;
+}

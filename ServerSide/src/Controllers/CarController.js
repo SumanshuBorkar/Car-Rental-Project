@@ -1,31 +1,15 @@
-const express =require("express");
-const carRouter = new express.Router();
 const carDetails = require("../model/CarSchema")
 require("dotenv").config();
 const multer = require("multer");
 const {GridFsStorage} = require("multer-gridfs-storage");
 const {GridFSBucket, MongoClient} = require("mongodb");
+const { model } = require( "mongoose" );
 
 
-// ****We Use Multer for add Images******//
 
-const storage = new GridFsStorage({
-    url:process.env.DB_URL+process.env.DATABASE,
-    file:(req,file)=>{
-        return{
-            bucketName:process.env.CAR_IMAGES,
-            fileName:`${Date.now()}_${file.originalname}`
-        }
-    }
-})
-const upload = multer({
-    storage
-})
-const middleware= upload.single("image")
-
-// *********get the image ******************//
+// ********get Image **********************//
 let client = new MongoClient(process.env.DB_URL);
-carRouter.get("/cars/:image" , async(req,res)=>{
+const getImages = async(req,res)=>{
     try {
         await client.connect();
         const datastore = client.db(process.env.DATABASE);
@@ -44,20 +28,22 @@ carRouter.get("/cars/:image" , async(req,res)=>{
     } catch (error) {
         res.status(400).json({message:error.message})
     }
-})
+}
 
+// ***************get cars ****************************//
 
+const getCars = async(req,res)=>{
+    try {
+       const readData = await carDetails.find();
+       res.send(readData)
+    } catch (error) {
+       res.status(400).json({message:error.message})
+    }
+   }
 
-carRouter.get("/cars" , async(req,res)=>{
- try {
-    const readData = await carDetails.find();
-    res.send(readData)
- } catch (error) {
-    res.status(400).json({message:error.message})
- }
-})
+//  *************Post cars *****************//
 
-carRouter.post("/cars" ,middleware, async(req, res)=>{
+const PostCars =  async(req, res)=>{
     try{
      let data = new carDetails({image:req.file.filename,...req.body});
      let createData = await data.save();
@@ -65,22 +51,27 @@ carRouter.post("/cars" ,middleware, async(req, res)=>{
     }catch(err){
         res.status(400).json({message:err.message})
     }
-})
+}
 
+//  ****************dATA bY Id ****************//
 
-carRouter.put("/cars/:id" , async(req,res)=>{
+const putCarData = async(req,res)=>{
     try {
         let _id=req.params.id
-       let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
-       res.send(updateData)
+        if(req.file){
+            let updateData = await carDetails.findByIdAndUpdate(_id,{image:req.file.filename,...req.body},{new:true});
+            res.send(updateData)
+        }else{
+            let updateData = await carDetails.findByIdAndUpdate(_id,req.body,{new:true});
+            res.send(updateData)
+        }
+    
     } catch (error) {
         res.status(400).json({message:err.message})  
     }
-})
+}
 
-
-
-carRouter.delete("/cars/:id" , async(req,res)=>{
+const deleteCarData =  async(req,res)=>{
     try {
         let _id=req.params.id
        let deletedData = await carDetails.findByIdAndDelete(_id);
@@ -88,6 +79,13 @@ carRouter.delete("/cars/:id" , async(req,res)=>{
     } catch (error) {
         res.status(400).json({message:err.message})  
     }
-})
+}
 
-module.exports=carRouter;
+
+module.exports = {
+    getImages,
+    getCars,
+    PostCars,
+    putCarData,
+    deleteCarData
+};
