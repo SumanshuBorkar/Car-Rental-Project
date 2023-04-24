@@ -1,16 +1,23 @@
+
 import React from 'react'
-import Logo from "./images/AlfaRomeo.png"
-import "./Style/Navig.css"
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 const Navigation = () => {
   return (
     <>
-      <div className='navbar '>
-        <div className="glass">
-          <img src={Logo} alt="not vavailale" className='Logo' />
-        </div>
-        
-      </div>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="features" >Login</Nav.Link>
+            <Nav.Link href="/pricing">User Signup</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
     </>
   )
 }

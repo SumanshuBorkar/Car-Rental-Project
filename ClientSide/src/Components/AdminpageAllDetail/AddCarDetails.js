@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react"
-import Navigation from "../Navigation"
 import "../Style/AddCarDetail.css"
 import FormStructure from "./FormStructure"
 import { addCar } from "../../Utils/ApiUtils"
@@ -8,8 +7,7 @@ import { CarContextDetails } from "../../Context/CarContext"
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import AdminpageNav from "./AdminpageNav"
-
-
+import Home from "../Home"
 export default function AddCarDetails(){
 const navigator1= useNavigate();
 const {setCar} = useContext(CarContextDetails);
@@ -26,11 +24,8 @@ const [data, setData] = useState({
   carDetails:"",
   Details:""
 })
-
 const [loder , setLoder] = useState(false);
-
-
-  
+const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     function submitFunction(e){
      e.preventDefault();
         console.log(data)
@@ -56,13 +51,10 @@ const [loder , setLoder] = useState(false);
           })
           navigator1("/admin-page")
        }
-  
-        
       );
     }
     return<>
-    <AdminpageNav/>
-    
+ { TokenAdmin?<> <AdminpageNav/>
     <div id="form-main-container-and-main-block">
      <h2 id="name-of-car-detail">Add Car Details</h2>
      <form id="form-add-car-details" onSubmit={submitFunction}>
@@ -77,7 +69,7 @@ const [loder , setLoder] = useState(false);
         open={loder}>
         <CircularProgress color="inherit" />
       </Backdrop>
-    
     </div>
+    </>:<Home/>}
     </>
 }

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './../Components/Style/Form.css'
-// import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 // import {registerUserLogin} from '../API/API';
@@ -21,7 +21,7 @@ const {adminName} = useContext(CarContextDetails)
         setInputData({...inputdata, password: e.target.value});
       }
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const onSubmitData = async(e)=>{
         e.preventDefault();
@@ -45,29 +45,21 @@ const {adminName} = useContext(CarContextDetails)
         }
         else{
 
-            const data = new FormData();
-            data.append("email",email)
-            data.append("password",password)
-
-            const config = {
-                "Content-Type":"multipart/form-data"
+            
+          fetch("http://localhost:5000/user/login" ,{
+            method:"POST",
+            headers:{
+              "content-type":"application/json"
+            },
+            body:JSON.stringify(inputdata)
+          }).then(res=>res.json()).then(res=>{
+            if(res.status==="Successfully login"){
+              localStorage.setItem("token-user" , JSON.stringify(res.token));
+              navigate("/orderpage/page3")
+            }else{
+                toast.error(JSON.stringify(res.token))
             }
-
-            // const response = await registerUserLogin(data, config);
-
-            // if(response.status === 200) {
-            //     setInputData({
-            //       ...inputdata,
-            //       email: "",
-            //       password: ""
-            //     });
-                // navigate("/");
-              // }else{
-              //   toast.error("Error!")
-              // }
-
-            console.log(email,password);
-            toast.success("You are Logged in!");
+          })
         }
         
     } 
