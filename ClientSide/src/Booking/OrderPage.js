@@ -11,7 +11,6 @@ function OrderPage(){
     <div>
       <Navigation/>
       <NavLogout/>
-     
        <Header/>
        <FilterHeader/>
        <Cards/>

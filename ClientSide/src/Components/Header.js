@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import '../Components/Style/header.css';
+import { Link } from 'react-router-dom';
 import { CarContextDetails } from '../Context/CarContext';
 
 function Header() {
@@ -10,21 +11,22 @@ console.log(headerData);
       <div className='container'>
         <form id="form" action="">
 
-          <li className='Origin'
-             >{headerData.origin}</li>
+          <li className='Origin' 
+             >Origin :{headerData.origin}</li>
 
-          <i className="fa-solid fa-arrow-right Origin arrow" style={{ color: "#4279cd" }}></i>
+          <i className="fa-solid fa-arrow-right  arrow" style={{ color: "#4279cd" }}></i>
 
           <li  className="Origin"
-            >{headerData.destination}</li>
+            >Destination :{headerData.destination}</li>
 
           <li type="date"  className="Origin" 
-             >{headerData.startDate}</li>
+             >Starting from :{headerData.startDate}</li>
 
           <li type="date"  className="Origin"
-            >{headerData.endDate}</li>
+            >Ending :{headerData.endDate}</li>
 
-          <button type="submit" href="/Page3"className="Origin" id="modify">Modify</button>
+          
+          <Link to="./Page3" id="modify">Modify</Link>
         </form>
     
       </div>
