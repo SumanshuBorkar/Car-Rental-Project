@@ -1,7 +1,7 @@
 .Home-page{
     width: 100vw;
     height: auto;
-    background-image: url(https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-image: url("../images/background.png");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
     background-clip:padding-box;
@@ -11,9 +11,12 @@
     overflow-x: hidden;
 }
 
-.slogan{
-    font-size: 50px;
-    color: yellow;
+.slogan-of-the-home-page{
+    font-size: 25px;
+    margin-top: -20px;
+    width: 60%;
+    margin-left: -8px;
+    color: rgb(10, 10, 10);
 }
 
 .Register{
@@ -26,57 +29,22 @@
 
   
 .button-50 {
-  width: 10vw;
-  appearance: button;
-  background-color: #000;
-  background-image: none;
-  border: 1px solid #0d0d0d;
-  border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  margin: 0 5px 10px 0;
-  overflow: visible;
-  padding: 12px 40px;
-  text-align: center;
-  text-transform: none;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  margin-right: 20px;
+ height: 40px;
+ width: 150px;
+ background-color: rgb(37, 31, 3);
+ font-size: medium;
+ font-weight: bold;
+ color: aliceblue;
 }
-
+.button-user-admin-login-containecr{
+  display: flex;
+  gap:10px
+}
 .button-50:focus {
   text-decoration: none;
 }
 
-.button-50:hover {
-  text-decoration: none;
-}
 
-.button-50:active {
-  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
-  outline: 0;
-}
-
-.button-50:not([disabled]):active {
-  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .button-50 {
-    padding: 12px 50px;
-  }
-}
 
 
 p{
