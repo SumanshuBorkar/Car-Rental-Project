@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 // import {registerUserLogin} from '../API/API';
 import {CarContextDetails} from "../Context/CarContext"
+import "./../Components/Style/login.css"
 
 function UserLogin () {
 const {adminName} = useContext(CarContextDetails)
@@ -22,7 +23,7 @@ const {adminName} = useContext(CarContextDetails)
       }
 
     const navigate = useNavigate();
-
+const [error , setError] = useState("");
     const onSubmitData = async(e)=>{
         e.preventDefault();
         // console.log(inputdata);
@@ -56,8 +57,8 @@ const {adminName} = useContext(CarContextDetails)
             if(res.status==="Successfully login"){
               localStorage.setItem("token-user" , JSON.stringify(res.token));
               navigate("/orderpage/page3")
-            }else{
-                toast.error(JSON.stringify(res.token))
+            }else if(res.status==="fail"){
+                setError("User Details Not Match")
             }
           })
         }
@@ -66,16 +67,18 @@ const {adminName} = useContext(CarContextDetails)
 
     return (
         <>
-            <div className="container" id='form'>
-            <h2 className='fom'>User Login</h2>
+            <div className="container-of-login-form-in-my-side"  id='form'>
+           
             <form action="post">
+            <h2 className='fom-name-in-login-form'>User Login</h2>
+            <h6 style={{color:"red"}}>{error}</h6>
              <label htmlFor="email">Email</label>
-             <input type="email" name="email" onChange={handleEmailChange} placeholder='Email'  />
+             <input type="email" name="email" onChange={handleEmailChange} placeholder='Email' className='login-admin-the-css-for-form'  />
 
 
              <label htmlFor="password">Password</label>
-             <input type="password" onChange={handlePasswordChange} placeholder='password'/>
-             <button type='submit' onClick={onSubmitData}>Submit</button>
+             <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
+             <div id="button-container-in-admin-login-page">   <button type='submit' onClick={onSubmitData} id="button-container-in-admin-login-page-btn">Submit</button></div>
             </form>
             <ToastContainer
                position="top-center"

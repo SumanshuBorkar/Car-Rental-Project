@@ -1,7 +1,7 @@
 #admin-page-nav-container-my-nav{
     height: 80px;
     width: 100%;
-    background-color: rgb(235, 242, 248);
+    background-color: rgb(130, 165, 230);
     display: flex;
     justify-content: space-between;
   
@@ -27,5 +27,5 @@
 font-size:x-large;
 font-weight: bolder;  
 text-shadow: 1px 1px 2px black;
-color: rgb(68, 76, 237);
+color: rgb(224, 224, 229);
 }
