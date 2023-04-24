@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './../Components/Style/Form.css'
-// import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 // import { registerUserSignup } from '../API/API';
+import {addUser} from "../Utils/ApiUtilUser"
 import "./../Components/Style/Form.css"
 
 function UserSign () {
@@ -22,7 +23,7 @@ function UserSign () {
     setInputData( { ...inputdata, [name]: value } );
   }
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const onSubmitData = async ( e ) => {
     e.preventDefault();
@@ -63,47 +64,12 @@ function UserSign () {
     }
     else
     {
-
-      const data = new FormData(e.target);
-     
-
-
-      console.log(data);
-
-      // const config = {
-      //   "Content-Type": "multipart/form-data"
-      // }
-
-      // const response = await registerUserSignup( data, config );
-
-      // if ( response.status === 200 )
-      // {
-      //   setInputData( {
-      //     ...inputdata,
-      //     Name: "",
-      //     email: "",
-      //     Contact: "",
-      //     password: "",
-      //     Confirm_Password: ""
-      //   } );
-      //   // navigate("/");
-      // } else
-      // {
-      //   toast.error( "Error!" )
-      // }
-
-      // console.log( email, password );
-
-      fetch( `http://localhost:5000/user/signup`, {
-        method: 'POST',
-        headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body:JSON.stringify( data),
-      } ).then( res => res.json() ).then( data => console.log( data ) )
-
-      toast.success( "You are Logged in!" );
-    }
+      addUser(inputdata).then(data=>{
+        console.log(data)
+      })
 
   }
+}
 
   return (
     <>

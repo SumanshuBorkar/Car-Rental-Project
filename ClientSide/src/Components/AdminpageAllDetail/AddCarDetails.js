@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useContext, useEffect, useState } from "react"
 // import "../Style/AddCarDetail.css"
 // import FormStructure from "./FormStructure"
@@ -7,6 +8,18 @@
 // import Backdrop from '@mui/material/Backdrop';
 // import CircularProgress from '@mui/material/CircularProgress';
 // import AdminpageNav from "./AdminpageNav"
+=======
+import React, { useContext, useEffect, useState } from "react"
+import "../Style/AddCarDetail.css"
+import FormStructure from "./FormStructure"
+import { addCar } from "../../Utils/ApiUtils"
+import { useNavigate } from "react-router-dom"
+import { CarContextDetails } from "../../Context/CarContext"
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import AdminpageNav from "./AdminpageNav"
+import Home from "../Home"
+>>>>>>> f3d37da0b2259b65f5e61763dcb6e78b26fd48e1
 
 
 // export default function AddCarDetails(){
@@ -26,8 +39,13 @@
 //   Details:""
 // })
 
+<<<<<<< HEAD
 // const [loder , setLoder] = useState(false);
 
+=======
+const [loder , setLoder] = useState(false);
+const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
+>>>>>>> f3d37da0b2259b65f5e61763dcb6e78b26fd48e1
 
   
 //     function submitFunction(e){
@@ -57,10 +75,17 @@
 //        }
   
         
+<<<<<<< HEAD
 //       );
 //     }
 //     return<>
 //     <AdminpageNav/>
+=======
+      );
+    }
+    return<>
+ { TokenAdmin?<> <AdminpageNav/>
+>>>>>>> f3d37da0b2259b65f5e61763dcb6e78b26fd48e1
     
 //     <div id="form-main-container-and-main-block">
 //      <h2 id="name-of-car-detail">Add Car Details</h2>
@@ -77,6 +102,13 @@
 //         <CircularProgress color="inherit" />
 //       </Backdrop>
     
+<<<<<<< HEAD
 //     </div>
 //     </>
 // }
+=======
+    </div>
+    </>:<Home/>}
+    </> 
+}
+>>>>>>> f3d37da0b2259b65f5e61763dcb6e78b26fd48e1

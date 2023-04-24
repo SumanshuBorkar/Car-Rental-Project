@@ -5,6 +5,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import {deleteCar} from "../../Utils/ApiUtils"
 import AdminpageNav from "./AdminpageNav";
+import Home from "../Home";
 
 
 export default function EditCarDetails(){
@@ -27,8 +28,9 @@ export default function EditCarDetails(){
    Navigater("/admin-page");
    window.location.reload();
     }
+    const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     return<>
-    <AdminpageNav/>
+ {TokenAdmin?<><AdminpageNav/>
    <div id="form-main-container-and-main-block" >
    <h2 id="name-of-car-detail-edit"><i>Edit Car Details</i></h2>
      <form id="form-add-car-details" onSubmit={SubmitEditForm}>
@@ -141,6 +143,6 @@ export default function EditCarDetails(){
      </form>
     
     </div>
-
+    </> :<Home/>  }
     </>
 }
