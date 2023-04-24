@@ -47,10 +47,7 @@ const {setAdminName} = useContext(CarContextDetails);
             toast.error("password is too Long")
         }
         else{
-
-
-
-          fetch("http://localhost:5000/admin/login" ,{
+           fetch("http://localhost:5000/admin/login" ,{
             method:"POST",
             headers:{
               "content-type":"application/json"

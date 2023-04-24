@@ -7,6 +7,7 @@ import { CarContextDetails } from "../../Context/CarContext"
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import AdminpageNav from "./AdminpageNav"
+import Home from "../Home"
 
 
 export default function AddCarDetails(){
@@ -27,7 +28,7 @@ const [data, setData] = useState({
 })
 
 const [loder , setLoder] = useState(false);
-
+const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
 
   
     function submitFunction(e){
@@ -60,7 +61,7 @@ const [loder , setLoder] = useState(false);
       );
     }
     return<>
-    <AdminpageNav/>
+ { TokenAdmin?<> <AdminpageNav/>
     
     <div id="form-main-container-and-main-block">
      <h2 id="name-of-car-detail">Add Car Details</h2>
@@ -78,5 +79,6 @@ const [loder , setLoder] = useState(false);
       </Backdrop>
     
     </div>
-    </>
+    </>:<Home/>}
+    </> 
 }

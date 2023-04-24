@@ -4,11 +4,13 @@ import Cards from '../Components/Cards';
 import Header from '../Components/Header';
 import FilterHeader from '../Components/FilterHeader';
 import Navigation from '../Components/Navigation';
+import Home from '../Components/Home';
+
 
 function OrderPage(){
-
- return(
-    <div>
+  const TokenUser= JSON.parse(localStorage.getItem("token-user"))
+ return(<>
+  {TokenUser?<div>
       <Navigation/>
       <NavLogout/>
      
@@ -16,8 +18,8 @@ function OrderPage(){
        <FilterHeader/>
        <Cards/>
         
-  </div>
-
+  </div>:<Home/>}
+</>
  )
 }
 export default OrderPage;
