@@ -3,22 +3,23 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './../Components/Style/navLog.css';
+import { Navigate, useNavigate,Link } from "react-router-dom"
 
 const NavLogout = () => {
+const navigate = useNavigate();
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-         
-          <Nav className="me-auto" >
-            <div id="nav">
-            <Nav.Link href=" ExistBookings">MyBooking</Nav.Link>
-            <Nav.Link href="/home" onClick={()=>localStorage.clear()} >LogOut</Nav.Link>
-            </div>
-          </Nav>
-        </Container>
-      </Navbar>
-    </>
+  <nav id="admin-page-nav-container-my-nav">
+  <div id="logo-of-the-rental-car-app">
+    <img src="https://media.istockphoto.com/id/1290071290/vector/rental-car-icon.jpg?s=612x612&w=0&k=20&c=q4EsvU3jJJYbcZTJ1EzKh6c-Dvy39HagvAUgTCRK9bE=" id="img-logo" />
+    <span id="name-of-the-app-rental-car-app">Car Rental App</span>
+</div>
+<div>
+<Link to="/Existbookings" ><button id="logout-admin-page-butn-admin"  >booking</button></Link>
+<button id="logout-admin-page-butn-admin" onClick={()=>{localStorage.clear();Navigate("/")}} >Logout</button>
+</div>
+</nav>
+ </>
   )
 }
 

@@ -36,7 +36,6 @@ return(
     
 
 <>
-  <Navigation/>
   <NavLogout/>
     <div id="parent" >
 <div id='container'>
