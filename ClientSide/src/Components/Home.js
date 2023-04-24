@@ -28,12 +28,12 @@ function Home() {
         <div className='Register'>
         <p className='slogan'>All you needed was a wheel in hand and four on the road.</p> 
           <div className='user'>
-            <p className='text'>User</p>
+            <p>User</p>
             <button className="button-50" onClick={userlogin}>Login User</button>
             <button className="button-50" onClick={usersignup}>Sign Up User</button>
           </div>
           <div className='Admin'>
-            <p className='text'>Admin</p>
+            <p>Admin</p>
             <button className="button-50" onClick={Adminlogin}>Admin login</button>
             <button className="button-50" onClick={AdminSignup}>Admin Sign Up</button>
           </div>

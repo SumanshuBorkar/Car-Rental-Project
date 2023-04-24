@@ -1,6 +1,5 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navigation from './Components/Navigation'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import UserLogin from './User/UserLogin';
@@ -8,15 +7,23 @@ import UserSign from './User/UserSign';
 import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
-import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails';
-import MyBooking from "./Booking/MyBooking"
-import OrderPage from "./Booking/OrderPage"
-import Payment from './Components/Payent/Payment';
 
+import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails'
+import ExistBookings from "./Booking/ExistBookings"
+import OrderPage from "./Booking/OrderPage"
+import Page3 from './Booking/Page3'
+
+import Payment from './Components/Payent/Payment';
 
 function AppRouter() {
   return (
+
+
+  
+      
+
     <div className='whole' style={{ background:'White'}}>
+
       <Router>
               <Routes>
                 <Route path='/home' element={<Home/>}/>
@@ -25,10 +32,12 @@ function AppRouter() {
                 <Route path='/admin-page' element={<AdminPage/>}/>
                 <Route path='/add-car-details' element={<AddCarDetails/>}/>
                 <Route path='/edit-car-details' element={<EditCarDetails/>}/>
-                <Route path='/order' element={<OrderPage/>}/>
-                <Route path='/Mybooking' element={<MyBooking/>}/>
-                <Route path='/' element={<Payment/>}/>
+                <Route path='/Page3' element={<Page3/>}/>
+               <Route path='/OrderPage' element={<OrderPage/>}/>
+                <Route path='/ExistBookings' element={<ExistBookings/>}/>
+                <Route path='/payment' element={<Payment/>}/>
        </Routes>
+
       </Router>
           
     </div>

@@ -6,7 +6,7 @@ function Payment() {
   const [state , setstate] = useState("this is an example")
   return (
     <div className='box'>
-     <div className="container">
+     <div className="containers">
         <div className="cardetail">
            <div className="upper">
              <h3>Booking Details</h3>
@@ -16,7 +16,7 @@ function Payment() {
                     <p>Car Number : {state}</p>
                 </div>
                 <div className="image">
-                    <img src={gogo} alt="not availble"  className='img'/>
+                    <img src={gogo} alt="not availble"  id='img'/>
                 </div>
              </div>
            </div>
