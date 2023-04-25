@@ -1,6 +1,6 @@
 .card{
     width: 15rem ;
-   box-shadow: 3px 3px 3px 3px #736f6f;
+   box-shadow: 3px 3px 3px 3px hsl(0, 4%, 18%);
    height: 18rem;
    }
    #carCard{
@@ -10,7 +10,7 @@
        width:100%;
        justify-content: space-between;
        gap:30px;
-       background-image: url('../images/background.png');
+       background-color:rgba(214, 214, 223, 0.995);
    }
    
 
