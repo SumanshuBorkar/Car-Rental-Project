@@ -6,7 +6,8 @@ const orderRegisterCtrl = expressAsyncHandler(async (req, res) => {
     const newOrder = await Order.create({
       user_id: req?.body?.user_id,
       carData: req?.body?.carData,
-      tourData: req?.body?.tourData
+      tourData: req?.body?.tourData,
+      bookingData: req?.body?.bookingData
     });
     res.status(200).json({
       status: 'success',

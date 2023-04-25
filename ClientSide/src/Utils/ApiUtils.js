@@ -10,6 +10,15 @@ function GetCars(){
 }
 
 
+function GetCar(id){
+    return fetch(`${API_BASE_URL}/cars/${id}`,{
+      headers:{
+          "authorization":JSON.parse(localStorage.getItem("token-admin"))
+      }
+    })
+    .then(res=>res.json())
+  }
+
 function addCar(cardata){
     return fetch(`${API_BASE_URL}/cars`, {
         method: 'POST',
@@ -35,4 +44,4 @@ function deleteCar(id){
     })
 }
 
-export {addCar, GetCars,deleteCar}
+export {addCar, GetCars,deleteCar, GetCar}

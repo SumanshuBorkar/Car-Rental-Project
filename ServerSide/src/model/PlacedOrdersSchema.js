@@ -15,11 +15,11 @@ const OrderSchema = mongoose.Schema({
             required: true
         },
         perKm: {
-            type: number,
+            type: Number,
             required: true
         },
         carImg: {
-            type: number,
+            type: String,
             required: true
         },
 
@@ -48,7 +48,7 @@ const OrderSchema = mongoose.Schema({
             required: true
         },
         BookingDate: {
-            type: string,
+            type: String,
             required: true
         },
         BookingTime: {

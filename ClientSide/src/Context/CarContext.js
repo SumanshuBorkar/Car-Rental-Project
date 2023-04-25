@@ -1,7 +1,7 @@
 import React, {  createContext, useEffect, useState } from "react";
 import { GetCars } from "../Utils/ApiUtils";
 
-
+// import {GetCar} from "../Utils/ApiUtils";
 
 
 export const CarContextDetails =createContext() ;
@@ -32,6 +32,8 @@ const [adminName , setAdminName] = useState("")
     useEffect( ()=>{
     GetCars()
         .then(data=>setCar(data.reverse()))
+
+    // GetCar()    
     },[]
 );
 
