@@ -6,7 +6,7 @@ export default function AdminpageNav(){
     const Navigater = useNavigate();
     function logoutFunc(){
         localStorage.clear();
-        Navigater("/home")
+        Navigater("/")
     }
 return<>
 <nav id="admin-page-nav-container-my-nav">

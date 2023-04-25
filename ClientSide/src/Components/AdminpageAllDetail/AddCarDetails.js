@@ -60,7 +60,7 @@ const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
      <form id="form-add-car-details" onSubmit={submitFunction}>
         <FormStructure data={data} setData={setData}/>
          <div className="input-gap-bottom " id="btn-cancle-add-detail-container">
-         <button id="btn-cancle-add-detail" onClick={()=>navigator1(-1)}>Cancel</button>
+         <button id="btn-cancle-add-detail" onClick={()=>navigator1("/admin-page")}>Cancel</button>
          <button id="btn-Add-add-detail-ans-save" onClick={()=>setLoder(true)}>Add</button>
         </div>
      </form>
