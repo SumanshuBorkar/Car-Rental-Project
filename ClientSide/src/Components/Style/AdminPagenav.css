@@ -1,7 +1,7 @@
 #admin-page-nav-container-my-nav{
     height: 80px;
     width: 100%;
-    background-color: rgb(130, 165, 230);
+    background-color: rgb(17, 32, 59);
     display: flex;
     justify-content: space-between;
    align-items: center;
@@ -15,7 +15,7 @@
 }
 #logout-admin-page-butn-admin{
  margin-right: 60px;   
- background-color: green;
+ background-color: rgb(52, 79, 127);
  color: white;
  font-size: large;
  border-radius: 10px;
