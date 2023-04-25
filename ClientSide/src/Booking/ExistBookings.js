@@ -17,7 +17,7 @@ export default function ExistBookings() {
   }, [])
 
     return <>
-    <Navigation/>
+ 
     <NavLogout />
        
         {

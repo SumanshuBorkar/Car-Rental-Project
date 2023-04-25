@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import './../Style/Payment.css'
 import gogo from './../images/Logo.png'
-// import MapComponent from './Map'
 import { CarContextDetails } from '../../Context/CarContext'
 import { useContext } from 'react'
 
@@ -9,8 +8,10 @@ const API_BASE_URL = 'http://localhost:5000';
 
 function PaymentCard() {
 
-  const {car , setCar} = useContext(CarContextDetails)
-  console.log(car);
+  const {CarData , headerData} = useContext(CarContextDetails)
+  const date= new Date().toLocaleDateString();
+  const time = new Date().toLocaleTimeString();
+  const BookingId= new Date().getTime();
   const reqdata = {
     "user_id": "12345fss",
     "carData": {
