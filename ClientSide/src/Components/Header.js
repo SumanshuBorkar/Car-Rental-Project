@@ -5,7 +5,7 @@ import { CarContextDetails } from '../Context/CarContext';
 
 function Header() {
   const {headerData ,setheaderData}=useContext(CarContextDetails);
-console.log(headerData);
+
   return (
     <div id='header'>
       <div className='container'>

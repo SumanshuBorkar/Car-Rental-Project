@@ -9,6 +9,7 @@ import Home from '../Components/Home';
 import React,{useState, useEffect} from 'react';
 import { CarContextDetails } from '../Context/CarContext';
 import { useContext } from 'react';
+import {Link} from "react-router-dom"
 
 
 function OrderPage(){
@@ -42,6 +43,11 @@ if(e.target.id==="All"){
 }
 // setSelectBtn(false)
 }
+
+  // function AddCarBook(id){
+  // let ans = data.find(e=>e._id===id);
+  // setCarData(e=>[...e,ans])
+  // }
 
 
  return(<>
@@ -102,7 +108,7 @@ if(e.target.id==="All"){
 
                 <div id="booking" >
                   <Card.Link  id="fare">Fare Details</Card.Link>
-                  <Card.Link href="/payment" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Link>
+                  <Card.Text href="" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Text>
                 </div>
 
               </div>
@@ -133,7 +139,7 @@ if(e.target.id==="All"){
 
                 <div id="booking">
                   <Card.Link  id="fare">Fare Details</Card.Link>
-                  <Card.Link href="/payment" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Link>
+                <Link to="/payment"> <Card.Text href="" id="book" onClick={()=>setCarData(d)} >Book Now</Card.Text></Link> 
                 </div>
 
               </div>

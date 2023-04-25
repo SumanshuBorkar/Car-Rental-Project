@@ -16,7 +16,7 @@ const navigate = useNavigate();
 </div>
 <div>
 <Link to="/Existbookings" ><button id="logout-admin-page-butn-admin"  >booking</button></Link>
-<button id="logout-admin-page-butn-admin" onClick={()=>{localStorage.clear();Navigate("/")}} >Logout</button>
+<Link to = "/"><button id="logout-admin-page-butn-admin" onClick={()=>localStorage.clear()} >Logout</button></Link>
 </div>
 </nav>
  </>
