@@ -56,6 +56,7 @@ const [error , setError] = useState("");
           }).then(res=>res.json()).then(res=>{
             if(res.status==="Successfully login"){
               localStorage.setItem("token-user" , JSON.stringify(res.token));
+              localStorage.setItem("user-id" , JSON.stringify(res.userId))
               navigate("/orderpage/page3")
             }else if(res.status==="fail"){
                 setError("User Details Not Match")

@@ -1,6 +1,6 @@
 .Home-page{
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background-image: url("../images/background.png");
     background-repeat: no-repeat;
     background-size: 100vw 100vh;

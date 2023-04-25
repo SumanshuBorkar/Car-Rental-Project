@@ -1,33 +1,23 @@
-const expressAsyncHandler = require('express-async-handler');
-const Order = require('./../model/PlacedOrdersSchema');
 
-const orderRegisterCtrl = expressAsyncHandler(async (req, res) => {
-  try {
-    const newOrder = await Order.create({
-      user_id: req?.body?.user_id,
-      carData: req?.body?.carData,
-      tourData: req?.body?.tourData,
-      bookingData: req?.body?.bookingData
-    });
-    res.status(200).json({
-      status: 'success',
-      data: {
-        orderdata: newOrder
-      }
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      status: 'error',
-      message: 'Internal server error'
-    });
-  }
-});
+const { findById, findByIdAndDelete } = require('../model/UserSchema');
+const Orders = require('./../model/PlacedOrdersSchema');
+
+const orderRegisterCtrl = async (req, res) => {
+  try{
+    console.log(req.body)
+     let data = new Orders(req.body);
+        let createData = await data.save();
+        res.status(201).send(createData)
+    }catch(err){
+    res.status(400).json({message:err.message})
+}
+};
 
 
 const getOrdersCtrl = async (req, res) => {
     try {
-      const allOrders = await Order.find({});
+      const UserId= req.params.id
+      const allOrders = await Orders.find({userId:UserId});
       res.status(200).json({
         status: "success",
         data: allOrders,
@@ -40,7 +30,18 @@ const getOrdersCtrl = async (req, res) => {
       });
     }
   };
+
+
+const deleteOrderCtrl= async(req,res)=>{
+try {
+  const _id=req.params.id;
+  const deletedData = await Orders.findByIdAndDelete(_id);
+  res.send(deletedData)
+} catch (error) {
+  res.status(400).send({message:error.message})
+}
+  }
   
 
 
-module.exports = {orderRegisterCtrl, getOrdersCtrl};
+module.exports = {orderRegisterCtrl, getOrdersCtrl,deleteOrderCtrl};
