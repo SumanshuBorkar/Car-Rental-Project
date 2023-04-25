@@ -32,13 +32,6 @@ export default function ExistBookings() {
         })
         window.location.reload();
     }
-
-
-
-
-
-
-
     return <>
  
     <NavLogout />

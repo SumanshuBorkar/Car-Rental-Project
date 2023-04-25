@@ -4,7 +4,7 @@
  padding-top: 30px; 
  color: black;
  position: relative;
- background-color:rgb(211, 223, 233) ; 
+ 
 }
 
 .contanermaginc-lum{
@@ -15,6 +15,7 @@
  justify-content: space-between;
  color:black;
  padding: 50px;
+ border-radius: 5px;
 }
 
 .cardetail-app{
@@ -24,13 +25,18 @@
     display: grid;
    
     color: rgb(16, 12, 12);
-    border-radius: 15px;
+    border-radius: 5px;
+    
 }
 
 .upper{
    border-bottom: 1px solid;
    padding: 15px;
    height: 100%;
+   background-color: rgb(5, 5, 60);
+   background-image: linear-gradient(rgb(17, 17, 18),rgb(58, 58, 146));
+   color:white;
+   
 }
 
 .comp{
@@ -58,6 +64,9 @@
     padding: 15px;
     color: black;
     height: 100%;
+    background-color: rgb(58, 58, 146);
+    
+   color:white;
 }
 
 .image-of-hte-map{
@@ -73,6 +82,9 @@
 .lower{
     height: 100%;
     padding: 15px;
+    background-color: rgb(58, 58, 146);
+   
+   color:white;
 }
 
 .boomking-cont-dgg{
@@ -99,6 +111,9 @@
     padding: 30px;
     color: black;
     border-radius: 15px;
+    background-color: rgb(5, 5, 60);
+    background-image: linear-gradient(rgb(17, 17, 18),rgb(58, 58, 146));
+    color:white;
 }
 
 .order-details{

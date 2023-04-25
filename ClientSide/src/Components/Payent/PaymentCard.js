@@ -53,8 +53,8 @@ navigate("/ExistBookings")
             <h3>Booking Details</h3>
             <div className="comp">
                <div className="bobob">
-                   <li>Car Name   </li>
-                   <li>Car Model</li>
+                   <li>Car Name :  </li>
+                   <li>Car Model:</li>
                </div>
                <div className="bobob">
                    <li>{CarData.name}</li>
@@ -67,10 +67,10 @@ navigate("/ExistBookings")
           </div>
           <div className="midddle">
           <div className="data">
-                   <li>Origin</li>
-                   <li> Deatination</li>
-                   <li>Start-Dtate</li>
-                   <li>End-Date</li>
+                   <li>Origin : </li>
+                   <li> Deatination : </li>
+                   <li>Start-Dtate : </li>
+                   <li>End-Date : </li>
                </div>
                <div className="data">
                    <li> {headerData.origin}</li>
@@ -85,9 +85,9 @@ navigate("/ExistBookings")
           <div className="lower">
                 <div className="boomking-cont-dgg">
                 <div className="bookingId">
-                   <li>Booking ID:</li>
-                   <li>Booking Date :</li>
-                   <li>Booking Time:</li>
+                   <li>Booking ID : </li>
+                   <li>Booking Date : </li>
+                   <li>Booking Time : </li>
                    </div>
                    <div className="bookingId">
                    <li>{BookingId}</li>
