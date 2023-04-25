@@ -3,19 +3,21 @@ import './../Style/Payment.css'
 import gogo from './../images/Logo.png'
 import { CarContextDetails } from '../../Context/CarContext'
 import { useContext } from 'react'
+import {Link} from 'react-router-dom'
 
 const API_BASE_URL = 'http://localhost:5000';
 
 function PaymentCard() {
 
   const {CarData , headerData} = useContext(CarContextDetails)
+  console.log(CarData)
   const date= new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString();
   const BookingId= new Date().getTime();
   const reqdata = {
     "user_id": "12345fss",
     "carData": {
-        "carName": "Toyota Camvarf",
+        "carName": "Toyota Camvar",
         "carNumber": "ABC123as",
         "perKm": 5,
         "carImg": "https://example.com/carimg.jpg"
@@ -62,14 +64,14 @@ const state = "this is a joke"
             <div className="comp">
                <div className="bobob">
                    <li>Car Name   </li>
-                   <li>Car Number</li>
+                   <li>Car Model</li>
                </div>
                <div className="bobob">
-                   <li>{}</li>
-                   <li>Car Number</li>
+                   <li>{CarData.name}</li>
+                   <li>{CarData.model}</li>
                </div>
                <div className="image-of-car">
-                   <img src={gogo} alt="not availble"  className='img'/>
+                   <img src={`http://localhost:5000/cars/${CarData.image}`} alt="not availble"  className='img'/>
                </div>
             </div>
           </div>
@@ -81,10 +83,10 @@ const state = "this is a joke"
                    <li>End-Date</li>
                </div>
                <div className="data">
-                   <li>Origin</li>
-                   <li> {state}</li>
-                   <li> {state}</li>
-                   <li> {state}</li>
+                   <li> {headerData.origin}</li>
+                   <li> {headerData.destination}</li>
+                   <li> {headerData.startDate}</li>
+                   <li> {headerData.endDate}</li>
                </div>
                <div className="image-of-hte-map">
                <iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"></iframe>
@@ -93,14 +95,14 @@ const state = "this is a joke"
           <div className="lower">
                 <div className="boomking-cont-dgg">
                 <div className="bookingId">
-                   <li>Booking ID: {}</li>
-                   <li>Booking Date :{}</li>
-                   <li>Booking Time: {}</li>
+                   <li>Booking ID:</li>
+                   <li>Booking Date :</li>
+                   <li>Booking Time:</li>
                    </div>
                    <div className="bookingId">
-                   <li>Booking ID: {}</li>
-                   <li>Booking Date :{}</li>
-                   <li>Booking Time: {}</li>
+                   <li>{BookingId}</li>
+                   <li>{date}</li>
+                   <li> {time}</li>
                    </div>
                 </div>
                    <div className="cancel-button-of-page">
@@ -118,9 +120,9 @@ const state = "this is a joke"
                <li>Tax Charges</li>
            </div>
            <div className="data-gogog">
-               <li>{state}</li>
-               <li>{state}</li>
-               <li>{state}</li>
+               <li>{CarData.milage}</li>
+               <li>{CarData.milage}</li>
+               <li>{CarData.milage}</li>
            </div>
            </div>
          </div>
@@ -128,7 +130,9 @@ const state = "this is a joke"
           <li className='indiv-sub-class'>SUB TOTAL</li>
           <p>{state}</p>
          </div>
+         <Link to="/ExistBookings">
          <button className='payment-button' onClick={Proceed}>proceed</button>
+         </Link>
        </div>
     </div>
    </div>
