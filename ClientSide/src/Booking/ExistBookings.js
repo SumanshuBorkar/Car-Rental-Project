@@ -4,18 +4,21 @@ import NavLogout from './NavLogout';
 import Navigation from "../Components/Navigation";
 import { CarContextDetails } from "../Context/CarContext";
 import {Link,useNavigate} from "react-router-dom"
+import Home from "../Components/Home";
 
 
 export default function ExistBookings() {
-   const [data, setData]= useState([])
+  
    const navigate=useNavigate();
-
+   const {EditPaymentDetails ,Bookdata,setBookData, setEditPaymentDetails}=useContext(CarContextDetails);
+   const TokenUser= JSON.parse(localStorage.getItem("token-user"))
     const userId=JSON.parse(localStorage.getItem("user-id"))
     useEffect(()=>{
      fetch(`http://localhost:5000/orders/${userId}`)
         .then(res=>res.json())
-        .then(data=>setData(data.data))
+        .then(data=>setBookData(data.data))
     },[])
+    console.log(Bookdata)
 
 
     function deleteCarData(id){
@@ -34,9 +37,10 @@ export default function ExistBookings() {
     }
     return <>
  
+    {TokenUser ?<>
     <NavLogout />
        
-        {data.map((d, m) => {
+        {Bookdata.map((d, m) => {
                 return <div key={m}>
                     <div id="outer">
                         <p>My Booking </p>
@@ -69,7 +73,7 @@ export default function ExistBookings() {
                             </div>
                             <div className="smallerDiv" >
                                 <div className="buttons">
-                                   <button  onClick={()=>navigate(-1)}>Edit</button>
+                               <Link to="edit-payment-details" ><button  onClick={()=>setEditPaymentDetails(d)}>Edit</button></Link>   
                                     <button onClick={()=>deleteCarData(d._id)}>Cancel</button>
                                 </div>
                             </div>
@@ -78,6 +82,7 @@ export default function ExistBookings() {
                 </div>
             })
         }
+    </>:<Home/>}
     </>
 
 }

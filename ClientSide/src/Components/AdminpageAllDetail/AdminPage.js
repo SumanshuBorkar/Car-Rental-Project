@@ -22,7 +22,7 @@ export default function AdminPage() {
     <AdminpageNav/>
     <div id="admin-page-main-home">
            
-        <h1 id="welcome">Hello {adminName}</h1>
+        <h1 id="welcome-to-admin-page">Hello {adminName}</h1>
         <div id="main-container-of-the-addmin-page">
         <div id="add-car">
             <h3 id="info">Cars</h3>

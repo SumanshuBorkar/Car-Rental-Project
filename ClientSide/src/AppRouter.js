@@ -7,13 +7,13 @@ import UserSign from './User/UserSign';
 import './Components/Style/AppRouter.css'
 import AdminPage from "./Components/AdminpageAllDetail/AdminPage"
 import AddCarDetails from "./Components/AdminpageAllDetail/AddCarDetails"
-
 import EditCarDetails from './Components/AdminpageAllDetail/EditCarDetails'
 import ExistBookings from "./Booking/ExistBookings"
 import OrderPage from "./Booking/OrderPage"
 import Page3 from './Booking/Page3'
-
 import Payment from './Components/Payent/Payment';
+import EditPaymentDetails from './Components/Payent/EditPaymentDetails';
+import PageNotFound from './Components/PageNotFound';
 
 function AppRouter() {
   return (
@@ -30,6 +30,8 @@ function AppRouter() {
                 <Route path='/OrderPage' element={<OrderPage/>}/>
                 <Route path='/ExistBookings' element={<ExistBookings/>}/>
                 <Route path='/payment' element={<Payment/>}/>
+                <Route path="/ExistBookings/edit-payment-details" element={<EditPaymentDetails/>}/>
+                <Route path="*" element={<PageNotFound/>}/>
        </Routes>
 
       </Router>
