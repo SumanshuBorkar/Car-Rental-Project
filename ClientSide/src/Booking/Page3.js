@@ -5,7 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { useState,useContext } from 'react';
 import { CarContextDetails } from '../Context/CarContext';
 import '../Components/Style/page3.css'
+import Home from '../Components/Home';
+
  function Page3(){
+  const TokenUser= JSON.parse(localStorage.getItem("token-user"))
     const {setheaderData}=useContext(CarContextDetails);
     const navigate = useNavigate();
     const [inputdata, setInputData] = useState({
@@ -32,10 +35,8 @@ import '../Components/Style/page3.css'
       }
 setheaderData(inputdata);
 
-return(
-    
-
-<>
+return(<>
+{TokenUser?<>
   <NavLogout/>
     <div id="parent" >
     <h1 id="welcome">W E L C O M E</h1>
@@ -60,6 +61,8 @@ return(
 
 </div>
 </div>
+</>:<Home/>}
+
 </>
  )}
  export default Page3;

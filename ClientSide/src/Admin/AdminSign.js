@@ -16,8 +16,9 @@ function AdminSign() {
     password: "",
     Confirm_Password: ""
   } );
+  const [err, setErr] = useState("");
 
-  const {setAdminName} = useContext(CarContextDetails)
+  
 
   const navigate = useNavigate();
 
@@ -60,12 +61,24 @@ function AdminSign() {
     else
     {
       addAdmin(inputdata).then(data=>{
-        console.log(data.user)
-        setAdminName(inputdata.Name)
+        if(data.status==="Failed"){
+          setErr("User Allready Exists")
+        }else if(data.status==="Success"){
+          toast.success("Register Successfully");
+          setInputData({
+            Name: "",
+            email: "",
+            contact: "",
+            password: "",
+            Confirm_Password: ""
+          })
+          toast.success("Register SuceessFully");
+        }
+      
     })
 
    
-    navigate("/admin-page")
+
 
 
     }
@@ -78,6 +91,7 @@ function AdminSign() {
  
         <form onSubmit={onSubmitData}>
         <h2 className='fom-name-in-login-form'>Admin SignUp</h2>
+        <h6 style={{color:"red"}}>{err}</h6>
         <label >Name</label>
           <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,Name:e.target.value})} value={inputdata.Name} placeholder='Name' />
 

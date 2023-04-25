@@ -26,8 +26,11 @@ const navigate= useNavigate();
     ...headerData,date:date,time:time,BookingId:BookingId,
   userId:userId
   };
- 
-  
+
+const pricekm =Math.floor(Math.random() * 100);
+const pricing = Math.floor(Math.random() * 10000);
+const Tax = Math.floor(Math.random() * 100);
+const total=(pricekm+pricing+Tax)
   const Proceed = () => {
   
 
@@ -45,7 +48,7 @@ navigate("/ExistBookings")
 
   };
    
-  return (
+  return (<div>
     <div className='box-of-payment'>
     <div className="contanermaginc-lum">
        <div className="cardetail-app">
@@ -94,6 +97,7 @@ navigate("/ExistBookings")
                    <li>{date}</li>
                    <li> {time}</li>
                    </div>
+
                 </div>
                    <div className="cancel-button-of-page">
                        <button className='cncl-brfd' onClick={()=>navigate("/orderpage")}>Cancel</button>
@@ -110,21 +114,23 @@ navigate("/ExistBookings")
                <li>Tax Charges</li>
            </div>
            <div className="data-gogog">
-               <li>{CarData.milage}</li>
-               <li>{CarData.milage}</li>
-               <li>{CarData.milage}</li>
+               <li>{pricekm}/KM</li>
+               <li>{pricing} RS</li>
+               <li>{Tax} RS</li>
            </div>
            </div>
          </div>
          <div className="paylower">
           <li className='indiv-sub-class'>SUB TOTAL</li>
-         
+         <li  >{total} RS</li>
          </div>
          
          <button className='payment-button' onClick={Proceed}>proceed</button>
 
        </div>
     </div>
+   </div>
+   
    </div>
   )
 }
