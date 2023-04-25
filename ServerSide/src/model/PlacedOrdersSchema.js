@@ -1,64 +1,61 @@
 const mongoose = require("mongoose")
 
 const OrderSchema = mongoose.Schema({
-    user_id: {
+    userId: {
         type: String,
-        required: true
     },
-    carData: {
-        carName: {
+        name: {
             type: String,
-            required: true
+           
         },
-        carNumber: {
+        type:{
             type: String,
-            required: true
+      
         },
         perKm: {
             type: Number,
-            required: true
+          
         },
-        carImg: {
+        image: {
             type: String,
-            required: true
+      
         },
 
-    },
-    tourData: {
-        Origin: {
+        origin: {
             type: String,
-            required: true
+          
         },
-        Destination: {
+        destination: {
             type: String,
-            required: true
+          
         },
-        Startdate: {
-            type: Date,
-            required: true
+        startDate: {
+            type: String,
+          
         },
-        Enddate: {
-            type: Date,
-            required: true
+        endDate: {
+            type: String,
+          
+        },
+    
+        BookingId: {
+            type: String,
+          
+        },
+        date: {
+            type: String,
+          
+        },
+        time: {
+            type: String,
+          
+        },carId:{
+            type:String
         }
-    },
-    bookingData: {
-        BookingID: {
-            type: String,
-            required: true
-        },
-        BookingDate: {
-            type: String,
-            required: true
-        },
-        BookingTime: {
-            type: Date,
-            required: true
-        }
-    }
+    
 })
 
-const Orders = mongoose.model("orderdata", OrderSchema)
+const Orders = new mongoose.model("orderdata", OrderSchema)
 
 module.exports = Orders
 

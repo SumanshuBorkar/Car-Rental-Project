@@ -4,55 +4,45 @@ import gogo from './../images/Logo.png'
 import { CarContextDetails } from '../../Context/CarContext'
 import { useContext } from 'react'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-const API_BASE_URL = 'http://localhost:5000';
 
 function PaymentCard() {
+const userId=JSON.parse(localStorage.getItem("user-id"))
+const navigate= useNavigate();
 
-  const {CarData , headerData} = useContext(CarContextDetails)
+  const {CarData , headerData,setBookingDetails,bookingDetails} = useContext(CarContextDetails)
   console.log(CarData)
   const date= new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString();
   const BookingId= new Date().getTime();
-  const reqdata = {
-    "user_id": "12345fss",
-    "carData": {
-        "carName": "Toyota Camvar",
-        "carNumber": "ABC123as",
-        "perKm": 5,
-        "carImg": "https://example.com/carimg.jpg"
-    },
-    "tourData": {
-        "Origin": "New Yorkss",
-        "Destination": "Los Anvvgeles",
-        "Startdate": "2023-05-01T00:00:00.000Z",
-        "Enddate": "2023-05-10T00:00:00.000Z"
-    },
-    "bookingData": {
-        "BookingID": "B123456",
-        "BookingDate": "2023-04-25",
-        "BookingTime": "2023-04-25T10:30:00.000Z"
-    }
-}
-
-const state = "this is a joke"  
-
+  const Object ={name:CarData.name,
+    model:CarData.model,
+    milage:CarData.milage,
+    image:CarData.image,
+    type:CarData.type,
+    Details:CarData.Details,
+    carDetails:CarData.Details,
+    ...headerData,date:date,time:time,BookingId:BookingId,
+  userId:userId
+  };
+ 
+  
   const Proceed = () => {
-    fetch(`${API_BASE_URL}/orders`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(reqdata) ,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(error);
-        // handle error
-      });
+  
+
+   fetch("http://localhost:5000/orders",{
+    method:"post",
+    headers:{
+      "content-type":"application/json"
+    },
+    body:JSON.stringify(Object)
+   }).then(res=>res.json())
+   .then(data=>console.log(data));
+
+
+navigate("/ExistBookings")
+
   };
    
   return (
@@ -106,7 +96,7 @@ const state = "this is a joke"
                    </div>
                 </div>
                    <div className="cancel-button-of-page">
-                       <button className='cncl-brfd'>Cancel</button>
+                       <button className='cncl-brfd' onClick={()=>navigate("/orderpage")}>Cancel</button>
                    </div>
           </div>
        </div>
@@ -128,11 +118,11 @@ const state = "this is a joke"
          </div>
          <div className="paylower">
           <li className='indiv-sub-class'>SUB TOTAL</li>
-          <p>{state}</p>
+         
          </div>
-         <Link to="/ExistBookings">
+         
          <button className='payment-button' onClick={Proceed}>proceed</button>
-         </Link>
+
        </div>
     </div>
    </div>

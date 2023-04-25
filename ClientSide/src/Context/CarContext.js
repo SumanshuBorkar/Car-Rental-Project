@@ -13,7 +13,9 @@ export default function CarContext({children}){
 
     const[headerData,setheaderData]=useState({});
     const [CarData, setCarData] = useState({});
-    
+    const [bookingDetails , setBookingDetails] = useState([]);
+    const [Bookdata, setBookData]= useState([])
+
 const [data, setData] = useState({
     name:"",
     type:"",
@@ -39,7 +41,7 @@ const [adminName , setAdminName] = useState("")
 
     return<>
 
-     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData, CarData, setCarData}}>
+     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData, CarData, setCarData, bookingDetails, setBookingDetails,Bookdata,setBookData}}>
         {children}
      </CarContextDetails.Provider>
     </>
