@@ -38,7 +38,10 @@ return(
 <>
   <NavLogout/>
     <div id="parent" >
+    <h1 id="welcome">W E L C O M E</h1>
 <div id='container'>
+
+<h1 id="quote">"Don't Dream it,Drive it"</h1>
 <form id="forms" action="" onSubmit={save}>
 
   <input type="text" placeholder='Origin Name' className='Fields'
