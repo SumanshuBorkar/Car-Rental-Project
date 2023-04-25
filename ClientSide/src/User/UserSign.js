@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from "react-router-dom"
+
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import {addUser} from "../Utils/ApiUtilUser"
@@ -21,8 +21,9 @@ function UserSign () {
     setInputData( { ...inputdata, [name]: value } );
   }
 
-  const navigate = useNavigate();
+
 const [err, setErr]= useState("")
+  // const navigate = useNavigate();
   const onSubmitData = async ( e ) => {
     e.preventDefault();
     console.log( inputdata );
