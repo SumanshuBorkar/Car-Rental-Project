@@ -10,7 +10,7 @@ export default function EditPaymentDetails(){
     const Navigate = useNavigate();
     const {EditPaymentDetails,setEditPaymentDetails ,setBookData } = useContext(CarContextDetails);
 
-    const {BookingId,name,type,date,time,endDate,startDate,destination,image,origin,userId}= EditPaymentDetails
+    const {BookingId,date,time,image}= EditPaymentDetails
     const pricekm =Math.floor(Math.random() * 100);
     const pricing = Math.floor(Math.random() * 10000);
     const Tax = Math.floor(Math.random() * 100);
@@ -20,12 +20,12 @@ export default function EditPaymentDetails(){
         e.preventDefault();
         fetch(`http://localhost:5000/orders/${EditPaymentDetails._id}` , {
           method:"PATCH",
-        //   headers:{
-        //     "content-type":"application-json"
-        //   },
-          body:EditPaymentDetails,
+          headers:{
+            "content-type":"application/json"
+          },
+          body:JSON.stringify(EditPaymentDetails),
         }).then(res=>res.json())
-        .then(data=>setBookData([data]))
+        .then(data=>console.log(data))
 
     Navigate("/ExistBookings")
     }
@@ -35,23 +35,26 @@ return<>
 <h2 id="name-edit-details-payment-edit">Edit Payment Details</h2>
 <form onSubmit={editformsubmitFunc} id="Edit-form-payment-details">
     <div id="form-leftside-edit-part-in-payment">
-        <div id="edit-payment-details-block">
+    <div id="edit-payment-details-block">
     <label>Car Name</label>
-    <input type="text" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,name:e.target.value})} value={name}/><br/>
+    <input type="text" className="edit-form-payment-details" name="name" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,name:e.target.value})} value={EditPaymentDetails.name}/><br/>
     <img src={`http://localhost:5000/cars/${image}`} id="image-edit-payment-details-in-data"></img>
     <label>Car Type</label>
     <span className="name-of-the-span-css-for-payment-details">{}</span><br/>
     </div>
     <hr></hr>
+<div id="for-maip-i-created-container">
+<iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"  class="image-of-hte-map-of-the-edit-page"></iframe>
 
-    <label>Origin</label>
-    <input type="text" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,origin:e.target.value})} value={origin}/><br/>
+    <label >Origin</label>
+    <input type="text" name="origin" className="edit-form-payment-details" id="origin-of-the-edit-page" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,origin:e.target.value})} value={EditPaymentDetails.origin}/><br/>
     <label>Destination</label>
-    <input type="text" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,destination:e.target.value})} value={destination} /><br/>
+    <input type="text" name="destination" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,destination:e.target.value})} value={EditPaymentDetails.destination} /><br/>
     <label>Start Date</label>
-    <input type="date" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,startDate:e.target.value})} value={startDate} /><br/>
+    <input type="date" name="startDate" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,startDate:e.target.value})} value={EditPaymentDetails.startDate} /><br/>
     <label>End Date</label>
-    <input type="date" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,endDate:e.target.value})} value={endDate}/><br/>
+    <input type="date" name="endDate" className="edit-form-payment-details" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,endDate:e.target.value})} value={EditPaymentDetails.endDate}/><br/>
+    </div>
 <hr></hr>
 <label>Booking Id</label>
 <span className="name-of-the-span-css-for-payment-details">{BookingId}</span><br></br>

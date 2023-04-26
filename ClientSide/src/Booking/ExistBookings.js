@@ -37,7 +37,7 @@ export default function ExistBookings() {
     }
     return <>
  
-    {TokenUser ?<>
+    {TokenUser?<>
     <NavLogout />
        
         {Bookdata.map((d, m) => {
@@ -62,8 +62,8 @@ export default function ExistBookings() {
                                 <div>Start Date :{d.startDate}</div>
                                 <div>Start Date :{d.endDate}</div>
                             </div>
-                            <div>
-                                <img src={``} alt="image"></img>
+                            <div className="smallerDiv">
+                            <iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000" id="dmslamdlmdkemkldm" ></iframe>
                             </div>
 
                             <div className="smallerDiv">

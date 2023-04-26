@@ -22,7 +22,7 @@ const navigate= useNavigate();
     image:CarData.image,
     type:CarData.type,
     Details:CarData.Details,
-    carDetails:CarData.Details,
+    carDetails:CarData.carDetails,
     ...headerData,date:date,time:time,BookingId:BookingId,
   userId:userId
   };

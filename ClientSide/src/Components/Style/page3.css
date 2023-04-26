@@ -50,8 +50,12 @@ width:450px;
 #welcome{
   color:rgb(52, 62, 198);
   margin: 0px;
+  text-shadow: 3px 1px 1px rgb(251, 247, 247);
+  text-decoration: underline;
   text-align: center;
  padding-top: 50px;
  box-sizing: border-box;
+ font-size: 50px;
+ font-weight: bold;
 
 }

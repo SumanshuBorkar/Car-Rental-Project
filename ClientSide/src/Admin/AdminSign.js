@@ -72,7 +72,7 @@ function AdminSign() {
             password: "",
             Confirm_Password: ""
           })
-          toast.success("Register SuceessFully");
+      
         }
       
     })

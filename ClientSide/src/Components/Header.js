@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { CarContextDetails } from '../Context/CarContext';
 
 function Header() {
-  const {headerData ,setheaderData}=useContext(CarContextDetails);
-
+  const {headerData ,setheaderData,setInputData}=useContext(CarContextDetails);
+  setInputData(headerData)
   return (
     <div id='header'>
       <div className='container'>
