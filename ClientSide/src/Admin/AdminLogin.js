@@ -49,7 +49,7 @@ function AdminLogin() {
             toast.error("password is too Long")
         }
         else{
-           fetch("http://localhost:5000/admin/login" ,{
+           fetch("https://car-rental-app-server.onrender.com/admin/login" ,{
             method:"POST",
             headers:{
               "content-type":"application/json"

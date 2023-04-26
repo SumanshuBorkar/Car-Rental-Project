@@ -34,7 +34,7 @@ const total=(pricekm+pricing+Tax)
   const Proceed = () => {
   
 
-   fetch("http://localhost:5000/orders",{
+   fetch("https://car-rental-app-server.onrender.com/orders",{
     method:"post",
     headers:{
       "content-type":"application/json"
@@ -64,7 +64,7 @@ navigate("/ExistBookings")
                    <li>{CarData.model}</li>
                </div>
                <div className="image-of-car">
-                   <img src={`http://localhost:5000/cars/${CarData.image}`} alt="not availble"  className='img'/>
+                   <img src={`https://car-rental-app-server.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
                </div>
             </div>
           </div>

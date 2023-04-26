@@ -6,7 +6,7 @@ import './../Components/Style/cards.css';
 export default function Cards() {
   let [data, setdata] = useState([])
   useEffect(() => {
-    fetch("http://localhost:5000/cars/")
+    fetch("https://car-rental-app-server.onrender.com/cars/")
       .then(res => res.json())
       .then(res => setdata(res));
   }, [])
