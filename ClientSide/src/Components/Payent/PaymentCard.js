@@ -34,7 +34,7 @@ const total=(pricekm+pricing+Tax)
   const Proceed = () => {
   
 
-   fetch("https://car-rental-app-wzan.onrender.com/orders",{
+   fetch("https://car-rental-app-server.onrender.com/orders",{
 
     method:"post",
     headers:{

@@ -16,7 +16,7 @@ export default function EditCarDetails(){
         e.preventDefault();
        const EditformData = new FormData(e.target)
 
-      fetch(`https://car-rental-app-wzan.onrender.com/cars/${edit._id}` , {
+      fetch(`https://car-rental-app.onrender.com/cars/${edit._id}` , {
 
         method:"PUT",
         headers:{
@@ -122,7 +122,7 @@ export default function EditCarDetails(){
                    
                    <div className="img-sort-box">
 
-                      <img src={`https://car-rental-app-wzan.onrender.com/cars/${edit.image}`} id="preview-img-of-the-file" ></img>
+                      <img src={`https://car-rental-app-server.onrender.com/cars/${edit.image}`} id="preview-img-of-the-file" ></img>
 
                    </div>
                    

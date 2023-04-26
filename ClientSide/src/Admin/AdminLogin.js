@@ -50,7 +50,7 @@ function AdminLogin() {
         }
         else{
 
-           fetch("https://car-rental-app-wzan.onrender.com/admin/login" ,{
+           fetch("https://car-rental-app-server.onrender.com/admin/login" ,{
 
             method:"POST",
             headers:{
