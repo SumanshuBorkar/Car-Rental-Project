@@ -33,7 +33,11 @@ export default function ExistBookings() {
             }
             return false
         })
+
+       
+   
     }
+  
     return <>
  
     {TokenUser?<>
@@ -72,8 +76,8 @@ export default function ExistBookings() {
                             </div>
                             <div className="smallerDiv" >
                                 <div className="buttons">
-                               <Link to="edit-payment-details" ><button  onClick={()=>setEditPaymentDetails(d)}>Edit</button></Link>   
-                                    <button onClick={()=>deleteCarData(d._id)}>Cancel</button>
+                               <Link to="edit-payment-details" ><button id="btuunt-concle-in-exsist-Booking-edit" onClick={()=>setEditPaymentDetails(d)}>Edit</button></Link>   
+                                    <button id="btuunt-concle-in-exsist-Booking" onClick={()=>deleteCarData(d._id)}>Cancel</button>
                                 </div>
                             </div>
                         </div>

@@ -10,7 +10,7 @@ export default function EditPaymentDetails(){
     const Navigate = useNavigate();
     const {EditPaymentDetails,setEditPaymentDetails ,setBookData } = useContext(CarContextDetails);
 
-    const {BookingId,date,time,image}= EditPaymentDetails
+    const {BookingId,date,time,image,name,Details,carDetails,type}= EditPaymentDetails
     const pricekm =Math.floor(Math.random() * 100);
     const pricing = Math.floor(Math.random() * 10000);
     const Tax = Math.floor(Math.random() * 100);
@@ -28,6 +28,7 @@ export default function EditPaymentDetails(){
         .then(data=>console.log(data))
 
     Navigate("/ExistBookings")
+
     }
 
 return<>
@@ -37,14 +38,14 @@ return<>
     <div id="form-leftside-edit-part-in-payment">
     <div id="edit-payment-details-block">
     <label>Car Name</label>
-    <input type="text" className="edit-form-payment-details" name="name" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,name:e.target.value})} value={EditPaymentDetails.name}/><br/>
+     <span id="name-of-the-car-edit-payment">{name}</span><br></br>
     <img src={`https://car-rental-app-server.onrender.com/cars/${image}`} id="image-edit-payment-details-in-data"></img>
-    <label>Car Type</label>
-    <span className="name-of-the-span-css-for-payment-details">{}</span><br/>
+    <label>Car Number</label>
+    <span className="name-of-the-span-css-for-payment-details" id="type-of-the-car-in-payment">Ayx123</span><br/>
     </div>
     <hr></hr>
 <div id="for-maip-i-created-container">
-<iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"  class="image-of-hte-map-of-the-edit-page"></iframe>
+<iframe className='map-of-doom image-of-hte-map-of-the-edit-page' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"  ></iframe>
 
     <label >Origin</label>
     <input type="text" name="origin" className="edit-form-payment-details" id="origin-of-the-edit-page" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,origin:e.target.value})} value={EditPaymentDetails.origin}/><br/>
