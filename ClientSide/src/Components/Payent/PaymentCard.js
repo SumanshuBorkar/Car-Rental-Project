@@ -66,7 +66,7 @@ navigate("/ExistBookings")
                </div>
                <div className="image-of-car-in-rental-payment">
 
-                   <img src={`https://car-rental-app-wzan.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
+                   <img src={`https://car-rental-app-server.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
 
                </div>
             </div>
