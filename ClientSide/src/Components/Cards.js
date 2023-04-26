@@ -8,7 +8,7 @@ export default function Cards() {
 
   let [data, setdata] = useState([])
   useEffect(() => {
-    fetch("http://localhost:5000/cars/", {
+    fetch("https://car-rental-app-y59o.onrender.com/cars/", {
       headers: {
         "authorization": JSON.parse(localStorage.getItem("token-user"))
       }
@@ -29,7 +29,7 @@ export default function Cards() {
               <Card className='card'>
 
                 <div className="img">
-                  <Card.Img src={`http://localhost:5000/cars/${d.image}`} />
+                  <Card.Img src={`https://car-rental-app-y59o.onrender.com/cars/${d.image}`} />
                 </div>
                 <div id="cardBodys">
                   <Card.Body>
