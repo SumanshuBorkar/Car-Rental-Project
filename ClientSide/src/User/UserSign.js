@@ -27,7 +27,7 @@ const [err, setErr]= useState("")
   const onSubmitData = async ( e ) => {
     e.preventDefault();
     console.log( inputdata );
-    const { Name, email, Contact, password, Confirm_Password } = inputdata;
+    const { Name, email, contact, password, Confirm_Password } = inputdata;
 
     if ( email === "" )
     {
@@ -41,7 +41,7 @@ const [err, setErr]= useState("")
     {
       toast.error( "Enter Valid Email !" )
     }
-    else if ( Contact.length < 10 )
+    else if ( contact.length < 10 )
     {
       toast.error( "Enter Valid Phone number!" )
     }
@@ -95,8 +95,8 @@ const [err, setErr]= useState("")
           <label htmlFor="email">Email</label>
           <input type="email" name="email" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Email' value={inputdata.email} />
 
-          <label htmlFor="Contact">Contact</label>
-          <input type="tel" name="Contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.contact}/>
+          <label htmlFor="contact">Contact</label>
+          <input type="tel" name="contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.contact}/>
 
           <label htmlFor="password">Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='password' name='password' value={inputdata.password} />

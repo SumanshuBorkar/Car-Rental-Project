@@ -1,4 +1,6 @@
+
 const API_ADMIN="https://car-rental-app-server.onrender.com"
+
 
 function addAdmin(AdminData){
     return fetch(`${API_ADMIN}/admin/signup`, {

@@ -15,14 +15,16 @@ export default function EditCarDetails(){
     function SubmitEditForm(e){
         e.preventDefault();
        const EditformData = new FormData(e.target)
-      fetch(`https://car-rental-app-server.onrender.com/cars/${edit._id}` , {
+
+      fetch(`https://car-rental-app.onrender.com/cars/${edit._id}` , {
+
         method:"PUT",
         headers:{
             "authorization":JSON.parse(localStorage.getItem("token-admin"))
         },
         body:EditformData
       }).then(res=>res.json())
-      .then(data=>setCar([...data]))
+      .then(data=>setCar(data))
 
 
    Navigater("/admin-page");
@@ -119,7 +121,9 @@ export default function EditCarDetails(){
             </div>:<div id="imgs-add-car-container">
                    
                    <div className="img-sort-box">
+
                       <img src={`https://car-rental-app-server.onrender.com/cars/${edit.image}`} id="preview-img-of-the-file" ></img>
+
                    </div>
                    
               </div>}
