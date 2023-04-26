@@ -14,7 +14,9 @@ export default function ExistBookings() {
    const TokenUser= JSON.parse(localStorage.getItem("token-user"))
     const userId=JSON.parse(localStorage.getItem("user-id"))
     useEffect(()=>{
-     fetch(`https://car-rental-app-server.onrender.com/orders/${userId}`)
+
+     fetch(`https://car-rental-app-wzan.onrender.com/orders/${userId}`)
+
         .then(res=>res.json())
         .then(data=>setBookData((data.data).reverse()))
     },[])
@@ -22,7 +24,9 @@ export default function ExistBookings() {
 
 
     function deleteCarData(id){
-        fetch(`https://car-rental-app-server.onrender.com/orders/${id}`, {
+
+        fetch(`https://car-rental-app-wzan.onrender.com/orders/${id}`, {
+
             method: 'DELETE',
             headers:{
                 "authorization":JSON.parse(localStorage.getItem("token-user"))
@@ -47,7 +51,7 @@ export default function ExistBookings() {
                         <p>My Booking </p>
                         <div className="bookings">
                             <div id="myimg" className="smallerDiv" >
-                                <img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} width="250px" />
+                                <img src={`https://car-rental-app-y59o.onrender.com/cars/${d.image}`} width="250px" />
                             </div>
 
                             <div id="toyota" className="smallerDiv">
