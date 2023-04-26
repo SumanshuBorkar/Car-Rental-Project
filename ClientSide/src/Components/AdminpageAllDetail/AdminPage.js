@@ -37,7 +37,7 @@ export default function AdminPage() {
                 car.map((d, i) => {
                     return <div key={i} id="car-container">
                         <div id="img-container">
-                          <Link to="/edit-car-details"><img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" onClick={()=>setEdit(d)}  /></Link>  
+                              <Link to="/edit-car-details"><img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" onClick={()=>setEdit(d)}  /></Link>
                         </div>
                         <div id="person-of-admin-page-in-my-page">6 person</div>
                         <div id="name-container-of-the-file-data">
