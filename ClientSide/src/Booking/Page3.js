@@ -9,14 +9,9 @@ import Home from '../Components/Home';
 
  function Page3(){
   const TokenUser= JSON.parse(localStorage.getItem("token-user"))
-    const {setheaderData}=useContext(CarContextDetails);
+    const {setheaderData,inputdata,setInputData}=useContext(CarContextDetails);
     const navigate = useNavigate();
-    const [inputdata, setInputData] = useState({
-        origin: "",
-        destination : "",
-        startDate:"",
-        endDate:""
-      });
+    
       const handleInput = ( e ) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -39,11 +34,11 @@ return(<>
 {TokenUser?<>
   <NavLogout/>
     <div id="parent" >
-    <h1 id="welcome">W E L C O M E</h1>
+    <h1 id="welcome">W E L C O M E !!</h1>
 <div id='container'>
 
 <h1 id="quote">"Don't Dream it,Drive it"</h1>
-<form id="forms" action="" onSubmit={save}>
+<form id="forms" onSubmit={save}>
 
   <input type="text" placeholder='Origin Name' className='Fields'
      name="origin"required onChange={handleInput}></input>

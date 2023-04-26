@@ -10,7 +10,7 @@ function UserSign () {
   const [inputdata, setInputData] = useState( {
     Name: "",
     email: "",
-    Contact: "",
+    contact: "",
     password: "",
     Confirm_Password: ""
   } );
@@ -75,7 +75,6 @@ const [err, setErr]= useState("")
             password: "",
             Confirm_Password: ""
           })
-          toast.success("Register SuceessFully");
         }
       });
  
@@ -97,7 +96,7 @@ const [err, setErr]= useState("")
           <input type="email" name="email" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Email' value={inputdata.email} />
 
           <label htmlFor="Contact">Contact</label>
-          <input type="tel" name="Contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.Contact}/>
+          <input type="tel" name="Contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.contact}/>
 
           <label htmlFor="password">Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='password' name='password' value={inputdata.password} />

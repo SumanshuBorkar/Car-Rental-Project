@@ -16,6 +16,13 @@ export default function CarContext({children}){
     const [bookingDetails , setBookingDetails] = useState([]);
     const [Bookdata, setBookData]= useState([])
 
+    const [inputdata, setInputData] = useState({
+        origin: "",
+        destination : "",
+        startDate:"",
+        endDate:""
+      });
+
 const [data, setData] = useState({
     name:"",
     type:"",
@@ -41,7 +48,7 @@ const [EditPaymentDetails , setEditPaymentDetails] = useState({})
 
     return<>
 
-     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData, CarData, setCarData, bookingDetails, setBookingDetails,Bookdata,setBookData,EditPaymentDetails , setEditPaymentDetails}}>
+     <CarContextDetails.Provider value={{car, setCar,data,setData,edit,setEdit,headerData,setheaderData, CarData, setCarData, bookingDetails, setBookingDetails,Bookdata,setBookData,EditPaymentDetails , setEditPaymentDetails,inputdata,setInputData}}>
         {children}
      </CarContextDetails.Provider>
     </>

@@ -4,6 +4,12 @@ const OrderSchema = mongoose.Schema({
     userId: {
         type: String,
     },
+    Details:{
+        type:String,
+    },
+    carDetails:{
+        type:String,
+    },
         name: {
             type: String,
            
