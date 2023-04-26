@@ -18,7 +18,7 @@ export default function EditPaymentDetails(){
 
     function editformsubmitFunc(e){
         e.preventDefault();
-        fetch(`http://localhost:5000/orders/${EditPaymentDetails._id}` , {
+        fetch(`https://car-rental-app-server.onrender.com/orders/${EditPaymentDetails._id}` , {
           method:"PATCH",
           headers:{
             "content-type":"application/json"
@@ -38,7 +38,7 @@ return<>
     <div id="edit-payment-details-block">
     <label>Car Name</label>
     <input type="text" className="edit-form-payment-details" name="name" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,name:e.target.value})} value={EditPaymentDetails.name}/><br/>
-    <img src={`http://localhost:5000/cars/${image}`} id="image-edit-payment-details-in-data"></img>
+    <img src={`https://car-rental-app-server.onrender.com/cars/${image}`} id="image-edit-payment-details-in-data"></img>
     <label>Car Type</label>
     <span className="name-of-the-span-css-for-payment-details">{}</span><br/>
     </div>

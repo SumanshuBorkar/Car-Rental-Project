@@ -46,7 +46,6 @@ try {
   try {
   const _id=req.params.id;
   const updatedData = await Orders.findByIdAndUpdate({_id},req.body,{new:true});
-  console.log(updatedData)
   res.status(201).send(updatedData)
 } catch (error) {
   res.status(400).send({message:error.message})
