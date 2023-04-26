@@ -16,7 +16,7 @@ export default function ExistBookings() {
     useEffect(()=>{
      fetch(`https://car-rental-app-server.onrender.com/orders/${userId}`)
         .then(res=>res.json())
-        .then(data=>setBookData(data.data))
+        .then(data=>setBookData((data.data).reverse()))
     },[])
     console.log(Bookdata)
 
@@ -33,8 +33,6 @@ export default function ExistBookings() {
             }
             return false
         })
-
-       
    
     }
   
@@ -53,7 +51,7 @@ export default function ExistBookings() {
                             </div>
 
                             <div id="toyota" className="smallerDiv">
-                                <h3> Car Name: {d.name}</h3>
+                                <h4 > Car Name: {d.name}</h4>
                                 <h5> Car Type: {d.type}</h5>
                                 <h6>Details: {d.Details}</h6>
                                 <h6>Car Details: {d.carDetails}</h6>

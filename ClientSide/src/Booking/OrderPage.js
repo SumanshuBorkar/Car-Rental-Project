@@ -44,13 +44,9 @@ if(e.target.id==="All"){
 } else if (milage.length!==0) {
   setFilterData(milage)
 }
-// setSelectBtn(false)
 }
 
-  // function AddCarBook(id){
-  // let ans = data.find(e=>e._id===id);
-  // setCarData(e=>[...e,ans])
-  // }
+  
 
 
  return(<>
