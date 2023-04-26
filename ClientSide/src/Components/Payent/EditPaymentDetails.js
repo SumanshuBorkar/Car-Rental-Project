@@ -18,7 +18,9 @@ export default function EditPaymentDetails(){
 
     function editformsubmitFunc(e){
         e.preventDefault();
-        fetch(`https://car-rental-app-y59o.onrender.com/orders/${EditPaymentDetails._id}` , {
+
+        fetch(`https://car-rental-app-wzan.onrender.com/orders/${EditPaymentDetails._id}` , {
+
           method:"PATCH",
           headers:{
             "content-type":"application/json"

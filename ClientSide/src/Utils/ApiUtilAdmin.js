@@ -1,4 +1,6 @@
-const API_ADMIN="https://car-rental-app-y59o.onrender.com"
+
+const API_ADMIN="https://car-rental-app-wzan.onrender.com"
+
 
 function addAdmin(AdminData){
     return fetch(`${API_ADMIN}/admin/signup`, {
