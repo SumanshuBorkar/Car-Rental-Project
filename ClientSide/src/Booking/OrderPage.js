@@ -20,7 +20,7 @@ function OrderPage(){
   const {CarData, setCarData} = useContext(CarContextDetails);
   let [data, setdata] = useState([])
   useEffect(() => {
-    fetch("http://localhost:5000/cars/",{
+    fetch("https://car-rental-app-wzan.onrender.com/cars/",{
       headers:{
         "authorization":JSON.parse(localStorage.getItem("token-user "))
     }
@@ -95,7 +95,7 @@ if(e.target.id==="All"){
             <Card className='card'>
 
               <div className="img">
-                <Card.Img src={`http://localhost:5000/cars/${d.image}`}/>
+                <Card.Img src={`https://car-rental-app-wzan.onrender.com/cars/${d.image}`}/>
               </div>
               <div id="cardBody">
                 <Card.Body>
@@ -126,7 +126,7 @@ if(e.target.id==="All"){
             <Card className='card'>
 
               <div className="img">
-                <Card.Img src={`http://localhost:5000/cars/${d.image}`}/>
+                <Card.Img src={`https://car-rental-app-wzan.onrender.com/cars/${d.image}`}/>
               </div>
               <div id="cardBody">
                 <Card.Body>
