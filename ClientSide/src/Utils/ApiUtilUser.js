@@ -1,4 +1,4 @@
-const API_USER="https://car-rental-app-server.onrender.com"
+const API_USER="https://car-rental-app-y59o.onrender.com"
 
 function addUser(UserData){
     return fetch(`${API_USER}/user/signup`, {
