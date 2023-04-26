@@ -15,7 +15,9 @@ export default function EditCarDetails(){
     function SubmitEditForm(e){
         e.preventDefault();
        const EditformData = new FormData(e.target)
+
       fetch(`https://car-rental-app-wzan.onrender.com/cars/${edit._id}` , {
+
         method:"PUT",
         headers:{
             "authorization":JSON.parse(localStorage.getItem("token-admin"))
@@ -119,7 +121,9 @@ export default function EditCarDetails(){
             </div>:<div id="imgs-add-car-container">
                    
                    <div className="img-sort-box">
+
                       <img src={`https://car-rental-app-wzan.onrender.com/cars/${edit.image}`} id="preview-img-of-the-file" ></img>
+
                    </div>
                    
               </div>}
