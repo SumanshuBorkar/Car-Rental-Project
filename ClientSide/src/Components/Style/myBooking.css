@@ -16,6 +16,19 @@ p{
     width:30%;
     
 }
+#btuunt-concle-in-exsist-Booking{
+    background-color: red;
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+}
+#btuunt-concle-in-exsist-Booking-edit{
+    background-color:green;
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+
+}
 
 #toyota>h5{
  color:rgb(112, 103, 103);

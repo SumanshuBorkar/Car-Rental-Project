@@ -10,6 +10,8 @@ import React,{useState, useEffect} from 'react';
 import { CarContextDetails } from '../Context/CarContext';
 import { useContext } from 'react';
 import {Link} from "react-router-dom"
+import "./../../src/Components/Style/cards.css";
+import "./../../src/Components/Style/filter.css"
 
 
 
