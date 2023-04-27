@@ -27,7 +27,7 @@ export default function EditCarDetails(){
       }).then(res=>res.json())
       .then(data=>setCar(e=>[...e,data]))
    Navigater("/admin-page");
-  
+
     }
     const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     return<>
