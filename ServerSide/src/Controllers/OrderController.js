@@ -4,7 +4,6 @@ const Orders = require('./../model/PlacedOrdersSchema');
 
 const orderRegisterCtrl = async (req, res) => {
   try{
-    console.log(req.body)
      let data = new Orders(req.body);
         let createData = await data.save();
         res.status(201).send(createData)

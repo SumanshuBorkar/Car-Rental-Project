@@ -52,7 +52,6 @@ const PostCars =  async(req, res)=>{
     try{
         if(req.headers.authorization){
             let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)//id  //
-            console.log(userVar);
             let data = new carDetails({image:req.file.filename,userId:userVar._id,...req.body});
             let createData = await data.save();
             res.status(201).send(createData)
