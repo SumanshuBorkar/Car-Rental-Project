@@ -59,7 +59,7 @@ const [err, setErr]= useState("")
     }
     else if ( Confirm_Password !== password )
     {
-      toast.error( "C is not Matching" )
+      toast.error( "password is not Matching" )
     }
     else
     {

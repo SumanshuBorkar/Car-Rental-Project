@@ -9,26 +9,25 @@ import Home from "../Home";
 
 
 export default function EditCarDetails(){
-    const {setCar,edit,setEdit } = useContext(CarContextDetails);
+    const {setCar,edit,setEdit,car } = useContext(CarContextDetails);
     const [file , setFile] = useState("");
     const Navigater = useNavigate();
     function SubmitEditForm(e){
         e.preventDefault();
        const EditformData = new FormData(e.target)
 
-      fetch(`https://car-rental-app.onrender.com/cars/${edit._id}` , {
-
+      fetch(`https://car-rental-app-server.onrender.com/cars/${edit._id}` , {
         method:"PUT",
+    
         headers:{
-            "authorization":JSON.parse(localStorage.getItem("token-admin"))
+            "authorization":JSON.parse(localStorage.getItem("token-admin")),
+            
         },
         body:EditformData
       }).then(res=>res.json())
-      .then(data=>setCar(data))
-
-
+      .then(data=>setCar(e=>[...e,data]))
    Navigater("/admin-page");
-   window.location.reload();
+  
     }
     const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     return<>
@@ -140,7 +139,7 @@ export default function EditCarDetails(){
          </div>
          <div className="input-gap-bottom " id="btn-cancle-add-detail-container">
              <button id="btn-cancle-add-detail" onClick={()=>Navigater("/admin-page")} >Cancel</button>
-             <button className="btn-Add-add-detail-ans-save" id="delete-btn-for-edit-page" onClick={()=>deleteCar(edit._id)}>Delete</button>
+             <button className="btn-Add-add-detail-ans-save" id="delete-btn-for-edit-page" onClick={()=>{deleteCar(edit._id);}}>Delete</button>
              <button className="btn-Add-add-detail-ans-save save-btn-details" >save</button>
         </div>
         

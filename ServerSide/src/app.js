@@ -3,14 +3,13 @@ const express = require("express")
 const app = express();
 const cors = require("cors")
 require("./db/connection")
-    
-app.use( cors())
 const CarRouter = require("./router/CarRouts")
 const UserRouter = require("./router/UserRouts")
 const AdminRouter = require("./router/AdminRouter")
 const OrderRouter = require("./router/OrderRouter")
 
 app.use(express.json())
+app.use(cors());
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
 
