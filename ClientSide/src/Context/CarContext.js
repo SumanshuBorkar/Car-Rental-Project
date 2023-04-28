@@ -38,13 +38,7 @@ const [data, setData] = useState({
 });
 const [EditPaymentDetails , setEditPaymentDetails] = useState({})
    
-    useEffect( ()=>{
-    GetCars()
-        .then(data=>setCar(data.reverse()))
 
-    // GetCar()    
-    },[]
-);
 
     return<>
 

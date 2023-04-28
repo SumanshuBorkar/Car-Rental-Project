@@ -6,6 +6,7 @@ const {GridFSBucket, MongoClient} = require("mongodb");
 const { model } = require( "mongoose" );
 const jwt = require("jsonwebtoken")
 const SECRATE_KEY = process.env.SECRATE_KEY
+const Admin = require("../model/AdminSchema");
 
 
 
@@ -52,7 +53,8 @@ const PostCars =  async(req, res)=>{
     try{
         if(req.headers.authorization){
             let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)//id  //
-            let data = new carDetails({image:req.file.filename,userId:userVar._id,...req.body});
+            console.log(userVar)
+            let data = new carDetails({image:req.file.filename,AdminId:userVar._id,...req.body});
             let createData = await data.save();
             res.status(201).send(createData)
         }else{
@@ -68,9 +70,9 @@ const PostCars =  async(req, res)=>{
 const putCarData = async(req,res)=>{
     try {
         if(req.headers.authorization){
-            let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
-           let _id =req.params.id;
-         let car= await carDetails.findOne({_id:_id});
+        let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
+        let _id =req.params.id;
+        let car= await carDetails.findOne({_id:_id});
          console.log(car)
          if(car){   
            if(userVar._id===car.userId){//tokan id === user id
@@ -99,7 +101,7 @@ const putCarData = async(req,res)=>{
 const deleteCarData =  async(req,res)=>{
     try{
     if(req.headers.authorization){
-        let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
+       let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
        let _id =req.params.id;
      let car= await carDetails.findOne({_id:_id});
      if(car){
@@ -109,7 +111,7 @@ const deleteCarData =  async(req,res)=>{
                     res.send(deletedata)
                 
           }else{
-           res.status(401).send({message:"you can`t update the post"})
+           res.status(401).send({message:"you can`t delete the post"})
           }
      }else{
        res.status(401).send({message:"Invalid Data"}) 
@@ -125,10 +127,29 @@ const deleteCarData =  async(req,res)=>{
 }
 
 
+
+const GetDataByAdminId = async(req,res)=>{
+    try{
+        const  AdminId= req.params.id;
+        console.log(AdminId)
+       if(req.headers.authorization){
+            const readData = await carDetails.find({AdminId:AdminId});
+            res.send(readData)
+        }
+    }catch(err){
+        res.status(400).json({message:err.message})
+    }
+}
+
+
+
+
+
 module.exports = {
     getImages,
     getCars,
     PostCars,
     putCarData,
-    deleteCarData
+    deleteCarData,
+    GetDataByAdminId
 };

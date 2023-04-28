@@ -27,9 +27,9 @@ const navigate= useNavigate();
   userId:userId
   };
 
-const pricekm =Math.floor(Math.random() * 100);
-const pricing = Math.floor(Math.random() * 10000);
-const Tax = Math.floor(Math.random() * 100);
+const pricekm =30 ;
+const pricing = 8956;
+const Tax = 90;
 const total=(pricekm+pricing+Tax)
   const Proceed = () => {
   

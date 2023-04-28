@@ -6,19 +6,34 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import "../Style/AdminPage.css"
 import AdminpageNav from "./AdminpageNav";
+import { useNavigate } from "react-router-dom";
 import Home from "../Home"
 
 export default function AdminPage() {
-    let [data, setData] = useState([])
-    
+   
+ const Navigater= useNavigate();
+ const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
     const {car , setCar ,setEdit} = useContext(CarContextDetails);
+    if (TokenAdmin){
+         
+    }else{
+
+    }
+    useEffect( ()=>{
+        if(!localStorage.getItem("token-admin")){
+           return Navigater("/")
+        }
+        GetCars()
+            .then(data=>setCar(data.reverse()))  
+        },[]
+    ); 
+   
     const adminName = JSON.parse(localStorage.getItem("name-admin"))
-    const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
+   
     console.log(adminName);
 
     console.log(car)
     return <>
-    {TokenAdmin?<>
     <AdminpageNav/>
     <div id="admin-page-main-home">
            
@@ -42,7 +57,7 @@ export default function AdminPage() {
                         <div id="person-of-admin-page-in-my-page">6 person</div>
                         <div id="name-container-of-the-file-data">
                             <h5>{d.name}</h5>
-                            <h5 id="milage-of-my-admin-page-details">{d.milage}</h5>
+                            <h5 id="milage-of-my-admin-page-details">{d.perKm}KM/RS</h5>
                         </div>
                         <hr />
                         <div id="date-container-of-the-file-data-date">
@@ -54,6 +69,6 @@ export default function AdminPage() {
             }
         </div>}
         </div>
-    </div></>:<Home/>}
+    </div>
     </>
 }
