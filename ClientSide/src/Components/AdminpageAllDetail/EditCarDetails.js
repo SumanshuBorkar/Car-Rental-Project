@@ -12,20 +12,27 @@ export default function EditCarDetails(){
     const {setCar,edit,setEdit,car } = useContext(CarContextDetails);
     const [file , setFile] = useState("");
     const Navigater = useNavigate();
-    function SubmitEditForm(e){
+
+ function SubmitEditForm(e){
         e.preventDefault();
        const EditformData = new FormData(e.target)
 
       fetch(`https://car-rental-app-server.onrender.com/cars/${edit._id}` , {
         method:"PUT",
-    
         headers:{
             "authorization":JSON.parse(localStorage.getItem("token-admin")),
             
         },
         body:EditformData
       }).then(res=>res.json())
-      .then(data=>setCar(e=>[...e,data]))
+      .then(data=>setCar(e=>{
+      return e.map(d=>{
+        if(d._id===data._id){
+            return data
+        }
+        return d;
+      })                    
+    }))
    Navigater("/admin-page");
 
     }

@@ -7,6 +7,7 @@ import "./../Components/Style/login.css"
 
 function UserSign () {
 
+  const [loder , setLoder] = useState(false);
   const [inputdata, setInputData] = useState( {
     Name: "",
     email: "",
@@ -23,6 +24,7 @@ function UserSign () {
 
 
 const [err, setErr]= useState("")
+
   // const navigate = useNavigate();
   const onSubmitData = async ( e ) => {
     e.preventDefault();
@@ -65,9 +67,12 @@ const [err, setErr]= useState("")
     {
       addUser(inputdata).then(data=>{
         if(data.status==="Failed"){
-          setErr("User Allready Exists")
+          setErr("User Email Id Allready Exists")
+          setLoder(false)
         }else if(data.status==="Success"){
           toast.success("Register Successfully");
+          setLoder(false)
+          setErr("")
           setInputData({
             Name: "",
             email: "",
@@ -104,7 +109,7 @@ const [err, setErr]= useState("")
           <label htmlFor="Confirm_Password">Confirm_Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' value={inputdata.Confirm_Password}/>
 
-          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn">Submit</button></div>
+          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn" onClick={()=>setLoder(true)}>{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
         </form>
         <ToastContainer
           position="top-center"

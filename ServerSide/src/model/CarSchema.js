@@ -38,7 +38,7 @@ const carSchema = mongoose.Schema({
     Details:{
         type:String
     },
-    userId:{
+   AdminId:{
         type:String
     }
 })

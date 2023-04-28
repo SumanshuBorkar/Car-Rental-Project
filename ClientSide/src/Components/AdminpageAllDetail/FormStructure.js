@@ -20,19 +20,19 @@ export default function FormStructure({data, setData}){
                         <select className="select-things" name="type" onChange={(e)=>setData({...data,type:e.target.value})} value={type}>
                            <option>select</option>
                             <option>UV</option>
-                            <option>YZ</option>
-                            <option>UVX</option>
+                            <option>XUV</option>
+                            <option>SUV</option>
+                            <option>Sedan</option>
+                            <option>Hatch-Back</option>
                         </select>
                    </div>
                         
                    <div>
+                   <div>
                     <label>Model</label><br/>
-                        <select className="select-things" name="model" onChange={(e)=>setData({...data,model:e.target.value})} value={model}>
-                           <option>select</option>
-                            <option>Maruti </option>
-                            <option>Honda</option>
-                            <option>mahindra</option>
-                        </select>
+                     <input type="text" placeholder="Model" className="select-things" name="model" onChange={(e)=>setData({...data,model:e.target.value})} value={model}/>                       
+                   </div>
+        
                    </div>
                        
                 
@@ -42,11 +42,11 @@ export default function FormStructure({data, setData}){
                     <label>Milage</label><br/>
                         <select className="select-things" name="milage" onChange={(e)=>setData({...data,milage:e.target.value})} value={milage}>
                            <option>Select</option>
-                           <option>200RS/KM</option>
-                            <option>300RS/KM</option>
-                            <option>230RS/KM</option>
-                            <option>250RS/KM</option>
-                            <option>210RS/KM</option>
+                           <option>20 Km/L</option>
+                            <option>14 Km/L</option>
+                            <option>15 Km/L</option>
+                            <option>18 Km/L</option>
+                            <option>10 Km/L</option>
                         </select>
                    </div>
                         

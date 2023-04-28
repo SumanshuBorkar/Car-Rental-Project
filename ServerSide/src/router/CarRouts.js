@@ -1,6 +1,6 @@
 const express =require("express");
 const Router = express.Router();
-const { getImages , getCars, PostCars, putCarData, deleteCarData} =  require("../Controllers/CarController");
+const { getImages , getCars, PostCars, putCarData, deleteCarData,  GetDataByAdminId} =  require("../Controllers/CarController");
 require("dotenv").config();
 const multer = require("multer");
 const {GridFsStorage} = require("multer-gridfs-storage");
@@ -36,9 +36,15 @@ Router
 .get(getCars)
 .post(middleware, PostCars )
 
+
+
 Router
 .route('/:id')
 .put(middleware,putCarData)
 .delete(deleteCarData)
+
+Router
+.route("/:id")
+.get(GetDataByAdminId)
 
 module.exports = Router;

@@ -10,11 +10,8 @@ export default function EditPaymentDetails(){
     const Navigate = useNavigate();
     const {EditPaymentDetails,setEditPaymentDetails ,setBookData } = useContext(CarContextDetails);
 
-    const {BookingId,date,time,image,name,Details,carDetails,type}= EditPaymentDetails
-    const pricekm =Math.floor(Math.random() * 100);
-    const pricing = Math.floor(Math.random() * 10000);
-    const Tax = Math.floor(Math.random() * 100);
-    const total=(pricekm+pricing+Tax)
+    const {BookingId,date,time,image,name,Details,carDetails,type ,pricing,pricekm,total,Tax}= EditPaymentDetails
+   
 
     function editformsubmitFunc(e){
         e.preventDefault();
@@ -70,11 +67,12 @@ return<>
 </div>
 <div id="form-rightside-edit-part-in-payment">
     <label>pricekm</label>
-    <span className="name-of-the-span-css-for-payment-details">{pricekm}/KM</span><br></br>
+
+    <span className="name-of-the-span-css-for-payment-details">30/KM</span><br></br>
     <label>pricing</label>
-    <span className="name-of-the-span-css-for-payment-details">{pricing}/RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">8956 RS</span><br></br>
     <label>tax charges</label>
-    <span className="name-of-the-span-css-for-payment-details">{Tax} RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">90 RS</span><br></br>
     <hr></hr>
     <label className="name-of-the-span-css-for-payment-details-total-subtotal">subTotal</label>
     <span className="name-of-the-span-css-for-payment-details-total">{total} RS</span><br></br>

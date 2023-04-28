@@ -10,8 +10,8 @@ import "./../Components/Style/login.css"
 function AdminLogin() {
 
   const Navigater = useNavigate();
-
-    const [inputdata, setInputData] = useState({
+  const [loder ,setLoder] = useState(false);
+  const [inputdata, setInputData] = useState({
         email: "",
         password: ""
       });
@@ -75,7 +75,7 @@ function AdminLogin() {
     <>
         <div className="container-of-login-form-in-my-side" id='form' >
       
-        <form action="post">
+        <form action="post" onSubmit={onSubmitData}>
         <h2 className='fom-name-in-login-form'>Admin Login</h2>
         <h6 style={{color:"red"}}>{error}</h6>
              <label htmlFor="email">Email</label>
@@ -84,7 +84,7 @@ function AdminLogin() {
 
              <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-            <div id="button-container-in-admin-login-page"> <button type='submit' onClick={onSubmitData} id="button-container-in-admin-login-page-btn-admin-login">Submit</button></div>
+            <div id="button-container-in-admin-login-page" > <button type='submit'  id="button-container-in-admin-login-page-btn-admin-login" onClick={()=>setLoder(true)}>{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
             </form>
             <ToastContainer
                position="top-center"

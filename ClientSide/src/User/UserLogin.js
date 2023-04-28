@@ -9,6 +9,7 @@ import "./../Components/Style/login.css"
 
 function UserLogin () {
 const {adminName} = useContext(CarContextDetails)
+const [loder , setLoder] = useState(false)
     const [inputdata, setInputData] = useState({
         email: "",
         password: ""
@@ -71,7 +72,7 @@ const [error , setError] = useState("");
         <>
             <div className="container-of-login-form-in-my-side"  id='form'>
            
-            <form action="post">
+            <form action="post" onSubmit={onSubmitData}>
             <h2 className='fom-name-in-login-form'>User Login</h2>
             <h6 style={{color:"red"}}>{error}</h6>
              <label htmlFor="email">Email</label>
@@ -80,7 +81,7 @@ const [error , setError] = useState("");
 
              <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-             <div id="button-container-in-admin-login-page">   <button type='submit' onClick={onSubmitData} id="button-container-in-admin-login-page-btn">Submit</button></div>
+             <div id="button-container-in-admin-login-page">   <button type='submit' onClick={()=>setLoder(true)} id="button-container-in-admin-login-page-btn">{loder?<div id= "loder-of-the-button-of-the-login-submit"></div> :"Submit"}</button></div>
             </form>
             <ToastContainer
                position="top-center"

@@ -33,7 +33,7 @@ const AdminLoginCtrl = expressAsyncHandler(async (req, res) => {
             let matchPass = await bcrypt.compare(req.body.password, user.password)//true
             if(matchPass){
               const token = await jwt.sign({_id:user._id}, SECRATE_KEY);
-              res.status(200).send({status:"Successfully login" , token:token , name:user.Name})
+              res.status(200).send({status:"Successfully login" , token:token , name:user.Name, AdminId:user._id})
             }else{
                 res.status(401).send({ status:"fail", message:"User Details Not Match"})
             }

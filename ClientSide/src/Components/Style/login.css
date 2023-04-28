@@ -36,3 +36,16 @@
     border-radius: 12px;
     margin-top: 30px;
 }
+#loder-of-the-button-of-the-login-submit{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: 5px solid ;
+    border-top: 5px solid rgb(228, 133, 9);
+    margin-left: 25px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

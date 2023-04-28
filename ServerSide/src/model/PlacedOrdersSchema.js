@@ -10,7 +10,7 @@ const OrderSchema = mongoose.Schema({
     carDetails:{
         type:String,
     },
-        name: {
+    name: {
             type: String,
            
         },
@@ -57,6 +57,18 @@ const OrderSchema = mongoose.Schema({
           
         },carId:{
             type:String
+        },
+        pricekm:{
+            type:Number
+        },
+        pricing:{
+            type:Number
+        },
+        Tax:{
+            type:Number
+        },
+        total:{
+            type:Number
         }
     
 })

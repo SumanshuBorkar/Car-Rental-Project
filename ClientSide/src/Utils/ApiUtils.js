@@ -3,7 +3,7 @@ const API_BASE_URL= 'https://car-rental-app-server.onrender.com';
 
 
 function GetCars(){
-  return fetch(`${API_BASE_URL}/cars`,{
+  return fetch(`http://localhost:5000/cars`,{
     headers:{
         "authorization":JSON.parse(localStorage.getItem("token-admin"))
     }
