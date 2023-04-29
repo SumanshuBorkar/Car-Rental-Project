@@ -17,10 +17,12 @@ function AdminLogin() {
       });
       
       const handleEmailChange = (e) => {
+        setError("")
         setInputData({...inputdata, email: e.target.value});
       }
       
       const handlePasswordChange = (e) => {
+        setError("")
         setInputData({...inputdata, password: e.target.value});
       }
       const [error ,setError] = useState("")
@@ -49,6 +51,7 @@ function AdminLogin() {
             toast.error("password is too Long")
         }
         else{
+          setLoder(true)
 
            fetch("https://car-rental-app-server.onrender.com/admin/login" ,{
 
@@ -64,6 +67,7 @@ function AdminLogin() {
               localStorage.setItem("Admin-Id" , JSON.stringify(res.AdminId))
               Navigater("/admin-page")
             }else if(res.status==="fail"){
+              setLoder(false)
               setError("Admin Details Not Match")
             }
           })
@@ -85,7 +89,7 @@ function AdminLogin() {
 
              <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-            <div id="button-container-in-admin-login-page" > <button type='submit'  id="button-container-in-admin-login-page-btn-admin-login" onClick={()=>setLoder(true)}>{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
+            <div id="button-container-in-admin-login-page" > <button type='submit'  id="button-container-in-admin-login-page-btn-admin-login" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
             </form>
             <ToastContainer
                position="top-center"
