@@ -84,17 +84,14 @@ if(e.target.id==="All"){
          </div>:null}
          </div>     
       </div>
-
-
-
- {filterData&& selectBtn?filterData.length===0? "No Result Found": <div id="carCard">{
+{filterData&& selectBtn?filterData.length===0? "No Result Found": <div id="carCard">{
         filterData.map((d, i) => {
           return <div key={i}>
             <Card className='card'>
 
               <div className="img">
 
-                <Card.Img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`}/>
+                <Card.Img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="img-for-the-car-detail-order-page"/>
 
               </div>
               <div id="cardBody">
@@ -105,7 +102,7 @@ if(e.target.id==="All"){
 
                   <div id="name-container">
                     <Card.Text id="name" >6 persons</Card.Text>
-                    <Card.Text id="milage" >{d.milage}</Card.Text>
+                    <Card.Text id="milage" >{d.perKm}RS/KM</Card.Text>
                   </div>
                 </Card.Body>
 

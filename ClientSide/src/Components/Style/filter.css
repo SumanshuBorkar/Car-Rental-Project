@@ -32,7 +32,7 @@ padding-left: 45px;
 
 #car-type-filter-in-booking-page{
 background-color: rgb(236, 229, 229);
-
+/* position: absolute; */
 height: auto;
 padding: 3px;
 margin-left: 20px;

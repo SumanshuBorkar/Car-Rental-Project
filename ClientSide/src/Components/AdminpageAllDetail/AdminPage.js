@@ -16,11 +16,7 @@ export default function AdminPage() {
     const [err , setErr] = useState("");
     const [ok , setOk] = useState("");
     const {car , setCar ,setEdit} = useContext(CarContextDetails);
-    if (TokenAdmin){
-         
-    }else{
-
-    }
+ 
     useEffect( ()=>{
         if(!localStorage.getItem("token-admin")){
            return Navigater("/")

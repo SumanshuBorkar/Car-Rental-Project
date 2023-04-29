@@ -18,6 +18,7 @@ const navigate= useNavigate();
   const BookingId= new Date().getTime();
   const Object ={name:CarData.name,
     model:CarData.model,
+    perKm:CarData.perKm,
     milage:CarData.milage,
     image:CarData.image,
     type:CarData.type,
@@ -27,10 +28,9 @@ const navigate= useNavigate();
   userId:userId
   };
 
-const pricekm =30 ;
 const pricing = 8956;
 const Tax = 90;
-const total=(pricekm+pricing+Tax)
+const total=(pricing+Tax)
   const Proceed = () => {
   
 
@@ -117,7 +117,7 @@ navigate("/ExistBookings")
                <li className='name-of-the-page-payment-of-the-car'>Tax Charges</li>
            </div>
            <div className="data-gogog">
-               <li className='ans-of-the-file-payment-in-data-of-file'>{pricekm}/KM</li>
+               <li className='ans-of-the-file-payment-in-data-of-file'>{CarData.perKm}RS/KM</li>
                <li className='ans-of-the-file-payment-in-data-of-file'>{pricing} RS</li>
                <li className='ans-of-the-file-payment-in-data-of-file'>{Tax} RS</li>
            </div>
