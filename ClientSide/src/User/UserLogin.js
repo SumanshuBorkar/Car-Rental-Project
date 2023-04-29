@@ -16,10 +16,12 @@ const [loder , setLoder] = useState(false)
       });
       
       const handleEmailChange = (e) => {
+        setError("")
         setInputData({...inputdata, email: e.target.value});
       }
       
       const handlePasswordChange = (e) => {
+        setError("")
         setInputData({...inputdata, password: e.target.value});
       }
 
@@ -46,8 +48,8 @@ const [error , setError] = useState("");
             toast.error("password is too Long")
         }
         else{
-
-
+          setLoder(true)
+            
           fetch("https://car-rental-app-server.onrender.com/user/login" ,{
 
             method:"POST",
@@ -61,7 +63,9 @@ const [error , setError] = useState("");
               localStorage.setItem("user-id" , JSON.stringify(res.userId))
               navigate("/orderpage/page3")
             }else if(res.status==="fail"){
-                setError("User Details Not Match")
+              setLoder(false)
+              setError("User Details Not Match")
+            
             }
           })
         }
@@ -81,7 +85,7 @@ const [error , setError] = useState("");
 
              <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-             <div id="button-container-in-admin-login-page">   <button type='submit' onClick={()=>setLoder(true)} id="button-container-in-admin-login-page-btn">{loder?<div id= "loder-of-the-button-of-the-login-submit"></div> :"Submit"}</button></div>
+             <div id="button-container-in-admin-login-page">   <button type='submit'  id="button-container-in-admin-login-page-btn">{loder?<div id= "loder-of-the-button-of-the-login-submit"></div> :"Submit"}</button></div>
             </form>
             <ToastContainer
                position="top-center"

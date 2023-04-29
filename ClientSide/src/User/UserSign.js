@@ -65,6 +65,7 @@ const [err, setErr]= useState("")
     }
     else
     {
+      setLoder(true);
       addUser(inputdata).then(data=>{
         if(data.status==="Failed"){
           setErr("User Email Id Allready Exists")
@@ -109,7 +110,7 @@ const [err, setErr]= useState("")
           <label htmlFor="Confirm_Password">Confirm_Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' value={inputdata.Confirm_Password}/>
 
-          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn" onClick={()=>setLoder(true)}>{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
+          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
         </form>
         <ToastContainer
           position="top-center"
