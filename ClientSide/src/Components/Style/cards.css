@@ -1,8 +1,4 @@
-.card{
-    width: 15rem ;
-   box-shadow: 3px 3px 3px 3px hsl(0, 4%, 18%);
-   height: 18rem;
-   }
+
    #carCard{
     position: relative;
        padding-left: 100px;
@@ -13,7 +9,15 @@
        width:100%;
        gap:50px;
        background-color:rgba(214, 214, 223, 0.995);
+       padding-bottom: 40px;
    }
+#card-of-the-order-page-i-make-this{
+height: 200px;
+width: 200px;
+background-color: aliceblue;
+border-radius: 10px;
+box-shadow: 3px 3px 10px black;
+}
 #cardBodys{
        display: flex;
        flex-wrap: wrap;
@@ -57,16 +61,20 @@
        margin-left:0 ;
        position: relative;
        top:45px;
-       border: 1px solid rgb(185, 178, 178);
+       /* border: 1px solid rgb(185, 178, 178); */
        border-radius: 5px;
        width:100px;
        
    }
    #milage{
-       margin-left:120px;
-       border: 1px solid rgb(191, 180, 180);
+       margin-left:110px;
+       /* border: 1px solid rgb(191, 180, 180); */
        width:max-content;
        border-radius: 5px;
+       margin-top: 10px;
+   }
+   #book-now-of-the-car{
+    color: aliceblue;
    }
    
    #seater{
@@ -74,7 +82,10 @@
        height: 30px;
    }
    #booking{
-       width:15rem;
+       width:100%;
+       margin-top: 10px;
+       display: flex;
+       justify-content: space-between;
        height: 30px;
        border: 1px solid rgb(178, 172, 172);
        position: relative;
@@ -87,13 +98,14 @@
    }
    #book{
     margin-top: -25px;
-       color: rgb(224, 231, 237);
+       color: rgb(5, 18, 29);
    }
-   .img-odf-the-car-image{
-    /* width: 100%; */
-    height: 50px;
+   .img-of-te-car-details-order{
+    width: 100%;
+    height: 100px;
+    text-align: center;
    }
-   #img-for-the-car-detail-order-page{
+   #img-of-the-car-order{
 height: 100%;
    }
    

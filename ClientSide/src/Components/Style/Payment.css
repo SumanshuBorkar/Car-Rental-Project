@@ -112,8 +112,9 @@
 .payment{
     border: 1px solid;
     width: 30%;
-    height: 100%;
+    height: auto;
     padding: 30px;
+    padding-bottom: 40px;
     color: black;
     border-radius: 30px;
     background-color: rgb(5, 5, 60);
