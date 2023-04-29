@@ -53,7 +53,6 @@ const PostCars =  async(req, res)=>{
     try{
         if(req.headers.authorization){
             let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)//id  //
-            console.log(userVar)
             let data = new carDetails({image:req.file.filename,AdminId:userVar._id,...req.body});
             let createData = await data.save();
             res.status(201).send(createData)
@@ -73,9 +72,8 @@ const putCarData = async(req,res)=>{
         let userVar = jwt.verify(req.headers.authorization, SECRATE_KEY)
         let _id =req.params.id;
         let car= await carDetails.findOne({_id:_id});
-         console.log(car)
          if(car){   
-           if(userVar._id===car.userId){//tokan id === user id
+           if(userVar._id===car.AdminId){//tokan id === user id
                     if(req.file){
                         let updateData = await carDetails.findByIdAndUpdate(_id,{image:req.file.filename,...req.body},{new:true});
                         res.send(updateData)
@@ -105,7 +103,7 @@ const deleteCarData =  async(req,res)=>{
        let _id =req.params.id;
      let car= await carDetails.findOne({_id:_id});
      if(car){
-       if(userVar._id===car.userId){//tokan id === user id
+       if(userVar._id===car.AdminId){//tokan id === user id
         
                     let deletedata = await carDetails.findByIdAndDelete(_id);
                     res.send(deletedata)
@@ -131,7 +129,6 @@ const deleteCarData =  async(req,res)=>{
 const GetDataByAdminId = async(req,res)=>{
     try{
         const  AdminId= req.params.id;
-        console.log(AdminId)
        if(req.headers.authorization){
             const readData = await carDetails.find({AdminId:AdminId});
             res.send(readData)
