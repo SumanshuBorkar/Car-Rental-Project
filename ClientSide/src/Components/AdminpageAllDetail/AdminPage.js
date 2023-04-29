@@ -10,9 +10,11 @@ import { useNavigate } from "react-router-dom";
 import Home from "../Home"
 
 export default function AdminPage() {
-   
- const Navigater= useNavigate();
- const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
+    const AdminId = JSON.parse(localStorage.getItem("Admin-Id"));
+    const Navigater= useNavigate();
+    const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
+    const [err , setErr] = useState("");
+    const [ok , setOk] = useState("");
     const {car , setCar ,setEdit} = useContext(CarContextDetails);
     if (TokenAdmin){
          
@@ -47,12 +49,30 @@ export default function AdminPage() {
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open>
          <CircularProgress color="inherit" />
-      </Backdrop>: <div id="main-container">
+      </Backdrop>: <>
+     {err&& <div id="display-message-on-the-admin-pag-for-the-err">{err} <span 
+      onClick={()=>{setErr("");
+      setOk("")
+    }} id="button-ok-for-th-delee-things">{ok}</span></div>}
+      <div id="main-container">
             {
                 car.map((d, i) => {
-                    return <div key={i} id="car-container">
+                    return<> <div key={i} id="car-container">
                         <div id="img-container">
-                              <Link to="/edit-car-details"><img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" onClick={()=>setEdit(d)}  /></Link>
+                              <img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" 
+                              onClick={()=>{
+                                if(AdminId!==d.AdminId){
+                                    console.log(d.AdminId)
+                                  setErr("You Don`t Have Access To Edit This Details");
+                                  setOk("OK")
+                                }
+                                else{
+                                    console.log(d.AdminId)
+                                    setEdit(d);
+                                    Navigater("/edit-car-details")
+                                }
+                                
+                                }}  />
                         </div>
                         <div id="person-of-admin-page-in-my-page">6 person</div>
                         <div id="name-container-of-the-file-data">
@@ -62,12 +82,14 @@ export default function AdminPage() {
                         <hr />
                         <div id="date-container-of-the-file-data-date">
                         <span id="available-date-of-sata-of-the-page">Available Date</span>
-                        <span id="date-avalable-from-till-data-of-the-admin-page">{d.avalableFrom.slice(5)}-{d.availableTill.slice(5)}</span>
+                        <span id="date-avalable-from-till-data-of-the-admin-page">{d.avalableFrom.split("-").reverse().join("/").slice(0,5)}-{d.availableTill.split("-").reverse().join("/").slice(0,5)}</span>
                         </div>
                  </div>
-                })
-            }
-        </div>}
+                 </>   })
+             }
+        </div>
+        </>
+        }
         </div>
     </div>
     </>

@@ -60,7 +60,8 @@ function AdminLogin() {
           }).then(res=>res.json()).then(res=>{
             if(res.status==="Successfully login"){
               localStorage.setItem("token-admin" , JSON.stringify(res.token));
-              localStorage.setItem("name-admin" , JSON.stringify(res.name))
+              localStorage.setItem("name-admin" , JSON.stringify(res.name));
+              localStorage.setItem("Admin-Id" , JSON.stringify(res.AdminId))
               Navigater("/admin-page")
             }else if(res.status==="fail"){
               setError("Admin Details Not Match")

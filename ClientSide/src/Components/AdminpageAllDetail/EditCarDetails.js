@@ -37,6 +37,7 @@ export default function EditCarDetails(){
 
     }
     const TokenAdmin= JSON.parse(localStorage.getItem("token-admin"))
+    const AdminId = JSON.parse(localStorage.getItem("Admin-Id"));
     return<>
  {TokenAdmin?<><AdminpageNav/>
    <div id="form-main-container-and-main-block" >
