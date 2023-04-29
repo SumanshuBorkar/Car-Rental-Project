@@ -55,20 +55,17 @@ export default function EditCarDetails(){
                     <label>Type</label><br/>
                         <select className="select-things" name="type" onChange={(e)=>setEdit({...edit,type:e.target.value})} value={edit.type}>
                            <option>select</option>
-                            <option>UV</option>
-                            <option>YZ</option>
-                            <option>UVX</option>
+                           <option>UV</option>
+                            <option>XUV</option>
+                            <option>SUV</option>
+                            <option>Sedan</option>
+                            <option>Hatch-Back</option>
                         </select>
                    </div>
                         
                    <div>
                     <label>Model</label><br/>
-                        <select className="select-things" name="model" onChange={(e)=>setEdit({...edit,model:e.target.value})} value={edit.model}>
-                           <option>select</option>
-                            <option>Maruti </option>
-                            <option>Honda</option>
-                            <option>mahindra</option>
-                        </select>
+                        <input type="text" placeholder="Model" className="select-things" name="model" onChange={(e)=>setEdit({...edit,model:e.target.value})} value={edit.model}/>                       
                    </div>
                        
                 
@@ -78,11 +75,11 @@ export default function EditCarDetails(){
                     <label>Milage</label><br/>
                         <select className="select-things" name="milage" onChange={(e)=>setEdit({...edit,milage:e.target.value})} value={edit.milage}>
                            <option>Select</option>
-                           <option>200RS/KM</option>
-                            <option>300RS/KM</option>
-                            <option>230RS/KM</option>
-                            <option>250RS/KM</option>
-                            <option>210RS/KM</option>
+                           <option>20Km/L</option>
+                            <option>14Km/L</option>
+                            <option>15Km/L</option>
+                            <option>18Km/L</option>
+                            <option>10Km/L</option>
                         </select>
                    </div>
                         

@@ -42,11 +42,11 @@ export default function FormStructure({data, setData}){
                     <label>Milage</label><br/>
                         <select className="select-things" name="milage" onChange={(e)=>setData({...data,milage:e.target.value})} value={milage}>
                            <option>Select</option>
-                           <option>20 Km/L</option>
-                            <option>14 Km/L</option>
-                            <option>15 Km/L</option>
-                            <option>18 Km/L</option>
-                            <option>10 Km/L</option>
+                           <option>20Km/L</option>
+                            <option>14Km/L</option>
+                            <option>15Km/L</option>
+                            <option>18Km/L</option>
+                            <option>10Km/L</option>
                         </select>
                    </div>
                         

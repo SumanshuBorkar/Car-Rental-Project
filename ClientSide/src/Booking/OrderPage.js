@@ -62,36 +62,41 @@ if(e.target.id==="All"){
   <div>
          <button onClick={()=>setSelectBtn(false)} onDoubleClick={()=>setSelectBtn(true)} id="button-of-the-filete-the-data-in-bookin-page">CarType</button>
          {selectBtn?<div id="car-type-filter-in-booking-page">
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="UV" /><label>UV</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="XUV"/><label>XUV</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="All"/><label>All</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="UV" /><label>UV</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="XUV"/><label>XUV</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="All"/><label>All</label><br/>
          </div>:null}
    </div>
    <div>
          <button onClick={()=>setSelectSeating(false)} onDoubleClick={()=>setSelectSeating(true)} id="button-of-the-filete-the-data-in-bookin-page">Seating</button>
          {selectSeating?<div id="car-type-filter-in-booking-page">
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="UV" /><label>6 person</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="XUV"/><label>9 person</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="All"/><label>4 person</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="UV" /><label>6 person</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="XUV"/><label>9 person</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="All"/><label>4 person</label><br/>
          </div>:null}
   </div>
   <div>
          <button onClick={()=>setMilageSelect(false)} onDoubleClick={()=>setMilageSelect(true)} id="button-of-the-filete-the-data-in-bookin-page">Milage</button>
          {milageSelect?<div id="car-type-filter-in-booking-page">
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="200RS/KM" /><label>200RS/KM</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="250RS/KM"/><label>250RS/KM</label><br/>
-         <input type="checkbox" className='checkbox-in-filter-in-cartype' onClick={filterFunc} id="300RS/KM"/><label>300RS/KM</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="20Km/L" /><label>20Km/L</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="14Km/L"/><label>14Km/L</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="14Km/L"/><label>15Km/L</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="18Km/L"/><label>18Km/L</label><br/>
+         <input type="checkbox" className='checkbox-in-filter-in-cartype' onChange={filterFunc} id="10Km/L"/><label>10Km/L</label><br/>
          </div>:null}
          </div>     
       </div>
-{filterData&& selectBtn?filterData.length===0? "No Result Found": <div id="carCard">{
+
+
+
+ {filterData.length>0?filterData.length===0? "No Result Found": <div id="carCard">{
         filterData.map((d, i) => {
           return <div key={i}>
             <Card className='card'>
 
               <div className="img">
 
-                <Card.Img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="img-for-the-car-detail-order-page"/>
+                <Card.Img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`}/>
 
               </div>
               <div id="cardBody">
@@ -102,7 +107,7 @@ if(e.target.id==="All"){
 
                   <div id="name-container">
                     <Card.Text id="name" >6 persons</Card.Text>
-                    <Card.Text id="milage" >{d.perKm}RS/KM</Card.Text>
+                    <Card.Text id="milage" >{d.milage}</Card.Text>
                   </div>
                 </Card.Body>
 
