@@ -4,6 +4,7 @@
    height: 18rem;
    }
    #carCard{
+    position: relative;
        padding-left: 100px;
        padding-top: 40px;
        display: flex;
@@ -90,7 +91,7 @@
    }
    .img-odf-the-car-image{
     /* width: 100%; */
-    height: 10px;
+    height: 50px;
    }
    #img-for-the-car-detail-order-page{
 height: 100%;
