@@ -93,24 +93,20 @@ const [err, setErr]= useState("")
       <div className="container-of-login-form-in-my-side" id='form'>
       
         <form onSubmit={onSubmitData}>
-        <h2 className='fom-name-in-login-form'>User SignUp</h2>
+        <h4 className='fom-name-in-login-form'>Resister Your Account</h4>
         <h6 style={{color:"red"}}>{err}</h6>
-          <label htmlFor="Name">Name</label>
           <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Name'  value={inputdata.Name}/>
 
-          <label htmlFor="email">Email</label>
           <input type="email" name="email" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Email' value={inputdata.email} />
 
-          <label htmlFor="contact">Contact</label>
           <input type="tel" name="contact" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Contact' value={inputdata.contact}/>
 
-          <label htmlFor="password">Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='password' name='password' value={inputdata.password} />
 
-          <label htmlFor="Confirm_Password">Confirm_Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={handleInput} placeholder='Confirm Password' name='Confirm_Password' value={inputdata.Confirm_Password}/>
 
-          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
+          <div id="button-container-in-admin-login-page"> <button type='submit' id="button-container-in-admin-login-page-btn" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Register"}</button></div>
+
         </form>
         <ToastContainer
           position="top-center"
@@ -120,7 +116,7 @@ const [err, setErr]= useState("")
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
-          theme="dark"
+          theme="light"
         />
       </div>
     </>
