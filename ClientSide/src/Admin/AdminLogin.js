@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { json, Navigate } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import "./../Components/Style/login.css"
+import AdminSign from './AdminSign';
 
 
 function AdminLogin() {
@@ -81,15 +82,13 @@ function AdminLogin() {
         <div className="container-of-login-form-in-my-side" id='form' >
       
         <form action="post" onSubmit={onSubmitData}>
-        <h2 className='fom-name-in-login-form'>Admin Login</h2>
+        <h4 className='fom-name-in-login-form'>Login Admin Account</h4><br></br>
         <h6 style={{color:"red"}}>{error}</h6>
-             <label htmlFor="email">Email</label>
              <input type="email" name="email" onChange={handleEmailChange} placeholder='Email'  className='login-admin-the-css-for-form'/>
 
-
-             <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-            <div id="button-container-in-admin-login-page" > <button type='submit'  id="button-container-in-admin-login-page-btn-admin-login" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"Submit"}</button></div>
+            <div id="button-container-in-admin-login-page" > <button type='submit'  id="button-container-in-admin-login-page-btn-admin-login" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div>:"SIGN IN"}</button></div>
+       
             </form>
             <ToastContainer
                position="top-center"
@@ -99,7 +98,7 @@ function AdminLogin() {
                closeOnClick
                rtl={false}
                pauseOnFocusLoss
-               theme="dark"
+               theme="light"
             />
         </div>
     </>

@@ -89,24 +89,21 @@ const [loder,setLoder] = useState(false)
       <div className="container-of-login-form-in-my-side"  id='form'>
  
         <form onSubmit={onSubmitData}>
-        <h2 className='fom-name-in-login-form'>Admin SignUp</h2>
+        <h4 className='fom-name-in-login-form'>Resister Admin Account</h4>
         <h6 style={{color:"red"}}>{err}</h6>
-        <label >Name</label>
+
           <input type="text" name="Name" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,Name:e.target.value})} value={inputdata.Name} placeholder='Name' />
 
-          <label >Email</label>
           <input type="email" name="email" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,email:e.target.value})} value={inputdata.email} placeholder='Email' />
 
-          <label >Contact</label>
           <input type="tel" name="contact" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,contact:e.target.value})} value={inputdata.contact} placeholder='Contact' />
 
-          <label>Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,password:e.target.value})} value={inputdata.password} placeholder='password' name='password' />
 
-          <label >Confirm_Password</label>
           <input type="password" className='login-admin-the-css-for-form' onChange={e=>setInputData({...inputdata,Confirm_Password:e.target.value})} value={inputdata.Confirm_Password} placeholder='Confirm Password' name='Confirm_Password' />
 
-          <div id="button-container-in-admin-login-page">  <button type='submit' id="button-container-in-admin-login-page-btn" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div> :"Submit"}</button></div>
+          <div id="button-container-in-admin-login-page">  <button type='submit' id="button-container-in-admin-login-page-btn" >{loder?<div id="loder-of-the-button-of-the-login-submit"></div> :"Register"}</button></div>
+       
         </form>
         <ToastContainer
           position="top-center"
@@ -116,7 +113,7 @@ const [loder,setLoder] = useState(false)
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
-          theme="dark"
+          theme="light"
         />
       </div>
     </>

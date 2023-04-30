@@ -77,15 +77,15 @@ const [error , setError] = useState("");
             <div className="container-of-login-form-in-my-side"  id='form'>
            
             <form action="post" onSubmit={onSubmitData}>
-            <h2 className='fom-name-in-login-form'>User Login</h2>
+            <h4 className='fom-name-in-login-form'>Login Your Acount</h4><br></br>
             <h6 style={{color:"red"}}>{error}</h6>
-             <label htmlFor="email">Email</label>
+    
              <input type="email" name="email" onChange={handleEmailChange} placeholder='Email' className='login-admin-the-css-for-form'  />
 
 
-             <label htmlFor="password">Password</label>
              <input type="password" onChange={handlePasswordChange} placeholder='password' className='login-admin-the-css-for-form'/>
-             <div id="button-container-in-admin-login-page">   <button type='submit'  id="button-container-in-admin-login-page-btn">{loder?<div id= "loder-of-the-button-of-the-login-submit"></div> :"Submit"}</button></div>
+             <div id="button-container-in-admin-login-page">   <button type='submit'  id="button-container-in-admin-login-page-btn">{loder?<div id= "loder-of-the-button-of-the-login-submit"></div> :"SIGN IN"}</button></div>
+           
             </form>
             <ToastContainer
                position="top-center"
