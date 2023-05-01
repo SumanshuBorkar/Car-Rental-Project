@@ -67,7 +67,7 @@ export default function ExistBookings() {
                                 <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{d.endDate}</span></div>
                             </div>
                             <div className="smallerDiv">
-                            <img src={headerData.MapImg} alt="map is unable to render" />
+                            <img src={d.MapImg} alt="map is unable to render" id="Abcdefghijklmn"/>
                             </div>
 
                             <div className="smallerDiv">

@@ -64,3 +64,11 @@ height: 100%;
     color: rgb(159, 157, 157);
     margin-left: 10px;
 }
+#Abcdefghijklmn{
+    width: 100%;
+    height: 100%;
+}
+#map-of-the-edit-payment-details{
+    position: absolute;
+    right: 0px;
+}

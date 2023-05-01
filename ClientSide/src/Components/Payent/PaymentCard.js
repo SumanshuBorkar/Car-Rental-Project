@@ -1,9 +1,7 @@
 import React from 'react'
 import './../Style/Payment.css'
-// import gogo from './../images/Logo.png'
 import { CarContextDetails } from '../../Context/CarContext'
 import { useContext } from 'react'
-// import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import Map from "../Map";
 
@@ -17,36 +15,44 @@ const navigate= useNavigate();
   const date= new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString();
   const BookingId= new Date().getTime();
-  const Object ={name:CarData.name,
-    model:CarData.model,
-    milage:CarData.milage,
-    image:CarData.image,
-    type:CarData.type,
-    Details:CarData.Details,
-    carDetails:CarData.carDetails,
-    ...headerData,date:date,time:time,BookingId:BookingId,
-  userId:userId
+  const Object ={
+  name:CarData.name,
+  model:CarData.model,
+  milage:CarData.milage,
+  image:CarData.image,
+  type:CarData.type,
+  Details:CarData.Details,
+  carDetails:CarData.carDetails,
+  date:date,time:time,BookingId:BookingId,
+  userId:userId,
+  distance:headerData.distance,
+  MapImg:headerData.MapImg,
+  destination:headerData.destination,
+  origin:headerData.origin,
+  startDate:headerData.startDate,
+  endDate:headerData.endDate
   };
-
-const Distance = headerData.distance
-const pricing = (CarData.milage.split("R")[0])*1;
-const Subtotal=(pricing*(Distance));
-const Tax = (pricing*(headerData.distance))*0.20;
+console.log(headerData)
+const Distance = parseInt(headerData.distance);
+const pricing = parseInt(CarData.perKm)
+const Subtotal=(pricing*Distance);
+const Tax = parseInt((Subtotal)*0.20);
 const total = Subtotal+Tax;
+console.log(Distance,pricing,Subtotal,Tax,total)
 const Proceed = () => {
   
 
-   fetch("https://car-rental-app.onrender.com/orders",{
-    method:"post",
-    headers:{
-      "content-type":"application/json"
-    },
-    body:JSON.stringify(Object)
+   fetch("http://localhost:5000/orders",{
+   method:"POST",
+   headers:{
+    "content-type":"application/json"
+   },
+   body:JSON.stringify(Object)
    }).then(res=>res.json())
    .then(data=>console.log(data));
 
 
-// navigate("/ExistBookings")
+navigate("/ExistBookings")
 
   };
    
@@ -66,7 +72,7 @@ const Proceed = () => {
                    <li className='ans-of-the-file-payment-in-data-of-file'>{CarData.model}</li>
                </div>
                <div className="image-of-car-in-rental-payment">
-                   <img src={`https://car-rental-app.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
+                   <img src={`https://car-rental-app-server.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
                </div>
             </div>
           </div>

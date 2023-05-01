@@ -69,6 +69,11 @@ const OrderSchema = mongoose.Schema({
         },
         total:{
             type:Number
+        },distance:{
+            type:Number
+        },
+        MapImg:{
+            type:String
         }
     
 })
