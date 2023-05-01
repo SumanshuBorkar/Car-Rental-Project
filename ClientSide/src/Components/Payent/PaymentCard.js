@@ -42,7 +42,7 @@ console.log(Distance,pricing,Subtotal,Tax,total)
 const Proceed = () => {
   
 
-   fetch("http://localhost:5000/orders",{
+   fetch("https://car-rental-app-server.onrender.com/orders",{
    method:"POST",
    headers:{
     "content-type":"application/json"
