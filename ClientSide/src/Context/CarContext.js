@@ -1,5 +1,4 @@
-import React, {  createContext, useEffect, useState } from "react";
-import { GetCars } from "../Utils/ApiUtils";
+import React, {  createContext, useEffect, useState } from "react"
 
 // import {GetCar} from "../Utils/ApiUtils";
 
@@ -20,7 +19,9 @@ export default function CarContext({children}){
         origin: "",
         destination : "",
         startDate:"",
-        endDate:""
+        endDate:"",
+        distance: "",
+        MapImg: ""
       });
 
 const [data, setData] = useState({

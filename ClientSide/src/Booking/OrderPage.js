@@ -1,13 +1,9 @@
-// import React from 'react';
-import Card from 'react-bootstrap/Card';
+import React from 'react';
 import NavLogout from './NavLogout'
-import Cards from '../Components/Cards';
 import Header from '../Components/Header';
-import FilterHeader from '../Components/FilterHeader';
-import Navigation from '../Components/Navigation';
 import Home from '../Components/Home';
-import React,{useState, useEffect} from 'react';
-import { CarContextDetails } from '../Context/CarContext';
+import {useState, useEffect} from 'react';
+import { CarContextDetails } from './../Context/CarContext';
 import { useContext } from 'react';
 import {Link} from "react-router-dom"
 import "./../../src/Components/Style/cards.css";
