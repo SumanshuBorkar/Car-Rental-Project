@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Style/editFormpaymentdetails.css"
 import NavLogout from "../../Booking/NavLogout";
-
+import Map from "../Map"
 
 export default function EditPaymentDetails(){
     const Navigate = useNavigate();
-    const {EditPaymentDetails,setEditPaymentDetails ,setBookData } = useContext(CarContextDetails);
+    const {EditPaymentDetails,setEditPaymentDetails ,setBookData ,headerData} = useContext(CarContextDetails);
 
-    const {BookingId,date,time,image,name,Details,carDetails,type ,pricing,pricekm,total,Tax,perKm}= EditPaymentDetails
+    const {BookingId,date,time,image,name,Details,carDetails,type ,pricing,pricekm,total,Tax,perKm,origin,destination}= EditPaymentDetails
    
 
     function editformsubmitFunc(e){
@@ -44,8 +44,11 @@ return<>
     </div>
     <hr></hr>
 <div id="for-maip-i-created-container">
-<iframe className='map-of-doom image-of-hte-map-of-the-edit-page' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"  ></iframe>
-
+{/* <iframe className='map-of-doom image-of-hte-map-of-the-edit-page' src="https://api.maptiler.com/maps/d83d5871-7ce5--83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"  ></iframe> */}
+<div id="map-of-the-edit-payment-details">
+<Map origin={origin} destination={destination} className='map-of-doom image-of-hte-map-of-the-edit-page'/>
+</div>
+    
     <label >Origin</label>
     <input type="text" name="origin" className="edit-form-payment-details" id="origin-of-the-edit-page" onChange={(e)=>setEditPaymentDetails({...EditPaymentDetails,origin:e.target.value})} value={EditPaymentDetails.origin}/><br/>
     <label>Destination</label>
