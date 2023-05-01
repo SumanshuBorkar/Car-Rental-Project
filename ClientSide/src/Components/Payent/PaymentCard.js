@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './../Style/Payment.css'
-import gogo from './../images/Logo.png'
+// import gogo from './../images/Logo.png'
 import { CarContextDetails } from '../../Context/CarContext'
 import { useContext } from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import Map from "../Map";
 
 
 function PaymentCard() {
 const userId=JSON.parse(localStorage.getItem("user-id"))
 const navigate= useNavigate();
 
-  const {CarData , headerData,setBookingDetails,bookingDetails} = useContext(CarContextDetails)
+  const {CarData , headerData} = useContext(CarContextDetails)
   console.log(CarData)
   const date= new Date().toLocaleDateString();
   const time = new Date().toLocaleTimeString();
   const BookingId= new Date().getTime();
   const Object ={name:CarData.name,
     model:CarData.model,
-    perKm:CarData.perKm,
     milage:CarData.milage,
     image:CarData.image,
     type:CarData.type,
@@ -28,14 +28,15 @@ const navigate= useNavigate();
   userId:userId
   };
 
-const pricing = 8956;
-const Tax = 90;
-const total=(pricing+Tax)
-  const Proceed = () => {
+const Distance = headerData.distance
+const pricing = (CarData.milage.split("R")[0])*1;
+const Subtotal=(pricing*(Distance));
+const Tax = (pricing*(headerData.distance))*0.20;
+const total = Subtotal+Tax;
+const Proceed = () => {
   
 
-   fetch("https://car-rental-app-server.onrender.com/orders",{
-
+   fetch("https://car-rental-app.onrender.com/orders",{
     method:"post",
     headers:{
       "content-type":"application/json"
@@ -45,7 +46,7 @@ const total=(pricing+Tax)
    .then(data=>console.log(data));
 
 
-navigate("/ExistBookings")
+// navigate("/ExistBookings")
 
   };
    
@@ -65,9 +66,7 @@ navigate("/ExistBookings")
                    <li className='ans-of-the-file-payment-in-data-of-file'>{CarData.model}</li>
                </div>
                <div className="image-of-car-in-rental-payment">
-
-                   <img src={`https://car-rental-app-server.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
-
+                   <img src={`https://car-rental-app.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
                </div>
             </div>
           </div>
@@ -85,7 +84,7 @@ navigate("/ExistBookings")
                    <li className='ans-of-the-file-payment-in-data-of-file'> {headerData.endDate}</li>
                </div>
                <div className="image-of-hte-map">
-               <iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000"></iframe>
+               <Map origin={headerData.origin} destination={headerData.destination} className='mai-hoon-map'/>
                </div>
           </div>
           <div className="lower">
@@ -113,18 +112,20 @@ navigate("/ExistBookings")
            <div className='order-details'>
            <div className="parameter">
                <li className='name-of-the-page-payment-of-the-car'>price/Km</li>
-               <li className='name-of-the-page-payment-of-the-car'>Pricing</li>
-               <li className='name-of-the-page-payment-of-the-car'>Tax Charges</li>
+               <li className='name-of-the-page-payment-of-the-car'>Distance</li>
+               <li className='name-of-the-page-payment-of-the-car'>SubTotal</li>
+               <li className='name-of-the-page-payment-of-the-car'>Tax(gst)</li>
            </div>
            <div className="data-gogog">
-               <li className='ans-of-the-file-payment-in-data-of-file'>{CarData.perKm}RS/KM</li>
-               <li className='ans-of-the-file-payment-in-data-of-file'>{pricing} RS</li>
+               <li className='ans-of-the-file-payment-in-data-of-file'>{pricing}/KM</li>
+               <li className='ans-of-the-file-payment-in-data-of-file'>{Distance} Km</li>
+               <li className='ans-of-the-file-payment-in-data-of-file'>{Subtotal} RS</li>
                <li className='ans-of-the-file-payment-in-data-of-file'>{Tax} RS</li>
            </div>
            </div>
          </div>
          <div className="paylower">
-          <li className='indiv-sub-class name-of-the-page-payment-of-the-car'>SUB TOTAL</li>
+          <li className='indiv-sub-class name-of-the-page-payment-of-the-car'>Grand TOTAL</li>
          <li  className='ans-of-the-file-payment-in-data-of-file-total'>{total} RS</li>
          </div>
          

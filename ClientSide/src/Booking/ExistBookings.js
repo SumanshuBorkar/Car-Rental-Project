@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import './../Components/Style/myBooking.css';
 import NavLogout from './NavLogout';
-import Navigation from "../Components/Navigation";
 import { CarContextDetails } from "../Context/CarContext";
-import {Link,useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import Home from "../Components/Home";
 
 
 export default function ExistBookings() {
   
-   const navigate=useNavigate();
-   const {EditPaymentDetails ,Bookdata,setBookData, setEditPaymentDetails}=useContext(CarContextDetails);
+   
+   const {Bookdata,setBookData, setEditPaymentDetails, headerData}=useContext(CarContextDetails);
    const TokenUser= JSON.parse(localStorage.getItem("token-user"))
     const userId=JSON.parse(localStorage.getItem("user-id"))
     useEffect(()=>{
@@ -68,7 +67,7 @@ export default function ExistBookings() {
                                 <div><span id="name-of-the-booking-hading-page">Start Date </span>:<span>{d.endDate}</span></div>
                             </div>
                             <div className="smallerDiv">
-                            <iframe className='map-of-doom' src="https://api.maptiler.com/maps/d83d5871-7ce5-440d-83ab-b3eba4dbe913/?key=84ZcHnnKB7aX6ZDDRMiu#1.0/0.00000/0.00000" id="dmslamdlmdkemkldm" ></iframe>
+                            <img src={headerData.MapImg} alt="map is unable to render" />
                             </div>
 
                             <div className="smallerDiv">
