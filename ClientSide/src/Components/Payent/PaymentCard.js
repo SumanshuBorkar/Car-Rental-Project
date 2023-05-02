@@ -32,17 +32,22 @@ const navigate= useNavigate();
   origin:headerData.origin,
   startDate:headerData.startDate,
   endDate:headerData.endDate,
-  Subtotal:Subtotal,
-  Tax:Tax,
-  total:total
   };
 console.log(headerData)
-const Distance = parseInt(headerData.distance);
-const pricing = parseInt(CarData.perKm)
-const Subtotal=(pricing*Distance);
-const Tax = parseInt((Subtotal)*0.20);
-const total = Subtotal+Tax;
-console.log(Distance,pricing,Subtotal,Tax,total)
+let Distance ,pricing,Subtotal,Tax,total;
+if(!isNaN(CarData.distance)){
+  Distance = parseInt(headerData.distance);
+  pricing = parseInt(CarData.perKm)
+  Subtotal=(pricing*Distance);
+  Tax = parseInt((Subtotal)*0.20);
+   total = Subtotal+Tax;
+}else{
+  Distance=240
+  pricing=parseInt(CarData.perKm)
+  Subtotal=(pricing*Distance)
+  Tax = parseInt((Subtotal)*0.20);
+  total = Subtotal+Tax;
+}
 const Proceed = () => {
   
 

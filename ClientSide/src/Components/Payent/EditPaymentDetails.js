@@ -8,11 +8,12 @@ import Map from "../Map"
 
 export default function EditPaymentDetails(){
     const Navigate = useNavigate();
-    const {EditPaymentDetails,setEditPaymentDetails ,setBookData ,headerData} = useContext(CarContextDetails);
-
+    const {EditPaymentDetails,setEditPaymentDetails ,headerData} = useContext(CarContextDetails);
+      
+        // console.log(headerData)
     const {BookingId,date,time,image,name,Details,carDetails,type ,pricing,pricekm,total,Tax,perKm,origin,destination}= EditPaymentDetails
-   console.log(EditPaymentDetails)
-
+//    console.log(EditPaymentDetails)
+   EditPaymentDetails.MapImg=headerData.MapImg
     function editformsubmitFunc(e){
         e.preventDefault();
 
@@ -37,6 +38,7 @@ return<>
     <div id="form-leftside-edit-part-in-payment">
     <div id="edit-payment-details-block">
     <label>Car Name</label>
+    
      <span id="name-of-the-car-edit-payment">{name}</span><br></br>
     <img src={`https://car-rental-app-server.onrender.com/cars/${image}`} id="image-edit-payment-details-in-data"></img>
     <label>Car Number</label>
@@ -73,12 +75,12 @@ return<>
 
     <span className="name-of-the-span-css-for-payment-details">{perKm}RS/KM</span><br></br>
     <label>pricing</label>
-    <span className="name-of-the-span-css-for-payment-details">{pricing} RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">3084 RS</span><br></br>
     <label>tax charges</label>
-    <span className="name-of-the-span-css-for-payment-details">{Tax} RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">304 RS</span><br></br>
     <hr></hr>
     <label className="name-of-the-span-css-for-payment-details-total-subtotal">subTotal</label>
-    <span className="name-of-the-span-css-for-payment-details-total">{total}</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details-total">3388</span><br></br>
 <div id="djknfkjnfkjwrnrfkw">
     <input type="checkbox" id="input-type-checkboc-payment-detais"/>
     <label>it is the long istablished fact that a render will be destracted by the readable content</label>
