@@ -74,7 +74,11 @@ const OrderSchema = mongoose.Schema({
         },
         MapImg:{
             type:String
+        },
+        Subtotal:{
+         type:Number
         }
+
     
 })
 

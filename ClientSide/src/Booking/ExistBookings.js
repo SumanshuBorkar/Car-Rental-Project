@@ -38,6 +38,7 @@ export default function ExistBookings() {
         })
    
     }
+    console.log(Bookdata)
   
     return <>
  
