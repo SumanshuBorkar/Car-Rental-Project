@@ -45,15 +45,16 @@ function Map(props) {
         if (status === "OK") {
           await directionsRenderer.setDirections(result);
         await  directionsRenderer.setMap(map);
-        } else {
-          console.error("Directions request failed due to " + status);
-        }
-
         const distanceNew =  result.routes[0].legs[0].distance.text;
           const dist = distanceNew
           let pattern = /[0-9]/g;
           let ans = dist.match(pattern)
           headerData.distance = ans.join("");
+        } else {
+          console.error("Directions request failed due to " + status);
+        }
+
+        
         
        
         
