@@ -12,8 +12,8 @@
        padding-bottom: 40px;
    }
 #card-of-the-order-page-i-make-this{
-height: 200px;
-width: 200px;
+height: 250px;
+width: 300px;
 background-color: aliceblue;
 border-radius: 10px;
 box-shadow: 3px 3px 10px black;
@@ -67,8 +67,7 @@ box-shadow: 3px 3px 10px black;
        
    }
    #milage{
-       margin-left:110px;
-       /* border: 1px solid rgb(191, 180, 180); */
+       margin-left:210px;
        width:max-content;
        border-radius: 5px;
        margin-top: 10px;
@@ -92,9 +91,12 @@ box-shadow: 3px 3px 10px black;
        bottom: 42px;
        background-color: rgb(79, 79, 226);
        border-radius: 5px;
+       font-size: large;
+       font-weight: bold;
    }
    #fare{
        color: aliceblue;
+       font-size: large;
    }
    #book{
     margin-top: -25px;
@@ -102,7 +104,7 @@ box-shadow: 3px 3px 10px black;
    }
    .img-of-te-car-details-order{
     width: 100%;
-    height: 100px;
+    height: 150px;
     text-align: center;
    }
    #img-of-the-car-order{

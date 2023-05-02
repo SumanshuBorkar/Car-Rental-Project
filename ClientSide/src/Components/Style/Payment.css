@@ -6,6 +6,16 @@
  position: relative;
  
 }
+.mai-hoon-map{
+    position: absolute;
+    right: 0px;
+}
+#map-of-the-payment-page-we-change-that-position{
+position: absolute;
+left:700px;
+top:370px;
+z-index: 3;
+}
 
 .contanermaginc-lum{
  position: absolute;

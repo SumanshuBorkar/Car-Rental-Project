@@ -11,7 +11,7 @@ export default function EditPaymentDetails(){
     const {EditPaymentDetails,setEditPaymentDetails ,setBookData ,headerData} = useContext(CarContextDetails);
 
     const {BookingId,date,time,image,name,Details,carDetails,type ,pricing,pricekm,total,Tax,perKm,origin,destination}= EditPaymentDetails
-   
+   console.log(EditPaymentDetails)
 
     function editformsubmitFunc(e){
         e.preventDefault();
@@ -73,12 +73,12 @@ return<>
 
     <span className="name-of-the-span-css-for-payment-details">{perKm}RS/KM</span><br></br>
     <label>pricing</label>
-    <span className="name-of-the-span-css-for-payment-details">8956 RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">{pricing} RS</span><br></br>
     <label>tax charges</label>
-    <span className="name-of-the-span-css-for-payment-details">90 RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details">{Tax} RS</span><br></br>
     <hr></hr>
     <label className="name-of-the-span-css-for-payment-details-total-subtotal">subTotal</label>
-    <span className="name-of-the-span-css-for-payment-details-total">9046 RS</span><br></br>
+    <span className="name-of-the-span-css-for-payment-details-total">{total}</span><br></br>
 <div id="djknfkjnfkjwrnrfkw">
     <input type="checkbox" id="input-type-checkboc-payment-detais"/>
     <label>it is the long istablished fact that a render will be destracted by the readable content</label>

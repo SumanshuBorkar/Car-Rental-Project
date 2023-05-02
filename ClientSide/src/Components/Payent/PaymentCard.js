@@ -17,6 +17,7 @@ const navigate= useNavigate();
   const BookingId= new Date().getTime();
   const Object ={
   name:CarData.name,
+  perKm:CarData.perKm,
   model:CarData.model,
   milage:CarData.milage,
   image:CarData.image,
@@ -30,7 +31,10 @@ const navigate= useNavigate();
   destination:headerData.destination,
   origin:headerData.origin,
   startDate:headerData.startDate,
-  endDate:headerData.endDate
+  endDate:headerData.endDate,
+  Subtotal:Subtotal,
+  Tax:Tax,
+  total:total
   };
 console.log(headerData)
 const Distance = parseInt(headerData.distance);
@@ -56,7 +60,11 @@ navigate("/ExistBookings")
 
   };
    
-  return (<div>
+  return (<>
+  <div id="map-of-the-payment-page-we-change-that-position">
+  <Map origin={headerData.origin} destination={headerData.destination} className='mai-hoon-map'/>
+  </div>
+<div>
     <div className='box-of-payment'>
     <div className="contanermaginc-lum">
        <div className="cardetail-app">
@@ -90,7 +98,7 @@ navigate("/ExistBookings")
                    <li className='ans-of-the-file-payment-in-data-of-file'> {headerData.endDate}</li>
                </div>
                <div className="image-of-hte-map">
-               <Map origin={headerData.origin} destination={headerData.destination} className='mai-hoon-map'/>
+              
                </div>
           </div>
           <div className="lower">
@@ -142,7 +150,7 @@ navigate("/ExistBookings")
    </div>
    
    </div>
-  )
+ </> )
 }
 
 export default PaymentCard
