@@ -17,7 +17,7 @@ function OrderPage(){
   let [data, setdata] = useState([])
   useEffect(() => {
 
-    fetch("https://car-rental-app-server.onrender.com/cars/",{
+    fetch("https://car-rental-project-rkwz.onrender.com/cars/",{
 
       headers:{
         "authorization":JSON.parse(localStorage.getItem("token-user "))
@@ -91,7 +91,7 @@ if(e.target.id==="All"){
 
               <div className="img-of-te-car-details-order">
 
-                <img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="img-of-the-car-order"/>
+                <img src={`https://car-rental-project-rkwz.onrender.com/cars/${d.image}`} id="img-of-the-car-order"/>
 
               </div>
               <div id="seater">
@@ -114,7 +114,7 @@ if(e.target.id==="All"){
 
               <div className="img-of-te-car-details-order">
 
-                <img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="img-of-the-car-order"/>
+                <img src={`https://car-rental-project-rkwz.onrender.com/cars/${d.image}`} id="img-of-the-car-order"/>
 
               </div>
               <div id="seater">

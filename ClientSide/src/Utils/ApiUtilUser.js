@@ -1,5 +1,5 @@
 
-const API_USER="https://car-rental-app-server.onrender.com"
+const API_USER="https://car-rental-project-rkwz.onrender.com"
 
 
 function addUser(UserData){
