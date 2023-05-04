@@ -55,7 +55,7 @@ export default function AdminPage() {
                 car.map((d, i) => {
                     return<> <div key={i} id="car-container">
                         <div id="img-container">
-                              <img src={`https://car-rental-app-server.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" 
+                              <img src={`https://car-rental-project-rkwz.onrender.com/cars/${d.image}`} id="car-img" alt="img-car" 
                               onClick={()=>{
                                 if(AdminId!==d.AdminId){
                                     console.log(d.AdminId)

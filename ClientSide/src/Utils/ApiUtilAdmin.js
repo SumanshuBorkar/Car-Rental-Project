@@ -1,5 +1,5 @@
 
-const API_ADMIN="https://car-rental-app-server.onrender.com"
+const API_ADMIN="https://car-rental-project-rkwz.onrender.com"
 
 
 function addAdmin(AdminData){

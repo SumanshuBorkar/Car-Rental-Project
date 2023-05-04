@@ -51,7 +51,7 @@ if(!isNaN(CarData.distance)){
 const Proceed = () => {
   
 
-   fetch("https://car-rental-app-server.onrender.com/orders",{
+   fetch("https://car-rental-project-rkwz.onrender.com/orders",{
    method:"POST",
    headers:{
     "content-type":"application/json"
@@ -85,7 +85,7 @@ navigate("/ExistBookings")
                    <li className='ans-of-the-file-payment-in-data-of-file'>{CarData.model}</li>
                </div>
                <div className="image-of-car-in-rental-payment">
-                   <img src={`https://car-rental-app-server.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
+                   <img src={`https://car-rental-project-rkwz.onrender.com/cars/${CarData.image}`} alt="not availble"  className='img'/>
                </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ function CarCard({image, name, milage}) {
 <div id="cardBody">
     <div id="Car-image-cardd">
 
-       <img src={`https://car-rental-app-server.onrender.com/cars/${image}`} alt="not available" />
+       <img src={`https://car-rental-project-rkwz.onrender.com/cars/${image}`} alt="not available" />
 
     </div>
     <div id="name-container">
